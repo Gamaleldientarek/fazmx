@@ -1,0 +1,5 @@
+# Build tools for src/build.py (Python 3.10 or newer)
+fonttools>=4.50
+uharfbuzz>=0.45
+brotli>=1.1        # only needed to make WOFF/WOFF2 files from a new TTF with fontTools
+playwright>=1.40   # only for `build.py --og` and screenshots; then run: python -m playwright install chromium

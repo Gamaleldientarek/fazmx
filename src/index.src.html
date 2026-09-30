@@ -1,0 +1,1380 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>خط عزم إكس</title>
+<meta name="description" content="Azm X Variable: خط عربي ولاتيني متغير بثمانية أوزان من عزم إكس.">
+<!--@META@-->
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="canonical" href="https://fazmx.gamaleldien.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fazmx.gamaleldien.com/">
+<meta property="og:title" content="خط عزم إكس · Azm X Variable">
+<meta property="og:description" content="خط عربي ولاتيني متغير بثمانية أوزان من عزم إكس. حمّله مجانًا.">
+<meta property="og:image" content="https://fazmx.gamaleldien.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<!--@END_META@-->
+<!--
+  AZM X VARIABLE · FONT LANDING PAGE (Arabic-first, RTL)
+  ------------------------------------------------------------
+  Built from src/index.src.html by src/build.py, which fills the @…@
+  placeholders and writes docs/index.html. Edit the source, not the build.
+
+  Site layout (docs/)
+    index.html, license.html      the page and the licence
+    fonts/AzmXVariable.woff2      modern browsers
+    fonts/AzmXVariable.woff       older browsers
+    fonts/AzmXVariable.ttf        desktop install + last fallback
+    downloads/AzmX-Variable.zip   the three fonts + LICENSE.txt
+    CNAME                         custom domain for GitHub Pages
+
+  Story copy in #story is placeholder. Replace it with your own.
+  Every animation respects prefers-reduced-motion and the
+  "إيقاف الحركة" button in the header. Animations pause off-screen.
+-->
+<style>
+@font-face {
+  font-family: "Azm X Variable";
+  src: /*@FONTSRC@*/url("fonts/AzmXVariable.woff2") format("woff2-variations"), url("fonts/AzmXVariable.woff2") format("woff2"), url("fonts/AzmXVariable.woff") format("woff-variations"), url("fonts/AzmXVariable.woff") format("woff"), url("fonts/AzmXVariable.ttf") format("truetype-variations"), url("fonts/AzmXVariable.ttf") format("truetype")/*@END@*/;
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Layout: AZMX editorial RTL. Content anchors top-right, asymmetric 12-col grid, square corners, hairlines instead of cards; the marquee is the one grid break. */
+:root {
+  --page: #FFFFFF;          /* surface-page */
+  --raised: #F0F5FF;        /* surface-raised (blue-50) */
+  --sunken: #F3F4F6;        /* surface-sunken */
+  --heading: #040038;       /* text-heading (navy) */
+  --text: #111927;          /* text-primary */
+  --text-2: #4D5761;        /* text-secondary */
+  --muted: #6C737F;         /* text-muted */
+  --accent: #001AFF;        /* Electric: accent text + fill */
+  --accent-hover: #0200D3;
+  --on-accent: #FFFFFF;
+  --rule: #E5E7EB;          /* border-subtle */
+  --rule-strong: #D2D6DB;   /* border-default */
+  --inverse: #040038;       /* surface-inverse */
+  --on-inverse: #FFFFFF;
+  --on-inverse-2: #BFD5FF;
+  --inverse-accent: #5D8FFF;
+  --inverse-rule: rgba(255, 255, 255, .2);
+  --danger: #DB0015;
+  --grad: linear-gradient(145deg, #040038 0%, #01006E 55%, #001AFF 100%);
+
+  --azm: "Azm X Variable", "Azm X", "Segoe UI", Tahoma, system-ui, sans-serif;
+  --sys: system-ui, -apple-system, "Segoe UI", Tahoma, Arial, sans-serif;
+  --code: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --s1: 4px; --s2: 8px; --s3: 16px; --s4: 24px; --s5: 40px; --s6: 64px; --s7: 96px; --s8: 128px; --s9: 160px;
+  --gutter: clamp(16px, 6vw, 120px);
+  --section: clamp(64px, 10vw, 128px);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page: #040038; --raised: #01006E; --sunken: #010040;
+    --heading: #FFFFFF; --text: #FFFFFF; --text-2: #DDE8FF; --muted: #93B6FF;
+    --accent: #5D8FFF; --accent-hover: #93B6FF; --on-accent: #040038;
+    --rule: rgba(255, 255, 255, .2); --rule-strong: rgba(255, 255, 255, .3);
+    --inverse: #FFFFFF; --on-inverse: #111927; --on-inverse-2: #4D5761; --inverse-accent: #001AFF; --inverse-rule: #E5E7EB;
+    --danger: #FF2B3C;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --page: #040038; --raised: #01006E; --sunken: #010040;
+  --heading: #FFFFFF; --text: #FFFFFF; --text-2: #DDE8FF; --muted: #93B6FF;
+  --accent: #5D8FFF; --accent-hover: #93B6FF; --on-accent: #040038;
+  --rule: rgba(255, 255, 255, .2); --rule-strong: rgba(255, 255, 255, .3);
+  --inverse: #FFFFFF; --on-inverse: #111927; --on-inverse-2: #4D5761; --inverse-accent: #001AFF; --inverse-rule: #E5E7EB;
+  --danger: #FF2B3C;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--page); color: var(--text);
+  font-family: var(--azm); font-size: 18px; line-height: 1.8; font-weight: 400;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+::selection { background: var(--accent); color: var(--on-accent); }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { color: var(--heading); text-wrap: balance; }
+button { font-family: inherit; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; -webkit-user-select: none; user-select: none; }
+.skip { position: absolute; inset-inline-start: var(--s3); top: -64px; background: var(--accent); color: var(--on-accent); padding: var(--s2) var(--s3); z-index: 50; text-decoration: none; }
+.skip:focus { top: var(--s3); }
+.ltr { direction: ltr; unicode-bidi: isolate; }
+.wrap { max-width: 1440px; margin-inline: auto; padding-inline: var(--gutter); }
+section { padding-block: var(--section); }
+.grid12 { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--s6) var(--s4); }
+.c4 { grid-column: span 4; } .c5 { grid-column: span 5; } .c6 { grid-column: span 6; }
+.c7 { grid-column: span 7; } .c8 { grid-column: span 8; } .c12 { grid-column: 1 / -1; }
+@media (max-width: 900px) { .grid12 > * { grid-column: 1 / -1; } }
+
+.eyebrow { display: inline-flex; align-items: center; gap: var(--s2); font-size: 16px; line-height: 1.25; font-weight: 600; color: var(--accent); }
+.tag { font-family: var(--code); font-size: 13px; line-height: 1.5; color: var(--muted); direction: ltr; unicode-bidi: isolate; }
+.head { display: grid; gap: var(--s3); max-width: 44rem; margin-bottom: var(--s6); }
+.head h2 { font-size: clamp(40px, 5.6vw, 76px); line-height: 1.25; font-weight: 250; }
+.head p { color: var(--text-2); max-width: 38rem; }
+.num { font-variant-numeric: tabular-nums; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--s2);
+  min-height: 56px; padding: var(--s3) var(--s4); border: 1px solid var(--heading);
+  background: transparent; color: var(--heading); font: 600 17px/1 var(--azm);
+  text-decoration: none; cursor: pointer; border-radius: 0; transition: background .2s, color .2s, border-color .2s;
+}
+.btn:hover { background: var(--heading); color: var(--page); }
+.btn-primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: var(--on-accent); }
+.btn-quiet { min-height: 40px; padding: var(--s2) var(--s3); border-color: var(--rule-strong); color: var(--text-2); font-size: 14px; font-weight: 500; }
+.btn-quiet:hover { background: var(--raised); color: var(--heading); border-color: var(--rule-strong); }
+
+/* ---------- Nav ---------- */
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30; background: var(--page); border-bottom: 1px solid var(--rule); }
+.nav .wrap { display: flex; align-items: center; gap: var(--s4); min-height: 72px; }
+.logo { display: inline-flex; color: var(--heading); }
+.logo svg { width: 96px; height: auto; display: block; }
+.nav ul { display: flex; gap: var(--s4); list-style: none; margin: 0; padding: 0; margin-inline-start: var(--s5); }
+.nav ul a { text-decoration: none; font-size: 15px; color: var(--text-2); }
+.nav ul a:hover { color: var(--accent); }
+.nav-end { display: flex; gap: var(--s2); margin-inline-start: auto; align-items: center; }
+.nav .btn-primary { min-height: 40px; padding: var(--s2) var(--s3); font-size: 15px; }
+@media (max-width: 1100px) { .nav ul { display: none; } }
+@media (max-width: 560px) { .logo svg { width: 80px; } .nav .wrap { gap: var(--s2); } }
+
+/* ---------- Hero ---------- */
+.hero { padding-block: var(--s5) var(--s6); overflow-x: clip; }
+.hero-top { display: flex; flex-wrap: wrap; gap: var(--s3) var(--s4); justify-content: space-between; align-items: baseline; }
+.hero-title {
+  display: grid; margin-top: var(--s4); color: var(--heading);
+  font-size: clamp(42px, 10vw, 136px); line-height: 1.35; font-weight: 520; touch-action: pan-y;
+}
+.hero-title .hl { display: block; white-space: nowrap; }
+.hero-bottom { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s5) var(--s6); align-items: end; margin-top: var(--s5); }
+.hero-copy { display: grid; gap: var(--s4); }
+.hero-sub { font-size: clamp(22px, 2.2vw, 30px); line-height: 1.6; font-weight: 300; color: var(--heading); }
+.roll { display: inline-grid; vertical-align: bottom; overflow: hidden; color: var(--accent); }
+.roll > span { grid-area: 1 / 1; opacity: 0; transform: translateY(80%); font-weight: 900; transition: transform .7s cubic-bezier(.2, .7, .2, 1), opacity .5s ease, font-weight .7s ease; }
+.roll > span.in { opacity: 1; transform: none; font-weight: 600; }
+.roll > span.out { opacity: 0; transform: translateY(-80%); font-weight: 100; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: var(--s3); }
+.facts { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s4); padding-top: var(--s3); border-top: 1px solid var(--rule); color: var(--text-2); font-size: 15px; }
+.facts b { color: var(--heading); font-weight: 600; }
+.hero-meter { margin: 0; display: grid; gap: var(--s3); }
+.meter-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s2) var(--s3); font-size: 14px; color: var(--text-2); }
+.meter-body { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--s2); }
+.meter { position: relative; display: flex; gap: 2px; align-items: flex-start; }
+.meter::before, .meter::after { content: ""; position: absolute; inset-inline: 0; }
+.meter::before { top: 0; border-top: 1px dashed var(--rule-strong); }
+.meter::after { top: 64px; border-top: 1px solid var(--rule-strong); }
+.meter .bar { flex: 1 1 0; min-width: 0; display: grid; justify-items: center; gap: var(--s1); }
+.meter .bar i { display: block; width: 100%; max-width: 12px; height: 64px; background: var(--accent); transform-origin: 50% 100%; transform: scaleY(.5); }
+.meter .bar b { font-weight: 400; font-size: 12px; line-height: 16px; color: var(--muted); }
+.meter .gap { flex: 0 0 var(--s3); }
+.meter-scale { display: grid; align-content: space-between; height: 64px; }
+.meter-scale .tag { font-size: 12px; line-height: 1; }
+.hero-note { margin-top: var(--s4); font-size: 15px; color: var(--muted); }
+@media (max-width: 900px) { .hero-bottom { grid-template-columns: 1fr; } }
+
+/* ---------- Construction ---------- */
+.build { padding-top: 0; }
+.bf-fig { margin: 0; background: var(--raised); }
+.bf { display: block; width: 100%; height: auto; }
+.bf-base { stroke: var(--accent); stroke-width: 3; opacity: .35; }
+.bf-body, .bf-dot, .bf-con { animation-duration: 10s; animation-iteration-count: infinite; animation-timing-function: ease-in-out; animation-delay: calc(var(--d, 0s) - 6.2s); }
+.bf-body { fill: var(--heading); stroke: var(--accent); stroke-width: 6; stroke-linejoin: round; stroke-dasharray: 1; animation-name: bfDraw; }
+.bf-dot { fill: var(--heading); stroke: var(--accent); stroke-width: 6; transform-box: fill-box; transform-origin: center; animation-name: bfDot; }
+.bf-con { animation-name: bfCon; }
+.bf-poly { fill: none; stroke: var(--accent); stroke-width: 4; stroke-dasharray: 16 12; }
+.bf-diag { stroke: var(--accent); stroke-width: 4; stroke-dasharray: 14 10; }
+.bf-on, .bf-pt { fill: var(--accent); }
+.bf-off { fill: var(--raised); stroke: var(--accent); stroke-width: 5; }
+.bf-rh { fill: none; stroke: var(--accent); stroke-width: 5; }
+@keyframes bfDraw {
+  0% { stroke-dashoffset: 1; fill-opacity: 0; stroke-opacity: 1; }
+  16% { stroke-dashoffset: 0; fill-opacity: 0; stroke-opacity: 1; }
+  30% { fill-opacity: 0; stroke-opacity: 1; }
+  38%, 86% { stroke-dashoffset: 0; fill-opacity: 1; stroke-opacity: 0; }
+  92% { stroke-dashoffset: 0; fill-opacity: 0; stroke-opacity: 1; }
+  100% { stroke-dashoffset: 1; fill-opacity: 0; stroke-opacity: 1; }
+}
+@keyframes bfDot {
+  0%, 12% { opacity: 0; transform: scale(.3) rotate(-90deg); fill-opacity: 0; }
+  22% { opacity: 1; transform: none; fill-opacity: 0; }
+  38% { fill-opacity: 0; }
+  46%, 86% { opacity: 1; transform: none; fill-opacity: 1; }
+  94%, 100% { opacity: 0; transform: scale(.3); fill-opacity: 0; }
+}
+@keyframes bfCon { 0%, 18% { opacity: 0; } 28%, 86% { opacity: 1; } 94%, 100% { opacity: 0; } }
+.bf-legend { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s5); padding: var(--s3) var(--s4); border-top: 1px solid var(--rule); background: var(--page); font-size: 14px; color: var(--text-2); }
+.bf-legend span { display: inline-flex; align-items: center; gap: var(--s2); }
+.bf-legend svg { width: 16px; height: 16px; flex: none; }
+.lg-rh { fill: none; stroke: var(--accent); stroke-width: 1.5; }
+.lg-on { fill: var(--accent); }
+.lg-off { fill: none; stroke: var(--accent); stroke-width: 1.5; }
+@media (max-width: 600px) { .bf-on, .bf-off, .bf-poly { display: none; } }
+
+/* ---------- Anatomy ---------- */
+.anatomy { border-top: 1px solid var(--rule); }
+.fig-scroll { overflow-x: auto; }
+.fig { position: relative; min-width: 760px; background: var(--raised); }
+.fig svg { display: block; width: 100%; height: auto; }
+.fig .spec { fill: var(--heading); font-family: var(--azm); font-size: 1000px; }
+.fig .ln { stroke: var(--rule-strong); stroke-width: 1; stroke-dasharray: 6 6; }
+.fig .ln.base { stroke: var(--accent); stroke-dasharray: none; stroke-width: 2; }
+.fig-label { position: absolute; inset-inline-start: var(--s4); transform: translateY(-100%); padding-bottom: var(--s1); display: flex; gap: var(--s2); align-items: baseline; font-size: 14px; color: var(--text-2); }
+.fig-label .tag { font-size: 12px; }
+.fig-label.base { color: var(--accent); font-weight: 600; }
+.fig-controls { display: flex; flex-wrap: wrap; gap: var(--s3) var(--s4); align-items: center; padding-block: var(--s3); border-bottom: 1px solid var(--rule); font-size: 15px; color: var(--text-2); }
+input[type="range"] { accent-color: var(--accent); width: 240px; max-width: 100%; }
+
+/* ---------- Story + stats ---------- */
+.story-body { display: grid; gap: var(--s4); font-size: clamp(19px, 1.6vw, 22px); line-height: 1.9; color: var(--text); max-width: 42rem; }
+.story-side { display: grid; align-content: start; gap: var(--s3); border-top: 2px solid var(--accent); padding-top: var(--s4); }
+.story-side p { font-size: clamp(28px, 3vw, 40px); line-height: 1.4; font-weight: 250; color: var(--heading); }
+.stats { background: var(--inverse); color: var(--on-inverse); padding-block: var(--s7); }
+.stats-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s5) var(--s4); }
+.stat { display: grid; gap: var(--s2); align-content: start; border-top: 1px solid var(--inverse-rule); padding-top: var(--s3); }
+.stat .n { font-size: clamp(56px, 7vw, 104px); line-height: 1.1; font-weight: 200; color: var(--on-inverse); }
+.stat .l { font-size: 16px; line-height: 1.6; color: var(--on-inverse-2); max-width: 16rem; }
+@media (max-width: 900px) { .stats-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* ---------- Weights ---------- */
+.wlist { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+.wrow { display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: var(--s4); padding-block: var(--s4); border-bottom: 1px solid var(--rule); align-items: baseline; }
+.wname { display: grid; gap: var(--s1); font-size: 15px; color: var(--text-2); }
+.wname b { font-weight: 600; font-size: 17px; color: var(--heading); }
+.wsample { min-width: 0; font-size: clamp(26px, 3.4vw, 46px); line-height: 1.5; color: var(--heading); overflow-wrap: anywhere; }
+.wsample .en { display: block; margin-top: var(--s1); font-size: clamp(16px, 1.4vw, 20px); line-height: 1.5; color: var(--text-2); direction: ltr; text-align: right; }
+@media (max-width: 640px) { .wrow { grid-template-columns: 1fr; gap: var(--s2); } }
+
+/* ---------- Motion ---------- */
+.motion { border-top: 1px solid var(--rule); }
+.motion .head-row { display: flex; flex-wrap: wrap; gap: var(--s4); justify-content: space-between; align-items: end; margin-bottom: var(--s6); }
+.motion .head-row .head { margin-bottom: 0; }
+.tile { display: grid; gap: var(--s3); align-content: start; min-width: 0; }
+.stage {
+  position: relative; display: grid; place-items: center; min-height: clamp(220px, 24vw, 320px);
+  background: var(--raised); color: var(--heading); overflow: hidden; padding: var(--s4); text-align: center;
+}
+.tile-cap { display: flex; flex-wrap: wrap; gap: var(--s1) var(--s3); justify-content: space-between; align-items: baseline; border-top: 1px solid var(--rule); padding-top: var(--s3); }
+.tile-cap h3 { font-size: 20px; font-weight: 600; line-height: 1.4; }
+.tile p { color: var(--text-2); font-size: 16px; line-height: 1.7; max-width: 34rem; }
+.readout { position: absolute; inset-inline-start: var(--s3); top: var(--s3); font-size: 13px; color: var(--muted); }
+.readout .tag { color: var(--accent); }
+
+.m-breathe { font-size: clamp(88px, 11vw, 150px); line-height: 1.3; animation: breathe 3.2s ease-in-out infinite alternate; animation-delay: -1.6s; }
+@keyframes breathe { from { font-weight: 100; } to { font-weight: 900; } }
+
+.m-wave { font-size: clamp(44px, 5.4vw, 76px); line-height: 1.5; }
+.m-wave > span { animation: wave 2.4s ease-in-out infinite; animation-delay: calc((var(--n) - var(--i)) * -90ms); }
+@keyframes wave { 0%, 100% { font-weight: 120; } 50% { font-weight: 900; } }
+
+.m-magnet { font-size: clamp(44px, 5.4vw, 76px); line-height: 1.5; font-weight: 100; touch-action: pan-y; cursor: crosshair; }
+.m-kashida { font-size: clamp(64px, 8vw, 116px); line-height: 1.4; font-weight: 600; white-space: nowrap; }
+.m-type { font-size: clamp(28px, 4.4vw, 64px); line-height: 1.5; font-weight: 300; min-height: 1.5em; white-space: nowrap; }
+.caret { display: inline-block; width: 3px; height: .9em; margin-inline-start: var(--s1); background: var(--accent); vertical-align: -0.1em; animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.m-number { font-size: clamp(88px, 11vw, 150px); line-height: 1.2; font-weight: 500; font-variant-numeric: tabular-nums; }
+
+.m-ladder { display: flex; gap: clamp(2px, .6vw, 8px); font-size: clamp(40px, 5.6vw, 84px); line-height: 1.4; direction: rtl; }
+.m-ladder span { font-weight: calc(var(--i) * 100 + 100); animation: ladder 2.8s ease-in-out infinite; animation-delay: calc(var(--i) * -310ms); }
+@keyframes ladder { 0%, 100% { font-weight: 100; } 50% { font-weight: 900; } }
+
+.m-inst { display: grid; gap: var(--s2); justify-items: center; }
+.m-inst .w { font-size: clamp(52px, 6vw, 84px); line-height: 1.4; }
+.m-inst .n { font-size: 15px; color: var(--text-2); }
+.m-inst .n b { color: var(--accent); font-weight: 600; }
+
+.m-trail { position: relative; display: grid; font-size: clamp(72px, 9vw, 128px); line-height: 1.3; transform: translateX(-30%); }
+.m-trail span { grid-area: 1 / 1; font-weight: 900; }
+.m-trail span:nth-child(2) { opacity: .6; font-weight: 700; animation: trail 2s ease-in-out infinite; --d: 22%; }
+.m-trail span:nth-child(3) { opacity: .35; font-weight: 500; animation: trail 2s ease-in-out infinite; --d: 44%; }
+.m-trail span:nth-child(4) { opacity: .2; font-weight: 300; animation: trail 2s ease-in-out infinite; --d: 66%; }
+.m-trail span:first-child { position: relative; z-index: 1; }
+@keyframes trail { 0%, 100% { transform: translateX(calc(var(--d) * .55)); } 50% { transform: translateX(var(--d)); } }
+
+.m-swash { display: grid; font-size: clamp(36px, 4.4vw, 64px); line-height: 1.6; font-weight: 500; white-space: nowrap; }
+.m-swash > span { grid-area: 1 / 1; transition: opacity .7s ease; }
+.m-swash .b { opacity: 0; font-feature-settings: "swsh" 1; color: var(--accent); }
+.m-swash.on .a { opacity: 0; }
+.m-swash.on .b { opacity: 1; }
+.swash-state .on-t { display: none; }
+.stage.on .swash-state .on-t { display: inline; }
+.stage.on .swash-state .off-t { display: none; }
+
+.m-drop { font-size: clamp(52px, 6.4vw, 92px); line-height: 1.5; font-weight: 300; }
+.m-drop > span { display: inline-block; animation: drop 5.2s cubic-bezier(.3, .7, .3, 1) infinite; animation-delay: calc(var(--i) * 70ms); }
+@keyframes drop {
+  0%, 38% { transform: none; opacity: 1; font-weight: 300; }
+  46% { transform: translateY(-70%); opacity: 0; font-weight: 900; }
+  60% { transform: translateY(6%); opacity: 1; font-weight: 900; }
+  68% { transform: none; }
+  86%, 100% { transform: none; opacity: 1; font-weight: 300; }
+}
+
+.m-scroll { font-size: clamp(30px, 3.4vw, 46px); line-height: 1.6; font-weight: 100; max-width: 22ch; }
+
+.band { padding-block: var(--s5); border-block: 1px solid var(--rule); overflow: hidden; margin-block: var(--s6); }
+.band-label { display: flex; gap: var(--s3); align-items: baseline; margin-bottom: var(--s3); }
+.band-label h3 { font-size: 20px; font-weight: 600; }
+.marquee { overflow: hidden; }
+.marquee-track { display: flex; width: max-content; animation: marquee 48s linear infinite; }
+.marquee-set { display: flex; align-items: center; gap: var(--s5); padding-inline-end: var(--s5); font-size: clamp(44px, 6vw, 88px); line-height: 1.5; color: var(--heading); white-space: nowrap; }
+.marquee-set .sep { flex: none; width: 1px; height: .6em; background: var(--accent); }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(50%); } }
+
+/* Pause rules: off-screen, or motion switched off */
+[data-watch]:not([data-live]) *, [data-watch]:not([data-live]) { animation-play-state: paused !important; }
+.motion-off *, .motion-off *::after { animation-play-state: paused !important; }
+
+/* ---------- Tester ---------- */
+.tester { border-top: 1px solid var(--rule); }
+.t-box { border: 1px solid var(--rule); }
+.t-controls { display: flex; flex-wrap: wrap; gap: var(--s3) var(--s5); align-items: end; padding: var(--s4); border-bottom: 1px solid var(--rule); background: var(--raised); }
+.ctl { display: grid; gap: var(--s2); font-size: 14px; color: var(--text-2); min-width: 0; }
+.ctl output { color: var(--heading); font-weight: 600; font-variant-numeric: tabular-nums; }
+.seg { display: inline-flex; border: 1px solid var(--rule-strong); }
+.seg button { border: 0; background: transparent; color: var(--text-2); padding: var(--s2) var(--s3); font-size: 14px; cursor: pointer; }
+.seg button + button { border-inline-start: 1px solid var(--rule-strong); }
+.seg button[aria-pressed="true"] { background: var(--heading); color: var(--page); }
+.toggle { display: inline-flex; align-items: center; gap: var(--s2); font-size: 15px; color: var(--heading); cursor: pointer; }
+.toggle input { width: 18px; height: 18px; accent-color: var(--accent); margin: 0; }
+.t-stage {
+  min-height: 320px; padding: var(--s5) var(--s4); outline: none; color: var(--heading);
+  font-size: 88px; line-height: 1.5; font-weight: 400; overflow-wrap: anywhere; unicode-bidi: plaintext;
+}
+.t-stage:focus-visible { box-shadow: inset 0 0 0 2px var(--accent); }
+.t-presets { display: flex; flex-wrap: wrap; gap: var(--s2); align-items: center; padding: var(--s3) var(--s4); border-top: 1px solid var(--rule); font-size: 14px; color: var(--text-2); }
+.t-presets button { font-family: var(--sys); font-size: 14px; padding: var(--s1) var(--s3); border: 1px solid var(--rule-strong); background: var(--page); color: var(--heading); cursor: pointer; }
+.t-presets button:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ---------- Built-in marks ---------- */
+.marks { border-top: 1px solid var(--rule); }
+.marks-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--rule); border-inline-start: 1px solid var(--rule); }
+.mark {
+  container-type: inline-size;
+  display: grid; grid-template-rows: 1fr auto; gap: var(--s3); min-height: 280px; padding: var(--s4);
+  border: 0; border-bottom: 1px solid var(--rule); border-inline-end: 1px solid var(--rule);
+  background: transparent; color: var(--heading); text-align: start; cursor: pointer; font: inherit;
+}
+.mark:hover { background: var(--raised); }
+.mark-out { display: grid; place-items: center; min-height: 140px; overflow: hidden; white-space: nowrap; font-family: var(--azm); font-size: 72px; font-size: min(96px, 30cqi); line-height: 1.3; font-weight: 400; }
+.mark-out.xl { font-size: 32px; font-size: min(48px, 10.4cqi); }
+.mark-meta { display: grid; gap: var(--s1); }
+.mark-meta .what { font-size: 16px; font-weight: 600; }
+.mark-meta .how { font-size: 14px; color: var(--text-2); font-family: var(--sys); }
+kbd { font-family: var(--sys); font-size: 14px; padding: 0 var(--s2); border: 1px solid var(--rule-strong); background: var(--page); color: var(--heading); unicode-bidi: isolate; }
+.hint { margin-top: var(--s4); font-size: 15px; color: var(--muted); }
+@media (max-width: 900px) { .marks-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .marks-grid { grid-template-columns: 1fr; } }
+
+/* ---------- Glyph map ---------- */
+.glyphs { border-top: 1px solid var(--rule); }
+.tabs { display: flex; flex-wrap: wrap; gap: var(--s2); margin-bottom: var(--s4); }
+.tab { padding: var(--s2) var(--s3); border: 1px solid var(--rule-strong); background: transparent; color: var(--text-2); font-size: 15px; cursor: pointer; }
+.tab[aria-selected="true"] { background: var(--heading); border-color: var(--heading); color: var(--page); }
+.g-wrap { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: var(--s4); align-items: start; }
+.g-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); border-top: 1px solid var(--rule); border-inline-start: 1px solid var(--rule); }
+.g-grid button { aspect-ratio: 1; max-width: 100%; border: 0; border-bottom: 1px solid var(--rule); border-inline-end: 1px solid var(--rule); background: transparent; color: var(--heading); font: 400 30px/1 var(--azm); cursor: pointer; }
+.g-grid button:hover { background: var(--raised); }
+.g-grid button[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); }
+.g-view { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 96px); border: 1px solid var(--rule); }
+.g-big { display: grid; place-items: center; height: 280px; font-size: 180px; line-height: 1; color: var(--heading); background: var(--raised); }
+.g-forms { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--rule); }
+.g-forms div { display: grid; justify-items: center; gap: var(--s1); padding: var(--s3) var(--s1); font-size: 12px; color: var(--muted); }
+.g-forms div + div { border-inline-start: 1px solid var(--rule); }
+.g-forms b { font-weight: inherit; font-size: 36px; line-height: 1.3; color: var(--heading); }
+.g-meta { display: grid; gap: var(--s2); padding: var(--s3) var(--s4); border-top: 1px solid var(--rule); font-size: 15px; }
+.g-meta .nm { font-weight: 600; color: var(--heading); }
+.g-meta label { display: grid; gap: var(--s1); color: var(--text-2); font-size: 14px; }
+@media (max-width: 900px) { .g-wrap { grid-template-columns: 1fr; } .g-view { position: static; } }
+
+/* ---------- In use ---------- */
+.inuse { border-top: 1px solid var(--rule); }
+.poster { position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: var(--s5); min-height: 360px; padding: var(--s5); }
+.poster .ptag { font-size: 13px; }
+.p-cover { background: var(--grad); color: #FFFFFF; }
+.p-cover .ptag { color: #BFD5FF; }
+.p-cover .t { font-size: clamp(52px, 6.4vw, 96px); line-height: 1.25; }
+.p-cover .t b { display: block; font-weight: 900; }
+.p-cover .t span { font-weight: 200; }
+.p-report { background: var(--raised); }
+.p-report .y { font-size: clamp(88px, 11vw, 160px); line-height: 1; font-weight: 100; color: var(--accent); }
+.p-report .t { font-size: clamp(26px, 2.6vw, 36px); font-weight: 600; color: var(--heading); }
+.p-ui { background: var(--inverse); color: var(--on-inverse); }
+.p-ui .ptag { color: var(--on-inverse-2); }
+.p-ui .t { font-size: 26px; font-weight: 600; }
+.ui-rows { display: grid; }
+.ui-row { display: flex; justify-content: space-between; align-items: center; gap: var(--s3); padding-block: var(--s3); border-top: 1px solid var(--inverse-rule); font-size: 17px; }
+.ui-row span { display: inline-flex; align-items: center; gap: var(--s2); color: var(--on-inverse-2); font-size: 15px; }
+.p-sign { border-top: 2px solid var(--heading); padding-inline: 0; }
+.p-sign .row { display: flex; justify-content: space-between; align-items: end; gap: var(--s4); }
+.p-sign .t { font-size: clamp(48px, 6vw, 88px); line-height: 1.25; font-weight: 700; color: var(--heading); }
+.p-sign .sub { font-size: clamp(22px, 2.4vw, 32px); font-weight: 300; color: var(--text-2); }
+.p-sign .arrow { font-size: clamp(72px, 9vw, 128px); line-height: 1; color: var(--accent); font-weight: 300; }
+
+/* ---------- FAQ ---------- */
+.faq { border-top: 1px solid var(--rule); }
+.faq-list details { border-bottom: 1px solid var(--rule); }
+.faq-list details:first-child { border-top: 1px solid var(--rule); }
+.faq-list summary { display: flex; justify-content: space-between; gap: var(--s3); padding-block: var(--s4); list-style: none; cursor: pointer; font-size: 20px; font-weight: 600; color: var(--heading); }
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after { content: "+"; font-weight: 200; font-size: 32px; line-height: .8; color: var(--accent); transition: transform .2s; }
+.faq-list details[open] summary::after { transform: rotate(45deg); }
+.faq-list .a { display: grid; gap: var(--s3); padding-bottom: var(--s4); color: var(--text-2); max-width: 42rem; }
+.faq-list .a a { color: var(--accent); }
+.faq-list pre { margin: 0; padding: var(--s3); background: var(--sunken); color: var(--heading); font: 14px/1.7 var(--code); overflow-x: auto; direction: ltr; text-align: left; }
+
+/* ---------- Download (closing event surface) ---------- */
+.dl { background: var(--grad); color: #FFFFFF; }
+.dl .eyebrow { color: #5D8FFF; }
+.dl h2 { color: #FFFFFF; font-size: clamp(48px, 7vw, 104px); line-height: 1.2; font-weight: 200; }
+.dl h2 b { font-weight: 900; }
+.dl .lead { margin-top: var(--s4); color: #DDE8FF; max-width: 34rem; }
+.files { list-style: none; margin: var(--s5) 0 0; padding: 0; display: grid; }
+.files li { display: flex; gap: var(--s3); align-items: baseline; padding-block: var(--s3); border-top: 1px solid rgba(255, 255, 255, .2); color: #DDE8FF; font-size: 16px; }
+.files li .f { color: #FFFFFF; font-weight: 600; }
+.files li .sz { margin-inline-start: auto; color: #93B6FF; font-size: 14px; }
+.form { background: #FFFFFF; color: #111927; padding: var(--s5); display: grid; gap: var(--s4); }
+.form .btn-primary { width: 100%; background: #001AFF; border-color: #001AFF; color: #FFFFFF; }
+.form .btn-primary:hover { background: #0200D3; border-color: #0200D3; }
+.dl-title { color: #040038; font-size: 32px; line-height: 1.3; font-weight: 300; }
+.dl-meta { color: #4D5761; font-size: 15px; }
+.dl-each { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid #E5E7EB; }
+.dl-each > * { display: grid; justify-items: start; gap: var(--s1); padding: var(--s3) 0; color: #040038; text-decoration: none; font-weight: 600; font-size: 15px; }
+.dl-each > * + * { border-inline-start: 1px solid #E5E7EB; padding-inline-start: var(--s3); }
+.dl-each small { color: #6C737F; font-weight: 400; font-size: 13px; }
+.dl-each a:hover { color: #001AFF; }
+.dl-terms { font-size: 14px; color: #4D5761; }
+.dl-terms a { color: #001AFF; }
+.dl-note { font-size: 13px; color: #6C737F; }
+.is-off { opacity: .55; cursor: not-allowed; }
+@media (max-width: 900px) { .form { padding: var(--s4); } }
+
+/* ---------- Footer ---------- */
+footer { padding-block: var(--s5); border-top: 1px solid var(--rule); color: var(--text-2); font-size: 15px; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: var(--s3) var(--s5); align-items: center; }
+footer nav { display: flex; flex-wrap: wrap; gap: var(--s4); align-items: center; }
+footer nav a { text-decoration: none; }
+footer nav a:hover { color: var(--accent); }
+footer .logo { margin-inline-start: auto; }
+footer .logo svg { width: 80px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .m-ladder span { animation: none; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">تخطَّ إلى المحتوى</a>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="عزم إكس">
+      <!--@LOGO@-->
+    </a>
+    <ul>
+      <li><a href="#build">البناء</a></li>
+      <li><a href="#anatomy">التشريح</a></li>
+      <li><a href="#weights">الأوزان</a></li>
+      <li><a href="#motion">الحركة</a></li>
+      <li><a href="#tester">جرّب الخط</a></li>
+      <li><a href="#marks">رموز مدمجة</a></li>
+      <li><a href="#glyphs">الحروف</a></li>
+      <li><a href="#faq">أسئلة</a></li>
+    </ul>
+    <div class="nav-end">
+      <button class="btn btn-quiet" id="motionBtn" type="button" aria-pressed="false">إيقاف الحركة</button>
+      <a class="btn btn-primary" href="#download">حمّل الخط</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top" data-watch>
+  <div class="wrap">
+    <div class="hero-top">
+      <span class="eyebrow">خط عزم إكس</span>
+      <span class="tag">Azm X Variable · v2.004 · wght 100–900</span>
+    </div>
+    <h1 class="hero-title" id="heroTitle">
+      <span class="hl">نكتـب بعـزم،</span>
+      <span class="hl">بحـرفٍ يشبهنـا.</span>
+    </h1>
+    <div class="hero-bottom">
+      <div class="hero-copy">
+        <p class="hero-sub">خطٌّ واحد متغيّر بثمانية أوزان، <span class="roll" id="roll" aria-hidden="true"><span class="in">للعناوين</span><span>للنصوص</span><span>للواجهات</span><span>للّافتات</span><span>للعروض</span></span><span class="sr">للعناوين والنصوص والواجهات واللافتات والعروض</span></p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#download">حمّل الخط <span aria-hidden="true">←</span></a>
+          <a class="btn" href="#tester">جرّب الخط</a>
+        </div>
+        <div class="facts">
+          <span><b>٨</b> أوزان مسمّاة</span>
+          <span><b>٨٠٣</b> رمزًا</span>
+          <span>عربي، لاتيني، فارسي، أردي</span>
+        </div>
+      </div>
+      <figure class="hero-meter" aria-hidden="true">
+        <div class="meter-head"><span>وزن كل حرف في العنوان، الآن</span><span class="tag" id="heroLive">wght 520 · U+0640 × 4</span></div>
+        <div class="meter-body">
+          <div class="meter" id="meter"></div>
+          <div class="meter-scale"><span class="tag">900</span><span class="tag">100</span></div>
+        </div>
+      </figure>
+    </div>
+    <p class="hero-note">مرّر المؤشر فوق العنوان لتثقل حروفه. ومع التمرير إلى الأسفل، تتمدّد الكلمات وتخفّ.</p>
+  </div>
+</section>
+
+<!-- ================= CONSTRUCTION ================= -->
+<section class="build" id="build">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">البناء</span>
+      <h2>كل حرف يبدأ من نقطة.</h2>
+      <p>نقطة عزم إكس معيَّن تام، كالنقطة التي يتركها القلم المقطوط على الورق. تكبر مع الوزن، من ٥٥ وحدة في الوزن ١٠٠ إلى ١٧٠ في الوزن ٩٠٠، وبها يُقاس الحرف: ارتفاع الألف نحو أربع نقاط في الوزن ٧٠٠.</p>
+    </div>
+    <figure class="bf-fig" data-watch>
+      <!--@CONSTRUCTION@-->
+      <figcaption class="bf-legend">
+        <span><svg viewBox="0 0 20 20" aria-hidden="true"><path class="lg-rh" d="M10 2 L18 10 L10 18 L2 10 Z"/></svg>نقطة الخط: معيَّن طوله ١٦٢ وحدة في الوزن ٧٠٠</span>
+        <span><svg viewBox="0 0 20 20" aria-hidden="true"><rect class="lg-on" x="5" y="5" width="10" height="10"/></svg>نقطة على المنحنى</span>
+        <span><svg viewBox="0 0 20 20" aria-hidden="true"><circle class="lg-off" cx="10" cy="10" r="5"/></svg>نقطة تحكّم</span>
+        <span><svg viewBox="0 0 20 20" aria-hidden="true"><path class="lg-rh" d="M10 1 L14 5 L10 9 L6 5 Z M10 11 L14 15 L10 19 L6 15 Z"/></svg>عمود النقاط: ارتفاع الألف نحو أربع نقاط</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= STORY (placeholder copy) ================= -->
+<section id="story" style="padding-top:0">
+  <div class="wrap grid12">
+    <div class="c7 story-body">
+      <p>عزم إكس هو الخط الذي نبني به ما نصنعه: العروض، والتقارير، والواجهات، واللافتات. رسمناه ليحمل الحرف العربي واللاتيني بإيقاع واحد، فلا تشعر أن في الصفحة لغتين تتنافسان.</p>
+      <p>يأتي الخط في ملف واحد متغيّر يغطي ثمانية أوزان، من الرفيع إلى الثقيل. تستطيع أن تقف عند أي وزن منها، أو تختار أي قيمة بينها على محور الوزن.</p>
+    </div>
+    <div class="c5 story-side">
+      <span class="eyebrow">محور واحد</span>
+      <p>ثمانمئة درجة من الوزن، في ملف واحد.</p>
+    </div>
+  </div>
+</section>
+
+<div class="stats" data-watch id="stats">
+  <div class="wrap stats-row">
+    <div class="stat"><span class="n num" data-v="803">٨٠٣</span><span class="l">رمزًا مرسومًا في الخط</span></div>
+    <div class="stat"><span class="n num" data-v="552">٥٥٢</span><span class="l">محرفًا يونيكوديًا يدعمه الخط</span></div>
+    <div class="stat"><span class="n num" data-v="24">٢٤</span><span class="l">خاصية تنضيد مدمجة، منها الحروف المرسلة</span></div>
+    <div class="stat"><span class="n num" data-v="8">٨</span><span class="l">أوزان مسمّاة على محور واحد</span></div>
+  </div>
+</div>
+
+<!-- ================= ANATOMY ================= -->
+<section class="anatomy" id="anatomy">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">التشريح</span>
+      <h2>مقاييس ثابتة على كل وزن.</h2>
+      <p>كل القيم بوحدات مربّع الحرف، وطوله ألف وحدة. حرّك الوزن وستبقى الخطوط في مكانها، لأن المحور يغيّر سُمك الحرف لا ارتفاعه.</p>
+    </div>
+    <div class="fig-controls">
+      <label for="anaW">الوزن</label>
+      <input id="anaW" type="range" min="100" max="900" step="1" value="300">
+      <output id="anaOut" class="tag" for="anaW">wght 300</output>
+    </div>
+    <div class="fig-scroll">
+      <figure class="fig" style="margin:0">
+        <svg viewBox="0 -1080 5600 1720" role="img" aria-label="الكلمة عزم والحرفان Hx على خطوط القياس العمودية">
+          <line class="ln" x1="0" x2="5600" y1="-950" y2="-950" vector-effect="non-scaling-stroke"/>
+          <line class="ln" x1="0" x2="5600" y1="-680" y2="-680" vector-effect="non-scaling-stroke"/>
+          <line class="ln" x1="0" x2="5600" y1="-476" y2="-476" vector-effect="non-scaling-stroke"/>
+          <line class="ln base" x1="0" x2="5600" y1="0" y2="0" vector-effect="non-scaling-stroke"/>
+          <line class="ln" x1="0" x2="5600" y1="500" y2="500" vector-effect="non-scaling-stroke"/>
+          <text class="spec" id="anaAr" x="3600" y="0" text-anchor="start" style="direction:rtl;font-weight:300">عزم</text>
+          <text class="spec" id="anaLa" x="700" y="0" text-anchor="start" style="direction:ltr;font-weight:300">Hx</text>
+        </svg>
+        <div class="fig-label" style="top:7.56%">الصاعد <span class="tag">950</span></div>
+        <div class="fig-label" style="top:23.26%">ارتفاع الألف <span class="tag">680 · H</span></div>
+        <div class="fig-label" style="top:35.12%">ارتفاع x <span class="tag">476</span></div>
+        <div class="fig-label base" style="top:62.79%">خط الأساس <span class="tag">0</span></div>
+        <div class="fig-label" style="top:91.86%">النازل <span class="tag">−500</span></div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WEIGHTS ================= -->
+<section id="weights">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">الأوزان</span>
+      <h2>ثمانية أوزان في ملف واحد.</h2>
+      <p>كل وزن نقطة مسمّاة على محور الوزن. وبين كل نقطتين قيم أخرى تختارها بنفسك.</p>
+    </div>
+    <ul class="wlist" id="wlist"></ul>
+  </div>
+</section>
+
+<!-- ================= MOTION ================= -->
+<section class="motion" id="motion">
+  <div class="wrap">
+    <div class="head-row">
+      <div class="head">
+        <span class="eyebrow">الحركة</span>
+        <h2>الخط في حركة.</h2>
+        <p>كل مثال هنا يحرّك محور الوزن نفسه، ويعمل في أي متصفح حديث. انسخ ما يعجبك إلى موقعك.</p>
+      </div>
+    </div>
+
+    <div class="grid12">
+      <article class="tile c5" data-watch>
+        <div class="stage"><span class="m-breathe" lang="ar">تنفّس</span></div>
+        <div class="tile-cap"><h3>نَفَس</h3><span class="tag">wght 100 ↔ 900 · 3.2s</span></div>
+        <p>الكلمة كلها تنتقل على محور الوزن من أخف قيمة إلى أثقلها، ثم تعود.</p>
+      </article>
+
+      <article class="tile c7" data-watch>
+        <div class="stage"><span class="m-wave" id="wave">موجة تعبر الحروف</span></div>
+        <div class="tile-cap"><h3>موجة</h3><span class="tag">wght wave · stagger 90ms</span></div>
+        <p>كل حرف يتأخر عن سابقه قليلًا، فتسري الموجة من اليمين إلى اليسار دون أن ينفصل حرف عن جاره.</p>
+      </article>
+
+      <article class="tile c7" data-watch>
+        <div class="stage" id="magnetStage" style="touch-action:pan-y"><span class="m-magnet" id="magnet">اقترب من الحروف</span></div>
+        <div class="tile-cap"><h3>مغناطيس</h3><span class="tag">pointer distance → wght</span></div>
+        <p>وزن كل حرف يتبع قربه من المؤشر أو إصبعك. وحين تتركه، يتحرك مؤشر خفي وحده.</p>
+      </article>
+
+      <article class="tile c5" data-watch>
+        <div class="stage">
+          <span class="readout">كشيدة × <b id="kashidaN">٣</b></span>
+          <span class="m-kashida" id="kashida">عـــزم</span>
+        </div>
+        <div class="tile-cap"><h3>مَدّ</h3><span class="tag">U+0640 × n</span></div>
+        <p>الكشيدة تمدّ الكلمة بين العين والزاي. أداة خاصة بالخط العربي، تتحرك هنا حرفًا حرفًا.</p>
+      </article>
+
+      <article class="tile c8" data-watch>
+        <div class="stage"><span class="m-type" id="tw" dir="rtl"><span class="tw-text">نكتب بعزم</span><span class="caret" aria-hidden="true"></span></span></div>
+        <div class="tile-cap"><h3>كتابة حيّة</h3><span class="tag">calt · rlig</span></div>
+        <p>الحروف تُكتب واحدًا تلو الآخر، وتتبدل أشكالها مع كل حرف جديد. بعض العبارات تتحول إلى رمز واحد لحظة اكتمالها.</p>
+      </article>
+
+      <article class="tile c4" data-watch>
+        <div class="stage"><span class="m-number" id="numw" aria-label="الرقم يساوي وزنه">٥٠٠</span></div>
+        <div class="tile-cap"><h3>الرقم وزنه</h3><span class="tag">font-weight: n</span></div>
+        <p>الرقم المعروض هو قيمة وزنه نفسه على المحور.</p>
+      </article>
+    </div>
+  </div>
+
+  <div class="band" data-watch aria-label="شريط متحرك">
+    <div class="wrap band-label"><h3>شريط</h3><span class="tag">translateX · 48s · linear</span></div>
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-set">
+          <span style="font-weight:900">نصمّم مستقبل التجربة</span><i class="sep"></i>
+          <span style="font-weight:100" class="ltr">Designing the Future of Experience</span><i class="sep"></i>
+          <span style="font-weight:600">ثمانية أوزان</span><i class="sep"></i>
+          <span style="font-weight:200">من ١٠٠ إلى ٩٠٠</span><i class="sep"></i>
+          <span style="font-weight:800" class="ltr">Azm X Variable</span><i class="sep"></i>
+          <span style="font-weight:300">عربي ولاتيني</span><i class="sep"></i>
+        </div>
+        <div class="marquee-set">
+          <span style="font-weight:900">نصمّم مستقبل التجربة</span><i class="sep"></i>
+          <span style="font-weight:100" class="ltr">Designing the Future of Experience</span><i class="sep"></i>
+          <span style="font-weight:600">ثمانية أوزان</span><i class="sep"></i>
+          <span style="font-weight:200">من ١٠٠ إلى ٩٠٠</span><i class="sep"></i>
+          <span style="font-weight:800" class="ltr">Azm X Variable</span><i class="sep"></i>
+          <span style="font-weight:300">عربي ولاتيني</span><i class="sep"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="grid12">
+      <article class="tile c8" data-watch>
+        <div class="stage"><span class="m-ladder" aria-label="تسعة حروف عين من الوزن ١٠٠ إلى ٩٠٠"><span style="--i:0">ع</span><span style="--i:1">ع</span><span style="--i:2">ع</span><span style="--i:3">ع</span><span style="--i:4">ع</span><span style="--i:5">ع</span><span style="--i:6">ع</span><span style="--i:7">ع</span><span style="--i:8">ع</span></span></div>
+        <div class="tile-cap"><h3>سُلَّم</h3><span class="tag">9 × wght · phase 310ms</span></div>
+        <p>تسع نسخ من حرف العين، بين كل منها فرق صغير في التوقيت، فتبدو موجة واحدة تعبر الصف.</p>
+      </article>
+
+      <article class="tile c4" data-watch>
+        <div class="stage"><div class="m-inst"><span class="w" id="instW" style="font-weight:100">عزم إكس</span><span class="n"><b id="instV">100</b> · <span id="instN">رفيع</span> · <span class="ltr" id="instL">Thin</span></span></div></div>
+        <div class="tile-cap"><h3>الأوزان الثمانية</h3><span class="tag">8 named instances</span></div>
+        <p>الخط يقفز بين الأوزان المسمّاة دون المرور بما بينها.</p>
+      </article>
+
+      <article class="tile c6" data-watch>
+        <div class="stage"><span class="m-trail" aria-label="عزم"><span>عزم</span><span aria-hidden="true">عزم</span><span aria-hidden="true">عزم</span><span aria-hidden="true">عزم</span></span></div>
+        <div class="tile-cap"><h3>أثر</h3><span class="tag">4 layers · opacity 100 → 20%</span></div>
+        <p>أربع نسخ تتبع الكلمة كأثر حركة، وتخفت كلما ابتعدت عنها.</p>
+      </article>
+
+      <article class="tile c6" data-watch>
+        <div class="stage" id="swashStage">
+          <span class="readout swash-state"><span class="off-t">بدون حروف مرسلة</span><span class="on-t">الحروف المرسلة مفعّلة</span></span>
+          <span class="m-swash" id="swash"><span class="a">شغف · سعد · ذهب</span><span class="b" aria-hidden="true">شغف · سعد · ذهب</span></span>
+        </div>
+        <div class="tile-cap"><h3>مُرسَل</h3><span class="tag">font-feature-settings: "swsh" 1</span></div>
+        <p>الحروف المرسلة تظهر وتختفي بالتناوب. راقب أواخر الكلمات، حيث تمتد الفاء والدال والباء.</p>
+      </article>
+
+      <article class="tile c7" data-watch>
+        <div class="stage"><span class="m-drop" id="drop">الحبر يستقر</span></div>
+        <div class="tile-cap"><h3>هبوط</h3><span class="tag">translateY + wght · stagger 70ms</span></div>
+        <p>الحروف تسقط واحدًا تلو الآخر، ثقيلة في البداية، ثم تخفّ حين تستقر في مكانها.</p>
+      </article>
+
+      <article class="tile c5" data-watch>
+        <div class="stage">
+          <span class="readout"><span class="tag" id="scrollVal">wght 100</span></span>
+          <span class="m-scroll" id="scrollLine">كلما اقترب السطر من منتصف الشاشة، ازداد ثقلًا.</span>
+        </div>
+        <div class="tile-cap"><h3>تمرير</h3><span class="tag">scroll position → wght</span></div>
+        <p>مرّر الصفحة ببطء، وسيتبع الوزن موضع السطر على الشاشة.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTER ================= -->
+<section class="tester" id="tester" data-watch>
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">جرّب الخط</span>
+      <h2>اكتب ما تشاء.</h2>
+      <p>النص أدناه قابل للتعديل. استخدم الأزرار أسفله لتجرّب الحروف المرسلة والرموز المدمجة.</p>
+    </div>
+    <div class="t-box">
+      <div class="t-controls">
+        <label class="ctl" for="tW">الوزن <output id="tWOut" for="tW">٤٠٠ · عادي</output>
+          <input id="tW" type="range" min="100" max="900" step="1" value="400">
+        </label>
+        <label class="ctl" for="tS">الحجم <output id="tSOut" for="tS">٨٨ بكسل</output>
+          <input id="tS" type="range" min="16" max="220" step="2" value="88">
+        </label>
+        <div class="ctl">المحاذاة
+          <div class="seg" role="group" aria-label="المحاذاة" id="tAlign">
+            <button type="button" data-a="start" aria-pressed="true">البداية</button>
+            <button type="button" data-a="center" aria-pressed="false">الوسط</button>
+            <button type="button" data-a="end" aria-pressed="false">النهاية</button>
+          </div>
+        </div>
+        <label class="toggle" for="tSwsh"><input id="tSwsh" type="checkbox">الحروف المرسلة</label>
+        <label class="toggle" for="tDlig"><input id="tDlig" type="checkbox">الربط الاختياري</label>
+        <label class="toggle" for="tPlay"><input id="tPlay" type="checkbox">حرّك الوزن</label>
+      </div>
+      <div class="t-stage" id="tStage" contenteditable="true" spellcheck="false" dir="auto" role="textbox" aria-multiline="true" aria-label="نص تجريبي قابل للتعديل">نصمّم مستقبل التجربة، حرفًا بعد حرف.</div>
+      <div class="t-presets" id="tPresets"><span>جرّب:</span>
+        <button type="button">نصمّم مستقبل التجربة، حرفًا بعد حرف.</button>
+        <button type="button">شغف · سعد · ذهب</button>
+        <button type="button">في كل تفصيل</button>
+        <button type="button">#KSA</button>
+        <button type="button">#RIAL</button>
+        <button type="button">ولي العهد</button>
+        <button type="button">Designing the Future of Experience</button>
+        <button type="button">٠١٢٣٤٥٦٧٨٩ · 0123456789</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BUILT-IN MARKS ================= -->
+<section class="marks" id="marks" data-watch>
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">رموز مدمجة</span>
+      <h2>اكتب الكلمة، يظهر الرمز.</h2>
+      <p>هذه الرموز جزء من الخط نفسه، وتظهر حين تكتمل الكلمة دون أي إعداد. مرّر المؤشر فوق أي رمز لتشاهده يُكتب من جديد.</p>
+    </div>
+    <div class="marks-grid">
+      <button class="mark" type="button"><span class="mark-out" dir="ltr">#KSA</span><span class="mark-meta"><span class="what">شعار المملكة العربية السعودية</span><span class="how">اكتب <kbd dir="ltr">#KSA</kbd></span></span></button>
+      <button class="mark" type="button"><span class="mark-out" dir="ltr">#RIAL</span><span class="mark-meta"><span class="what">رمز الريال السعودي</span><span class="how">اكتب <kbd dir="ltr">#RIAL</kbd></span></span></button>
+      <button class="mark" type="button"><span class="mark-out xl" dir="rtl">خادم الحرمين الشريفين</span><span class="mark-meta"><span class="what">لقب خادم‌ الحرمين الشريفين</span><span class="how">اكتب <kbd>خادم الحرمين الشريفين</kbd></span></span></button>
+      <button class="mark" type="button"><span class="mark-out" dir="rtl">ولي العهد</span><span class="mark-meta"><span class="what">لقب ولي‌ العهد</span><span class="how">اكتب <kbd>ولي العهد</kbd></span></span></button>
+      <button class="mark" type="button"><span class="mark-out" dir="rtl">المعالي</span><span class="mark-meta"><span class="what" style="font-feature-settings:'rlig' 0">لقب المعالي</span><span class="how">اكتب <kbd>المعالي</kbd></span></span></button>
+      <button class="mark" type="button"><span class="mark-out" dir="rtl">صلى الله عليه وسلم</span><span class="mark-meta"><span class="what">الصلاة على النبي</span><span class="how">اكتب <kbd>صلى الله عليه وسلم</kbd></span></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GLYPHS ================= -->
+<section class="glyphs" id="glyphs">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">خريطة الحروف</span>
+      <h2>كل حرف، في كل موضع.</h2>
+      <p>اختر حرفًا لترى أشكاله: منفصلًا، وفي أول الكلمة، ووسطها، وآخرها. ثم حرّك الوزن لتراه يتغير.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="مجموعات الحروف" id="gTabs"></div>
+    <div class="g-wrap">
+      <div class="g-grid" id="gGrid" role="group" aria-label="الحروف"></div>
+      <aside class="g-view" aria-live="polite">
+        <div class="g-big" id="gBig">ع</div>
+        <div class="g-forms" id="gForms"></div>
+        <div class="g-meta">
+          <span class="nm" id="gName">عين</span>
+          <span class="tag" id="gCode">U+0639 · Arabic Letter Ain</span>
+          <label for="gW">الوزن <output id="gWOut" class="tag" for="gW">wght 400</output>
+            <input id="gW" type="range" min="100" max="900" step="1" value="400">
+          </label>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ================= IN USE ================= -->
+<section class="inuse" id="inuse">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">في الاستخدام</span>
+      <h2>من الغلاف إلى الشاشة.</h2>
+    </div>
+    <div class="grid12">
+      <div class="poster p-cover c7">
+        <span class="ptag tag">cover · wght 900 / 200</span>
+        <div class="t"><b>نصمّم</b><span>مستقبل التجربة</span></div>
+      </div>
+      <div class="poster p-report c5">
+        <span class="ptag tag">report · wght 100 / 600</span>
+        <div><div class="y num">٢٠٢٦</div><div class="t">مراجعة العام</div></div>
+      </div>
+      <div class="poster p-ui c5">
+        <span class="ptag tag">interface · wght 400 / 600</span>
+        <div class="ui-rows">
+          <div class="t">الإعدادات</div>
+          <div class="ui-row">الإشعارات <span>مفعّلة</span></div>
+          <div class="ui-row">اللغة <span>العربية</span></div>
+          <div class="ui-row">المظهر <span>تلقائي</span></div>
+        </div>
+      </div>
+      <div class="poster p-sign c7">
+        <span class="ptag tag">wayfinding · wght 700 / 300</span>
+        <div class="row"><div><div class="t">قاعة الابتكار</div><div class="sub">الطابق الثالث</div></div><div class="arrow" aria-hidden="true">←</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="faq" id="faq">
+  <div class="wrap grid12">
+    <div class="c5 head" style="margin-bottom:0;align-content:start">
+      <span class="eyebrow">أسئلة شائعة</span>
+      <h2>قبل أن تحمّل الخط.</h2>
+    </div>
+    <div class="c7 faq-list">
+      <details open>
+        <summary>هل الخط مجاني؟</summary>
+        <div class="a"><p>نعم. يمكنك استخدام عزم إكس مجانًا في المشاريع الشخصية والتجارية: المطبوعات، والهويات البصرية، والمواقع، والتطبيقات، والفيديو.</p><p>لا يجوز بيع ملفات الخط أو إعادة توزيعها منفردة. <a class="lic" href="license.html">اقرأ الرخصة كاملة</a>.</p></div>
+      </details>
+      <details>
+        <summary>كيف أثبّت الخط على جهازي؟</summary>
+        <div class="a"><p><b>ماك:</b> افتح ملف الخط ثم اضغط «تثبيت الخط» في تطبيق دفتر الخطوط.</p><p><b>ويندوز:</b> اضغط بزر الفأرة الأيمن على الملف واختر «تثبيت لكل المستخدمين».</p></div>
+      </details>
+      <details>
+        <summary>كيف أكتب رمز الريال وشعار المملكة؟</summary>
+        <div class="a"><p>لرمز الريال اكتب: <kbd dir="ltr">#RIAL</kbd></p><p>لشعار المملكة اكتب: <kbd dir="ltr">#KSA</kbd></p><p>تعمل الأحرف الكبيرة والصغيرة. يعتمد ذلك على البدائل السياقية، وهي مفعّلة تلقائيًا في معظم البرامج والمتصفحات.</p></div>
+      </details>
+      <details>
+        <summary>ما الألقاب المدمجة في الخط؟</summary>
+        <div class="a"><p>تتحول هذه العبارات إلى شعارات خطية حين تُكتب كاملة، دون أي إعداد:</p><p style="display:flex;flex-wrap:wrap;gap:var(--s2)"><kbd>خادم الحرمين الشريفين</kbd><kbd>ولي العهد</kbd><kbd>المعالي</kbd><kbd>صلى الله عليه وسلم</kbd></p></div>
+      </details>
+      <details>
+        <summary>كيف أفعّل الحروف المرسلة؟</summary>
+        <div class="a"><p>فعّل خيار الحروف المرسلة من إعدادات الخط في برنامج التصميم، ويظهر عادة باسم Swash.</p><p>وعلى الويب استخدم:</p><pre>font-feature-settings: "swsh" 1;</pre></div>
+      </details>
+      <details>
+        <summary>كيف أستخدم الخط المتغير على الويب؟</summary>
+        <div class="a"><p>عرّف الخط مرة واحدة بمدى الوزن كاملًا، ثم استخدم أي قيمة بين ١٠٠ و٩٠٠.</p><pre>@font-face {
+  font-family: "Azm X Variable";
+  src: url("AzmXVariable.woff2") format("woff2");
+  font-weight: 100 900;
+}
+h1 { font-weight: 640; }</pre></div>
+      </details>
+      <details>
+        <summary>هل يدعم الخط الفارسية والأردية؟</summary>
+        <div class="a"><p>يتضمن الخط ٢٧ حرفًا عربيًا إضافيًا تغطي حروف الفارسية والأردية الأساسية، مثل پ وچ وژ وگ، إلى جانب الأرقام الفارسية.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DOWNLOAD ================= -->
+<section class="dl" id="download">
+  <div class="wrap grid12" style="align-items:center">
+    <div class="c7">
+      <span class="eyebrow">التحميل</span>
+      <h2 style="margin-top:var(--s3)">الخط جاهز. <b>ابدأ الكتابة.</b></h2>
+      <p class="lead">حمّل الخط مجانًا، واستخدمه في مشاريعك الشخصية والتجارية.</p>
+      <ul class="files" id="fileList"></ul>
+    </div>
+    <div class="form c5" id="dlPanel">
+      <h3 class="dl-title">حمّل الخط كاملًا</h3>
+      <p class="dl-meta">ملف مضغوط واحد يضم الملفات الثلاثة والرخصة، <span class="num" id="zipSize"></span>.</p>
+      <div id="dlMain"></div>
+      <div class="dl-each" id="dlEach"></div>
+      <p class="dl-terms">بتحميل الخط، أنت توافق على <a class="lic" href="license.html">شروط الرخصة</a>.</p>
+      <p class="dl-note" id="dlNote" hidden>روابط التحميل تعمل في الموقع المنشور.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© ٢٠٢٦ عزم إكس. جميع الحقوق محفوظة.</span>
+    <nav>
+      <a class="lic" href="license.html">الرخصة</a>
+      <a href="#download">التحميل</a>
+      <button class="btn btn-quiet" id="themeBtn" type="button">الوضع الليلي</button>
+    </nav>
+    <a class="logo" href="#top" aria-label="عزم إكس، إلى الأعلى">
+      <!--@LOGO@-->
+    </a>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const PREVIEW = /*@PREVIEW@*/false;
+  const GLYPHS = /*@GLYPHS@*/{};
+  const FILES = [
+    { name: "AzmXVariable.ttf", use: "للتثبيت على الحاسب", size: "/*@SIZE:AzmXVariable.ttf@*/", href: "fonts/AzmXVariable.ttf" },
+    { name: "AzmXVariable.woff2", use: "للمواقع والتطبيقات", size: "/*@SIZE:AzmXVariable.woff2@*/", href: "fonts/AzmXVariable.woff2" },
+    { name: "AzmXVariable.woff", use: "للمتصفحات الأقدم", size: "/*@SIZE:AzmXVariable.woff@*/", href: "fonts/AzmXVariable.woff" }
+  ];
+  const ZIP = { name: "AzmX-Variable.zip", size: "/*@ZIPSIZE@*/", href: "downloads/AzmX-Variable.zip" };
+  const LICENSE_URL = PREVIEW ? "#faq" : "license.html";
+  /*@DL@*/const fileLink = (href, cls, inner) => `<a class="${cls}" href="${href}" download>${inner}</a>`;/*@END_DL@*/
+  const INST = [[100, "Thin", "رفيع"], [200, "ExtraLight", "خفيف جدًا"], [300, "Light", "خفيف"], [400, "Regular", "عادي"], [500, "Medium", "متوسط"], [600, "SemiBold", "شبه عريض"], [700, "Bold", "عريض"], [900, "Heavy", "ثقيل"]];
+
+  const root = document.documentElement;
+  const $ = (s, el = document) => el.querySelector(s);
+  const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+  const AR = "٠١٢٣٤٥٦٧٨٩";
+  const ar = n => String(n).replace(/\d/g, d => AR[d]);
+  const nearest = w => INST.reduce((a, b) => Math.abs(b[0] - w) < Math.abs(a[0] - w) ? b : a);
+
+  /* ---------- Motion switch (defaults off for reduced-motion users) ---------- */
+  const motionBtn = $("#motionBtn");
+  let motionOn = !matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function setMotion(on) {
+    motionOn = on;
+    root.classList.toggle("motion-off", !on);
+    motionBtn.setAttribute("aria-pressed", String(!on));
+    motionBtn.textContent = on ? "إيقاف الحركة" : "تشغيل الحركة";
+  }
+  motionBtn.addEventListener("click", () => setMotion(!motionOn));
+  setMotion(motionOn);
+
+  /* ---------- Arabic-aware letter splitting ----------
+     Wrapping letters in spans would break Arabic joining, so each span
+     carries a zero-width joiner (U+200D) on the side where it connects. */
+  const ZWJ = "‍";
+  const RIGHT_JOIN = new Set([..."آأؤإاةدذرزوٱٲٳٵٶٷڈډڊڋڌڍڎڏڐڑڒړڔڕږڗژڙۀۃۄۅۆۇۈۉۊۋۍۏےۓە"]);
+  function joinType(ch) {
+    const c = ch.codePointAt(0);
+    if (ch === "ـ" || ch === ZWJ) return "C";
+    if ((c >= 0x064B && c <= 0x065F) || c === 0x0670 || (c >= 0x06D6 && c <= 0x06ED)) return "T";
+    if (c === 0x0621) return "U";
+    if (RIGHT_JOIN.has(ch)) return "R";
+    if ((c >= 0x0620 && c <= 0x064A) || (c >= 0x066E && c <= 0x06D3) || (c >= 0x06FA && c <= 0x06FF)) return "D";
+    return "U";
+  }
+  function clusters(text) {
+    const out = [], chars = [...text];
+    for (let i = 0; i < chars.length; i++) {
+      const ch = chars[i], t = joinType(ch);
+      if (t === "T" && out.length) { out[out.length - 1].s += ch; continue; }
+      if (ch === "ل" && /[آأإاٱ]/.test(chars[i + 1] || "")) { out.push({ s: ch + chars[i + 1], a: "D", b: "R" }); i++; continue; }
+      out.push({ s: ch, a: t, b: t });
+    }
+    return out;
+  }
+  function split(el) {
+    const text = el.textContent, cl = clusters(text), spans = [];
+    el.textContent = "";
+    cl.forEach((c, i) => {
+      if (/\s/.test(c.s)) { el.append(c.s); return; }
+      const p = cl[i - 1], n = cl[i + 1];
+      const joinPrev = /[DRC]/.test(c.a) && p && /[DC]/.test(p.b);
+      const joinNext = /[DC]/.test(c.b) && n && /[DRC]/.test(n.a);
+      const s = document.createElement("span");
+      s.textContent = (joinPrev ? ZWJ : "") + c.s + (joinNext ? ZWJ : "");
+      s.style.setProperty("--i", spans.length);
+      s.setAttribute("aria-hidden", "true");
+      el.append(s); spans.push(s);
+    });
+    el.style.setProperty("--n", spans.length);
+    const sr = document.createElement("span"); sr.className = "sr"; sr.textContent = text; el.append(sr);
+    return spans;
+  }
+
+  /* Copying animated text: paste what the reader saw, without hidden
+     screen-reader copies, off-screen rolling words, or invisible joiners. */
+  document.addEventListener("copy", e => {
+    const sel = getSelection();
+    if (!sel || sel.isCollapsed || !e.clipboardData) return;
+    const box = document.createElement("div");
+    for (let i = 0; i < sel.rangeCount; i++) box.append(sel.getRangeAt(i).cloneContents());
+    if (!box.querySelector(".sr, .roll") && !box.textContent.includes(ZWJ)) return;
+    box.querySelectorAll(".sr, .roll > span:not(.in)").forEach(n => n.remove());
+    box.style.cssText = "position:fixed;left:-9999px;top:0";
+    document.body.append(box);
+    const text = box.innerText.replace(/\u200D/g, "");
+    box.remove();
+    e.preventDefault();
+    e.clipboardData.setData("text/plain", text);
+  });
+
+  /* ---------- Visibility + one animation loop ---------- */
+  const io = new IntersectionObserver(es => es.forEach(e => e.target.toggleAttribute("data-live", e.isIntersecting)), { rootMargin: "120px 0px" });
+  $$("[data-watch]").forEach(el => io.observe(el));
+  const isLive = el => el.hasAttribute("data-live");
+  const loops = [];
+  const every = (el, fn, always = false) => loops.push({ el: el.closest("[data-watch]") || el, fn, always });
+  function frame(t) {
+    for (const l of loops) if ((motionOn || l.always) && isLive(l.el)) l.fn(t);
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+
+  /* ---------- Hero: ink surge, weight tide, breathing kashida, magnet, scroll exhale ---------- */
+  const hero = $("#top"), heroTitle = $("#heroTitle"), meter = $("#meter"), heroLive = $("#heroLive");
+  const heroSpans = [], kSpans = [], bars = [];
+  const gapEl = () => { const g = document.createElement("span"); g.className = "gap"; return g; };
+  $$(".hl", heroTitle).forEach((line, li) => {
+    if (li) meter.append(gapEl());
+    split(line).forEach(s => {
+      heroSpans.push(s);
+      if (s.textContent.includes("ـ")) { kSpans.push(s); return; }
+      if (s.previousSibling && s.previousSibling.nodeType === 3) meter.append(gapEl());
+      const bar = document.createElement("div"), i = document.createElement("i"), b = document.createElement("b");
+      bar.className = "bar"; b.textContent = s.textContent.replace(/‍/g, "");
+      bar.append(i, b); meter.append(bar); bars.push({ span: s, el: i });
+    });
+  });
+  const tide = (t, i) => 520 + 240 * Math.sin(t / 700 - i * 0.42);
+  // Kashida range shrinks on narrow screens so the longest stretch still fits the line.
+  const breath = (t, k) => { const a = innerWidth < 700 ? 1 : 2; return Math.max(0, Math.round(a + a * Math.sin(t / 1100 + k * 1.9))); };
+  const heroKLast = kSpans.map(() => 1);
+  function paintHero(weights, kTotal) {
+    heroSpans.forEach((s, i) => { s.style.fontWeight = weights[i]; });
+    let sum = 0;
+    bars.forEach(b => {
+      const w = +b.span.style.fontWeight; sum += w;
+      b.el.style.transform = "scaleY(" + Math.max(0.04, (w - 100) / 800).toFixed(3) + ")";
+    });
+    heroLive.textContent = "wght " + Math.round(sum / bars.length) + " · U+0640 × " + kTotal;
+  }
+  paintHero(heroSpans.map((_, i) => Math.round(tide(0, i))), kSpans.length);   // resting pose
+
+  let heroT0 = 0, ptr = null, ptrAt = 0;
+  heroTitle.addEventListener("pointermove", e => { ptr = [e.clientX, e.clientY]; ptrAt = performance.now(); });
+  heroTitle.addEventListener("pointerleave", () => { ptr = null; });
+  const rollItems = $$("#roll > span");
+  let rollI = 0, rollNext = 0;
+
+  every(hero, t => {
+    if (!heroT0) heroT0 = t;
+    const r = hero.getBoundingClientRect();
+    const p = Math.min(1, Math.max(0, -r.top / (r.height * 0.75)));   // scroll exhale
+    let kTotal = 0;
+    kSpans.forEach((s, k) => {
+      const n = breath(t, k) + Math.round(p * 6);
+      kTotal += n;
+      if (n !== heroKLast[k]) { heroKLast[k] = n; s.textContent = ZWJ + "ـ".repeat(n) + ZWJ; }
+    });
+    const near = ptr && t - ptrAt < 2500;
+    const rects = near ? heroSpans.map(s => s.getBoundingClientRect()) : null;
+    const R = Math.max(140, heroTitle.clientWidth * 0.16);
+    paintHero(heroSpans.map((s, i) => {
+      let w = tide(t, i);
+      const u = (t - heroT0 - 200 - i * 55) / 700;                       // ink surge on arrival
+      if (u > 0 && u < 1) w += (900 - w) * Math.sin(Math.PI * u);
+      if (rects) {                                                      // magnet under the pointer
+        const q = rects[i], d = Math.hypot(q.left + q.width / 2 - ptr[0], q.top + q.height / 2 - ptr[1]);
+        const m = Math.max(0, 1 - d / R); w += (900 - w) * m * m;
+      }
+      return Math.round(w + (100 - w) * p);
+    }), kTotal);
+    if (!rollNext) rollNext = t + 2600;                                  // rolling word in the subline
+    if (t >= rollNext) {
+      rollNext = t + 2600;
+      const prev = rollItems[rollI];
+      rollI = (rollI + 1) % rollItems.length;
+      rollItems.forEach(x => x.classList.remove("out"));
+      prev.classList.remove("in"); prev.classList.add("out");
+      rollItems[rollI].classList.add("in");
+    }
+  });
+
+  /* ---------- Anatomy weight ---------- */
+  const anaW = $("#anaW");
+  anaW.addEventListener("input", () => {
+    $("#anaAr").style.fontWeight = anaW.value;
+    $("#anaLa").style.fontWeight = anaW.value;
+    $("#anaOut").textContent = "wght " + anaW.value;
+  });
+
+  /* ---------- Stats: count up once, weight swells then settles ---------- */
+  const statEls = $$("#stats .n");
+  let stat0 = 0, statDone = false;
+  every($("#stats"), t => {
+    if (statDone) return;
+    if (!stat0) stat0 = t;
+    const p = Math.min(1, (t - stat0) / 1600), e = 1 - Math.pow(1 - p, 3);
+    statEls.forEach(el => {
+      el.textContent = ar(Math.round(+el.dataset.v * e));
+      el.style.fontWeight = Math.round(200 + 700 * Math.sin(Math.PI * p));
+    });
+    if (p >= 1) statDone = true;
+  });
+
+  /* ---------- Weights list ---------- */
+  $("#wlist").innerHTML = INST.map(([w, en, arName]) => `
+    <li class="wrow">
+      <span class="wname"><b>${arName}</b><span class="tag">${en} · ${w}</span></span>
+      <span class="wsample" style="font-weight:${w}">نصمّم مستقبل التجربة، حرفًا بعد حرف.<span class="en">Designing the future of experience, letter by letter.</span></span>
+    </li>`).join("");
+
+  /* ---------- Motion specimens ---------- */
+  split($("#wave"));
+  split($("#drop"));
+
+  // Magnet
+  const magStage = $("#magnetStage"), magSpans = split($("#magnet"));
+  let px = null, py = null, lastMove = 0;
+  magStage.addEventListener("pointermove", e => {
+    const r = magStage.getBoundingClientRect();
+    px = e.clientX - r.left; py = e.clientY - r.top; lastMove = performance.now();
+  });
+  magStage.addEventListener("pointerleave", () => { lastMove = 0; });
+  every(magStage, t => {
+    const r = magStage.getBoundingClientRect();
+    if (!lastMove || t - lastMove > 1500) {
+      px = r.width * (0.5 + 0.42 * Math.sin(t / 1300));
+      py = r.height * (0.5 + 0.22 * Math.sin(t / 700));
+    }
+    const R = Math.max(160, r.width * 0.34);
+    const rects = magSpans.map(s => s.getBoundingClientRect());
+    rects.forEach((q, i) => {
+      const d = Math.hypot(q.left + q.width / 2 - r.left - px, q.top + q.height / 2 - r.top - py);
+      const k = Math.max(0, 1 - d / R);
+      magSpans[i].style.fontWeight = Math.round(100 + 800 * k * k);
+    });
+  });
+
+  // Kashida
+  const ksh = $("#kashida"), kshN = $("#kashidaN");
+  let kLast = 3;
+  every(ksh, t => {
+    const n = Math.round(6 - 6 * Math.cos(t / 900));
+    if (n === kLast) return;
+    kLast = n; ksh.textContent = "ع" + "ـ".repeat(n) + "زم"; kshN.textContent = ar(n);
+  });
+
+  // Typewriter (ligatures appear the moment a phrase completes)
+  const tw = $("#tw"), twText = $(".tw-text", tw);
+  const PHR = [["نكتب بعزم", "rtl"], ["#KSA", "ltr"], ["ولي العهد", "rtl"], ["#RIAL", "ltr"], ["خادم الحرمين الشريفين", "rtl"]];
+  let twI = 0, twPos = [...PHR[0][0]].length, twMode = "hold", twNext = 0;
+  every(tw, t => {
+    if (!twNext) twNext = t + 1500;
+    if (t < twNext) return;
+    const chars = [...PHR[twI][0]];
+    if (twMode === "type") {
+      twPos++; twText.textContent = chars.slice(0, twPos).join("");
+      twNext = t + 110;
+      if (twPos >= chars.length) { twMode = "hold"; twNext = t + 1800; }
+    } else if (twMode === "hold") {
+      twMode = "del";
+    } else {
+      twPos--; twText.textContent = chars.slice(0, twPos).join("");
+      twNext = t + 40;
+      if (twPos <= 0) { twMode = "type"; twI = (twI + 1) % PHR.length; tw.dir = PHR[twI][1]; twNext = t + 350; }
+    }
+  });
+
+  // Number = weight
+  const numw = $("#numw");
+  let nLast = 500;
+  every(numw, t => {
+    const v = Math.round(500 + 400 * Math.sin(t / 1500));
+    if (v === nLast) return;
+    nLast = v; numw.textContent = ar(v); numw.style.fontWeight = v;
+  });
+
+  // Named instances stepper
+  const instW = $("#instW"), instV = $("#instV"), instN = $("#instN"), instL = $("#instL");
+  let iLast = 0;
+  every(instW, t => {
+    const i = Math.floor(t / 1000) % INST.length;
+    if (i === iLast) return;
+    iLast = i;
+    const [w, en, arName] = INST[i];
+    instW.style.fontWeight = w; instV.textContent = w; instN.textContent = arName; instL.textContent = en;
+  });
+
+  // Swash flip
+  const swStage = $("#swashStage"), sw = $("#swash");
+  every(sw, t => {
+    const on = Math.floor(t / 2400) % 2 === 1;
+    sw.classList.toggle("on", on); swStage.classList.toggle("on", on);
+  });
+
+  // Scroll-linked weight
+  const sl = $("#scrollLine"), slVal = $("#scrollVal");
+  let sLast = 0;
+  every(sl, () => {
+    const r = sl.getBoundingClientRect(), vh = innerHeight;
+    const d = Math.min(1, Math.abs(r.top + r.height / 2 - vh / 2) / (vh / 2));
+    const w = Math.round(100 + 800 * (1 - d));
+    if (w === sLast) return;
+    sLast = w; sl.style.fontWeight = w; slVal.textContent = "wght " + w;
+  });
+
+  /* ---------- Tester ---------- */
+  const tStage = $("#tStage"), tW = $("#tW"), tS = $("#tS"), tSwsh = $("#tSwsh"), tDlig = $("#tDlig"), tPlay = $("#tPlay");
+  function applyTester() {
+    const w = +tW.value;
+    tStage.style.fontWeight = w;
+    tStage.style.fontSize = tS.value + "px";
+    const f = [];
+    if (tSwsh.checked) f.push('"swsh" 1');
+    if (tDlig.checked) f.push('"dlig" 1');
+    tStage.style.fontFeatureSettings = f.length ? f.join(", ") : "normal";
+    $("#tWOut").textContent = ar(w) + " · " + nearest(w)[2];
+    $("#tSOut").textContent = ar(tS.value) + " بكسل";
+  }
+  [tW, tS, tSwsh, tDlig].forEach(el => el.addEventListener("input", applyTester));
+  tW.addEventListener("input", () => { if (tPlay.checked) tPlay.checked = false; });
+  $$("#tAlign button").forEach(b => b.addEventListener("click", () => {
+    $$("#tAlign button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+    tStage.style.textAlign = b.dataset.a;
+  }));
+  $$("#tPresets button").forEach(b => b.addEventListener("click", () => {
+    tStage.textContent = b.textContent;
+    if (b.textContent.startsWith("شغف")) { tSwsh.checked = true; applyTester(); }
+    if (b.textContent.startsWith("في")) { tDlig.checked = true; applyTester(); }
+  }));
+  every($("#tester"), t => {
+    if (!tPlay.checked) return;
+    tW.value = Math.round(500 + 400 * Math.sin(t / 1100));
+    applyTester();
+  }, true);
+  applyTester();
+
+  /* ---------- Built-in marks: replay typing, the font forms the symbol ---------- */
+  const marks = $$(".mark");
+  function replay(m) {
+    if (!motionOn) return;
+    const out = $(".mark-out", m), full = out.dataset.full || (out.dataset.full = out.textContent);
+    const chars = [...full]; let k = 0;
+    clearTimeout(m._timer);
+    const step = () => {
+      k++; out.textContent = chars.slice(0, k).join("");
+      if (k < chars.length) m._timer = setTimeout(step, chars.length > 10 ? 55 : 110);
+    };
+    out.textContent = ""; m._timer = setTimeout(step, 120);
+  }
+  marks.forEach(m => {
+    m.addEventListener("mouseenter", () => replay(m));
+    m.addEventListener("focus", () => replay(m));
+    m.addEventListener("click", () => replay(m));
+  });
+  let marksPlayed = false;
+  new IntersectionObserver(es => {
+    if (marksPlayed || !es.some(e => e.isIntersecting)) return;
+    marksPlayed = true;
+    marks.forEach((m, i) => setTimeout(() => replay(m), 300 + i * 450));
+  }, { threshold: 0.35 }).observe($("#marks"));
+
+  /* ---------- Glyph map ---------- */
+  const AR_NAMES = { "ء": "همزة", "آ": "ألف ممدودة", "أ": "ألف بهمزة فوقها", "ؤ": "واو بهمزة", "إ": "ألف بهمزة تحتها", "ئ": "ياء بهمزة", "ا": "ألف", "ب": "باء", "ة": "تاء مربوطة", "ت": "تاء", "ث": "ثاء", "ج": "جيم", "ح": "حاء", "خ": "خاء", "د": "دال", "ذ": "ذال", "ر": "راء", "ز": "زاي", "س": "سين", "ش": "شين", "ص": "صاد", "ض": "ضاد", "ط": "طاء", "ظ": "ظاء", "ع": "عين", "غ": "غين", "ف": "فاء", "ق": "قاف", "ك": "كاف", "ل": "لام", "م": "ميم", "ن": "نون", "ه": "هاء", "و": "واو", "ى": "ألف مقصورة", "ي": "ياء" };
+  const SETS = [["arabic", "العربية"], ["extended", "الفارسية والأردية"], ["digits", "الأرقام"], ["latin", "اللاتينية"], ["symbols", "الرموز"]];
+  const gTabs = $("#gTabs"), gGrid = $("#gGrid"), gBig = $("#gBig"), gForms = $("#gForms"), gW = $("#gW");
+  function showGlyph(g, btn) {
+    gBig.textContent = g.c;
+    $("#gName").textContent = AR_NAMES[g.c] || g.n;
+    $("#gCode").textContent = g.u + " · " + g.n;
+    const forms = [[g.f ? "منفصل" : "الحرف", g.c]];
+    if (g.f) {
+      if (g.f.init) forms.push(["أول الكلمة", g.c + ZWJ]);
+      if (g.f.medi) forms.push(["وسطها", ZWJ + g.c + ZWJ]);
+      if (g.f.fina) forms.push(["آخرها", ZWJ + g.c]);
+    }
+    gForms.style.gridTemplateColumns = `repeat(${forms.length}, minmax(0, 1fr))`;
+    gForms.innerHTML = "";
+    forms.forEach(([label, text]) => {
+      const d = document.createElement("div"), b = document.createElement("b");
+      b.textContent = text; d.append(b, label); gForms.append(d);
+    });
+    gForms.style.fontWeight = gW.value;
+    $$("button", gGrid).forEach(x => x.setAttribute("aria-pressed", String(x === btn)));
+  }
+  function showSet(key) {
+    $$(".tab", gTabs).forEach(x => x.setAttribute("aria-selected", String(x.dataset.k === key)));
+    gGrid.innerHTML = "";
+    const list = GLYPHS[key] || [];
+    list.forEach(g => {
+      const b = document.createElement("button");
+      b.type = "button"; b.textContent = g.c; b.setAttribute("aria-label", AR_NAMES[g.c] || g.n); b.setAttribute("aria-pressed", "false");
+      b.addEventListener("click", () => showGlyph(g, b));
+      gGrid.append(b);
+    });
+    const start = list.findIndex(g => g.c === "ع");
+    const i = start >= 0 ? start : 0;
+    if (list[i]) showGlyph(list[i], gGrid.children[i]);
+  }
+  SETS.forEach(([k, label]) => {
+    if (!(GLYPHS[k] || []).length) return;
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "tab"; b.setAttribute("role", "tab"); b.dataset.k = k;
+    b.textContent = label + " (" + ar(GLYPHS[k].length) + ")";
+    b.addEventListener("click", () => showSet(k));
+    gTabs.append(b);
+  });
+  gW.addEventListener("input", () => {
+    gBig.style.fontWeight = gW.value; gForms.style.fontWeight = gW.value;
+    $("#gWOut").textContent = "wght " + gW.value;
+  });
+  showSet("arabic");
+
+  /* ---------- Download ---------- */
+  $("#fileList").innerHTML = FILES.map(f => `<li><span class="f ltr">${f.name}</span><span>${f.use}</span><span class="sz">${f.size}</span></li>`).join("") +
+    `<li><span class="f">الرخصة</span><span>شروط الاستخدام بالعربية والإنجليزية</span></li>`;
+  $("#zipSize").textContent = ZIP.size;
+  $("#dlMain").innerHTML = fileLink(ZIP.href, "btn btn-primary", 'حمّل الخط <span aria-hidden="true">←</span>');
+  $("#dlEach").innerHTML = FILES.map(f => fileLink(f.href, "", `<span class="ltr">${f.name.split(".").pop().toUpperCase()}</span><small>${f.size}</small>`)).join("");
+  $$("a.lic").forEach(a => { a.href = LICENSE_URL; });
+  $("#dlNote").hidden = !PREVIEW;
+
+  /* ---------- Theme ---------- */
+  const themeBtn = $("#themeBtn");
+  const isDark = () => root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  const syncTheme = () => { themeBtn.textContent = isDark() ? "الوضع النهاري" : "الوضع الليلي"; };
+  themeBtn.addEventListener("click", () => { root.dataset.theme = isDark() ? "light" : "dark"; syncTheme(); });
+  syncTheme();
+})();
+</script>
+</body>
+</html>
