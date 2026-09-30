@@ -132,6 +132,4 @@ Serve `docs/` and use Playwright with Chromium:
 
 ## Open items
 
-- Create the repo, turn on Pages and add the DNS record.
-- Get the licence reviewed.
-- Replace the placeholder copy in `#story`.
+The site has been live at https://fazmx.gamaleldien.com since 2026-09-30. The current state, the to-do list and the lessons learned are in `HANDOFF.md`. Update it at the end of each session.
