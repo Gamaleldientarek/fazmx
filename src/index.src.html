@@ -27,9 +27,9 @@
     fonts/AzmXVariable.woff       older browsers
     fonts/AzmXVariable.ttf        desktop install + last fallback
     downloads/AzmX-Variable.zip   the three fonts + LICENSE.txt
+    heritage/*.jpg                manuscript page and letter crops for #origin
     CNAME                         custom domain for GitHub Pages
 
-  Story copy in #story is placeholder. Replace it with your own.
   Every animation respects prefers-reduced-motion and the
   "إيقاف الحركة" button in the header. Animations pause off-screen.
 -->
@@ -185,8 +185,33 @@ section { padding-block: var(--section); }
 .hero-note { margin-top: var(--s4); font-size: 15px; color: var(--muted); }
 @media (max-width: 900px) { .hero-bottom { grid-template-columns: 1fr; } }
 
+/* ---------- Origin: the manuscripts the letters come from ---------- */
+.origin { border-top: 1px solid var(--rule); }
+.origin-copy { display: grid; align-content: start; gap: var(--s6); }
+.origin-copy .head { margin-bottom: 0; }
+.origin-pull { max-width: 30rem; border-top: 2px solid var(--accent); padding-top: var(--s4); font-size: clamp(28px, 3vw, 40px); line-height: 1.4; font-weight: 250; color: var(--heading); text-wrap: balance; }
+.plate { margin: 0; display: grid; gap: var(--s3); align-content: start; width: 100%; max-width: 400px; justify-self: end; }
+.plate img { display: block; width: 100%; height: auto; }
+.plate figcaption { border-top: 1px solid var(--rule); padding-top: var(--s3); font-size: 14px; color: var(--text-2); }
+.pairs-head { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s4); align-items: baseline; justify-content: space-between; margin-block: var(--s7) var(--s4); }
+.pairs-head h3 { font-size: 20px; font-weight: 600; line-height: 1.4; }
+.pairs-head p { font-size: 15px; color: var(--text-2); }
+.pairs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); border-inline-start: 1px solid var(--rule); }
+.pair { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: var(--s4); align-items: center; padding: var(--s4); border-bottom: 1px solid var(--rule); border-inline-end: 1px solid var(--rule); }
+.pair-old { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
+.pair-new { container-type: inline-size; display: grid; gap: var(--s1); margin: 0; }
+/* 21cqi keeps the longest word, السعوديين (about 4.5em), inside its cell at any width */
+.pair-word { font-size: 40px; font-size: min(56px, 21cqi); line-height: 1.4; font-weight: 700; color: var(--heading); white-space: nowrap; transition: font-weight 1.4s cubic-bezier(.2, .7, .2, 1) var(--ink, 0s); }
+.pair-word b { font-weight: inherit; color: var(--accent); }
+.pair.ink .pair-word, .motion-off .pair-word { transition: none; }
+.pair.ink .pair-word { font-weight: 100; }
+.pair-name { font-size: 14px; line-height: 1.5; color: var(--text-2); }
+@media (max-width: 1239px) { .pairs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 900px) { .plate { justify-self: start; } .pairs { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .pair { grid-template-columns: 88px minmax(0, 1fr); } }
+
 /* ---------- Construction ---------- */
-.build { padding-top: 0; }
+.build { border-top: 1px solid var(--rule); }
 .bf-fig { margin: 0; background: var(--raised); }
 .bf { display: block; width: 100%; height: auto; }
 .bf-base { stroke: var(--accent); stroke-width: 3; opacity: .35; }
@@ -237,10 +262,7 @@ section { padding-block: var(--section); }
 .fig-controls { display: flex; flex-wrap: wrap; gap: var(--s3) var(--s4); align-items: center; padding-block: var(--s3); border-bottom: 1px solid var(--rule); font-size: 15px; color: var(--text-2); }
 input[type="range"] { accent-color: var(--accent); width: 240px; max-width: 100%; }
 
-/* ---------- Story + stats ---------- */
-.story-body { display: grid; gap: var(--s4); font-size: clamp(19px, 1.6vw, 22px); line-height: 1.9; color: var(--text); max-width: 42rem; }
-.story-side { display: grid; align-content: start; gap: var(--s3); border-top: 2px solid var(--accent); padding-top: var(--s4); }
-.story-side p { font-size: clamp(28px, 3vw, 40px); line-height: 1.4; font-weight: 250; color: var(--heading); }
+/* ---------- Stats ---------- */
 .stats { background: var(--inverse); color: var(--on-inverse); padding-block: var(--s7); }
 .stats-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s5) var(--s4); }
 .stat { display: grid; gap: var(--s2); align-content: start; border-top: 1px solid var(--inverse-rule); padding-top: var(--s3); }
@@ -485,6 +507,7 @@ footer .logo svg { width: 80px; }
       <!--@LOGO@-->
     </a>
     <ul>
+      <li><a href="#origin">الأصل</a></li>
       <li><a href="#build">البناء</a></li>
       <li><a href="#anatomy">التشريح</a></li>
       <li><a href="#weights">الأوزان</a></li>
@@ -539,6 +562,40 @@ footer .logo svg { width: 80px; }
   </div>
 </section>
 
+<!-- ================= ORIGIN =================
+     Facts and pairings from the deck «عرض خط السعودية الرقمي V5.0». Images: assets/heritage/,
+     cut from the deck's Keynote originals. In each word, ZWJs keep the letters joined across <b>. -->
+<section class="origin" id="origin">
+  <div class="wrap grid12">
+    <div class="c7 origin-copy">
+      <div class="head">
+        <span class="eyebrow">الأصل</span>
+        <h2>جذوره في مخطوطاتنا.</h2>
+        <p>عزم إكس خطٌّ من طراز النسخ، استلهمنا حروفه من مخطوطات سعودية تعود إلى القرن&nbsp;الثالث&nbsp;عشر&nbsp;الهجري، وأخذنا منها توازن الحرف ودقّة انحناءاته.</p>
+      </div>
+      <p class="origin-pull">خطٌّ سعودي يشبهنا، بأسلوب رقمي حديث.</p>
+    </div>
+    <figure class="c5 plate">
+      <img src="heritage/manuscript.jpg" width="566" height="800" alt="صفحة مزخرفة من مخطوطة، تتوسطها دائرة ملوّنة" loading="lazy" decoding="async">
+      <figcaption>مخطوطة سعودية من القرن الثالث عشر الهجري.</figcaption>
+    </figure>
+  </div>
+  <div class="wrap">
+    <div class="pairs-head">
+      <h3>من المخطوطة إلى عزم إكس</h3>
+      <p>في كل زوج: الحرف كما كُتب في المخطوطة، ثم كما رسمناه في الخط.</p>
+    </div>
+    <ul class="pairs" id="pairs">
+      <li class="pair"><img class="pair-old" src="heritage/la.jpg" width="240" height="240" alt="لام ألف في المخطوطة" loading="lazy" decoding="async"><p class="pair-new"><span class="pair-word">الب&zwj;<b>&zwj;لا</b>د</span><span class="pair-name">لام ألف</span></p></li>
+      <li class="pair"><img class="pair-old" src="heritage/ain.jpg" width="240" height="240" alt="العين في المخطوطة" loading="lazy" decoding="async"><p class="pair-new"><span class="pair-word">الس&zwj;<b>&zwj;ع&zwj;</b>&zwj;وديين</span><span class="pair-name">العين</span></p></li>
+      <li class="pair"><img class="pair-old" src="heritage/waw.jpg" width="240" height="240" alt="الواو في المخطوطة" loading="lazy" decoding="async"><p class="pair-new"><span class="pair-word">الر<b>ؤ</b>ية</span><span class="pair-name">الواو</span></p></li>
+      <li class="pair"><img class="pair-old" src="heritage/dal.jpg" width="240" height="240" alt="الدال في المخطوطة" loading="lazy" decoding="async"><p class="pair-new"><span class="pair-word">ب&zwj;<b>&zwj;د</b>اية</span><span class="pair-name">الدال</span></p></li>
+      <li class="pair"><img class="pair-old" src="heritage/heh.jpg" width="240" height="240" alt="الهاء في المخطوطة" loading="lazy" decoding="async"><p class="pair-new"><span class="pair-word"><b>ه&zwj;</b>&zwj;مة</span><span class="pair-name">الهاء</span></p></li>
+      <li class="pair"><img class="pair-old" src="heritage/zah.jpg" width="240" height="240" alt="الظاء في المخطوطة" loading="lazy" decoding="async"><p class="pair-new"><span class="pair-word">حف&zwj;<b>&zwj;ظ</b></span><span class="pair-name">الظاء</span></p></li>
+    </ul>
+  </div>
+</section>
+
 <!-- ================= CONSTRUCTION ================= -->
 <section class="build" id="build">
   <div class="wrap">
@@ -556,20 +613,6 @@ footer .logo svg { width: 80px; }
         <span><svg viewBox="0 0 20 20" aria-hidden="true"><path class="lg-rh" d="M10 1 L14 5 L10 9 L6 5 Z M10 11 L14 15 L10 19 L6 15 Z"/></svg>عمود النقاط: ارتفاع الألف نحو أربع نقاط</span>
       </figcaption>
     </figure>
-  </div>
-</section>
-
-<!-- ================= STORY (placeholder copy) ================= -->
-<section id="story" style="padding-top:0">
-  <div class="wrap grid12">
-    <div class="c7 story-body">
-      <p>عزم إكس هو الخط الذي نبني به ما نصنعه: العروض، والتقارير، والواجهات، واللافتات. رسمناه ليحمل الحرف العربي واللاتيني بإيقاع واحد، فلا تشعر أن في الصفحة لغتين تتنافسان.</p>
-      <p>يأتي الخط في ملف واحد متغيّر يغطي ثمانية أوزان، من الرفيع إلى الثقيل. تستطيع أن تقف عند أي وزن منها، أو تختار أي قيمة بينها على محور الوزن.</p>
-    </div>
-    <div class="c5 story-side">
-      <span class="eyebrow">محور واحد</span>
-      <p>ثمانمئة درجة من الوزن، في ملف واحد.</p>
-    </div>
   </div>
 </section>
 
@@ -1127,6 +1170,25 @@ h1 { font-weight: 640; }</pre></div>
       rollItems[rollI].classList.add("in");
     }
   });
+
+  /* ---------- Origin: each word inks in from thin to bold, once, as it comes into view ---------- */
+  const pairEls = $$("#pairs .pair");
+  if (motionOn) {
+    pairEls.forEach(p => p.classList.add("ink"));
+    const inkIO = new IntersectionObserver(es => {
+      let k = 0;
+      es.forEach(e => {
+        if (!e.isIntersecting) return;
+        inkIO.unobserve(e.target);
+        e.target.style.setProperty("--ink", k++ * 140 + "ms");
+        e.target.classList.remove("ink");
+      });
+    }, { threshold: 0.6 });
+    pairEls.forEach(p => inkIO.observe(p));
+    motionBtn.addEventListener("click", () => {
+      if (!motionOn) { inkIO.disconnect(); pairEls.forEach(p => p.classList.remove("ink")); }
+    });
+  }
 
   /* ---------- Anatomy weight ---------- */
   const anaW = $("#anaW");

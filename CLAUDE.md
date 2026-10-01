@@ -34,15 +34,16 @@ python -m http.server -d docs 8000        # view at http://localhost:8000
 - **`src/license.html` and `src/LICENSE.txt`**: the licence as a web page, and as the text file inside the download ZIP.
 - **`fonts/`**: the only copy of the font files. The build copies them into `docs/fonts/` and the ZIP.
 - **`assets/`**: the navy logo SVG, which the build recolours to `currentColor`, and the favicon.
-- **`docs/`**: the built site. It holds `index.html`, `license.html`, `fonts/`, `downloads/AzmX-Variable.zip`, `og.png`, `favicon.png`, `CNAME` and `.nojekyll`. The ZIP is deterministic, stamped with the font's own date, so an unchanged font gives an unchanged ZIP.
+  - `assets/heritage/`: the manuscript page and the six letter crops for `#origin`, converted from the deck's CMYK Keynote originals to sRGB. The build copies them to `docs/heritage/`, and the preview inlines them as base64.
+- **`docs/`**: the built site. It holds `index.html`, `license.html`, `fonts/`, `heritage/`, `downloads/AzmX-Variable.zip`, `og.png`, `favicon.png`, `CNAME` and `.nojekyll`. The ZIP is deterministic, stamped with the font's own date, so an unchanged font gives an unchanged ZIP.
 - **`build/`**: generated files, not committed.
 
 ## Page map, top to bottom
 
-1. Header. Nav links: البناء، التشريح، الأوزان، الحركة، جرّب الخط، رموز مدمجة، الحروف، أسئلة. Also the motion toggle `#motionBtn`.
+1. Header. Nav links: الأصل، البناء، التشريح، الأوزان، الحركة، جرّب الخط، رموز مدمجة، الحروف، أسئلة. Also the motion toggle `#motionBtn`.
 2. Hero `#top`.
-3. Construction `#build`.
-4. `#story`, which still has placeholder copy.
+3. Origin `#origin`: where the letters come from. A manuscript page, then six pairs, each setting a letter crop from the manuscripts beside an Azm X word.
+4. Construction `#build`.
 5. `#stats`.
 6. `#anatomy`.
 7. `#weights`.
@@ -69,6 +70,9 @@ python -m http.server -d docs 8000        # view at http://localhost:8000
 
 - **No template.** The owner rejected every ready-made Framer and Webflow template, so the page is hand-built. Its reference is font.thmanyah.com.
 - **Hero headline.** «نكتـب بعـزم، / بحـرفٍ يشبهنـا.», the owner's pick. Each `ـ` marks a kashida that the hero stretches. The subline rolls through للعناوين، للنصوص، للواجهات، للّافتات، للعروض.
+- **Origin section.** Every claim and pairing in it comes from the owner's deck «عرض خط السعودية الرقمي V5.0» (Keynote and PDF, received 2026-10-01): Azm X is a modern Naskh, inspired by Saudi manuscripts of the 13th century AH. Heading: «جذوره في مخطوطاتنا.» Add nothing about the manuscripts that the deck does not say.
+  - The pairs are the deck's: لا in البلاد، ع in السعوديين، و in الرؤية، د in بداية، ه in همة، ظ in حفظ.
+  - The deck's caption for حفظ names حـ, but its highlight and its crop both show ظ. The page follows the highlight until the owner confirms.
 - **Construction section.** It follows Thmanyah's "The Answer" section, but is built on our own rhombus dot. Heading: «كل حرف يبدأ من نقطة.»
 - **Hosting.** GitHub Pages, from the public repo `Gamaleldientarek/fazmx`, branch `main`, folder `/docs`.
 - **Downloads.** Direct, with no email capture: one ZIP plus the three separate files.
@@ -87,6 +91,7 @@ python -m http.server -d docs 8000        # view at http://localhost:8000
   - Scroll exhale.
   - The subline word rolls every 2.6 s.
   - `paintHero` also drives the meter bars and the `#heroLive` readout.
+- **Origin words.** Each word inks in once, from wght 100 to 700, the first time its pair is 60% on screen. Pairs that arrive together are staggered 140 ms apart. Under reduced motion, or with motion switched off, the words are simply bold.
 - **Construction figure.** Pure CSS keyframes (`bfDraw`, `bfDot`, `bfCon`) on a 10 s loop, staggered with `--d`.
   - A negative delay makes the first frame the finished word.
   - The point markers are hidden below 600 px.
@@ -96,6 +101,7 @@ python -m http.server -d docs 8000        # view at http://localhost:8000
 - **Split text.** `split()` wraps each letter in a span and adds a ZWJ (U+200D) on every side that joins, based on `joinType()` (D/R/C/T/U).
   - Lam-alef stays as one cluster, and harakat stay with the letter before them.
   - A hidden `.sr` copy keeps the text readable by screen readers.
+- **Highlighted letters.** In `#origin`, the inspired letter sits in a `<b>` inside its word, with `&zwj;` on each side where it joins: the same rule `split()` follows.
 - **Copying.** The copy handler strips the ZWJs, the `.sr` copies and the hidden rolling words from whatever the reader copies. After adding split text, test copy and paste.
 - **Logotypes.** `rlig` turns خادم الحرمين الشريفين، ولي العهد، المعالي، صلى الله عليه وسلم and الله into logotypes wherever Azm X renders them. To show one as plain text in a label or the FAQ, either:
   - put a ZWNJ (U+200C) before a space inside the phrase, or
