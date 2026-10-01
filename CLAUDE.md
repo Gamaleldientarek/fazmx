@@ -24,6 +24,7 @@ python -m http.server -d docs 8000        # view at http://localhost:8000
   - `build.py` fills these placeholders:
     - `/*@FONTSRC@*/…/*@END@*/`: the font URLs. The preview inlines the WOFF2 as base64 instead.
     - `<!--@LOGO@-->` (used twice), `<!--@CONSTRUCTION@-->` and `/*@GLYPHS@*/{}`.
+    - `<!--@CHARS:ar@-->`, `<!--@CHARS:la@-->` and `<!--@FEATURES@-->`: the character wall and the feature tags in `#stats`, read from the font. The wall leaves out combining marks, spaces, controls, presentation forms, tatweel and the dotted circle.
     - `/*@PREVIEW@*/false`, `/*@ZIPSIZE@*/` and `/*@SIZE:<font file>@*/`.
     - `<!--@META@-->…<!--@END_META@-->`: the canonical, Open Graph and Twitter tags, which the preview drops.
     - `/*@DL@*/…/*@END_DL@*/`: the download links. The preview swaps in disabled spans, because the claude.ai viewer blocks downloads.
@@ -44,7 +45,7 @@ python -m http.server -d docs 8000        # view at http://localhost:8000
 2. Hero `#top`.
 3. Origin `#origin`: where the letters come from. A manuscript page, then six pairs, each setting a letter crop from the manuscripts beside an Azm X word.
 4. Construction `#build`.
-5. `#stats`.
+5. `#stats` («بالأرقام»): a dark band in both themes, on a 7/5 then 5/7 grid. Each number sits on its proof: ع in its five shapes, the character wall, the 24 feature tags, and ع at the eight weights.
 6. `#anatomy`.
 7. `#weights`.
 8. `#motion`: 12 tiles and a marquee band. The tiles are نَفَس، موجة، مغناطيس، مَدّ، كتابة حيّة، الرقم وزنه، سُلَّم، الأوزان الثمانية، أثر، مُرسَل، هبوط، تمرير.
@@ -118,6 +119,7 @@ All of these are verified against the font. `build.py` warns if the numbers in `
 - **Counts.** 803 glyphs, 552 Unicode characters and 24 OpenType feature tags.
 - **Metrics.** 1000 units per em, ascender 950, descender −500, alef and cap height 680, x-height 476.
 - **Swashes.** `swsh` works on final ب ت ث د ذ ع غ ف, for example شغف، سعد، ذهب. The optional ligature `dlig` gives في.
+- **Five shapes of ع.** HarfBuzz gives ع five separate glyphs: `uni0639` and its `.init`, `.medi`, `.fina` and `.fina.swsh` forms. The `#stats` note «حرف واحد، خمسة أشكال» depends on this.
 - **Dots.** They are rhombi: about 162 units at wght 700, 55 at 100 and 170 at 900. A few dots are 142–145 units. The alef is about four dots tall at 700.
 
 ## Checking changes

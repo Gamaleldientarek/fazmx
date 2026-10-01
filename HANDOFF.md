@@ -27,22 +27,25 @@ Last session: **2026-10-01** (Cairo time, UTC+2). To pick up from here, read `CL
    - reduced motion and the motion switch both leave the words bold
    - the preview's inlined images load
 4. **Deployed.** Shell commands could not write anywhere under ~/Documents in this session, so local git was not possible. The build was made in a scratch copy, and one commit went straight to `main` through the GitHub API. It holds `src/`, `assets/heritage/`, `docs/index.html`, `docs/heritage/`, `CLAUDE.md` and this file.
+5. **Redesigned the numbers band `#stats`** at the owner's request, and shipped it as a second API commit with the owner's approval.
+   - «بالأرقام»: a dark band in both themes. Before, it showed as a plain white strip in dark mode.
+   - Each number sits on its proof, read from the font: ع in its five shapes, the character wall, the 24 feature tags, and ع at the eight weights.
 
 ## Next up
 
 1. **Sync this folder with GitHub before editing anything.**
-   - This clone is one commit behind `main`, and it shows that commit's changes as uncommitted edits. Run `git fetch && git reset --hard origin/main`. Nothing is lost, because the files here already match that commit.
+   - This clone is behind `main` by the commits pushed through the API, and it shows their changes as uncommitted edits. Run `git fetch && git reset --hard origin/main`. Nothing is lost, because the files here already match those commits.
+   - Exception: any work that `HANDOFF.md` says is local only (such as the download form, until it ships). Copy those files somewhere safe before the reset, and put them back afterwards.
    - Then delete the stray `assets/heritage/.probe`.
-2. **Redesign the `#stats` band** (٨٠٣ / ٥٥٢ / ٢٤ / ٨). The owner asked for this on 2026-10-01. In dark mode it shows as a plain white strip.
-3. **Download form: ask for name and email.** The owner asked for this on 2026-10-01. It reverses the "no email capture" decision in `CLAUDE.md`. Waiting on one decision: where the submissions are stored.
-4. **Confirm the letter in حفظ.** The deck's caption names حـ, but its red highlight and its manuscript crop (from «لظنهم») both show ظ. The page shows ظ.
-5. **Confirm where the manuscripts come from, and that we may publish the scans.** The deck gives no collection or credit. If there is one, add it to the plate's caption.
-6. **Copying the hero headline copies the kashidas.**
+2. **Download form: ask for name and email.** The owner asked for this on 2026-10-01, and chose a Google Sheet in AZM X's Google account to store the submissions. It reverses the "no email capture" decision in `CLAUDE.md`. In progress: the form ships once the owner has deployed the Sheet's script and sent its URL.
+3. **Confirm the letter in حفظ.** The deck's caption names حـ, but its red highlight and its manuscript crop (from «لظنهم») both show ظ. The page shows ظ.
+4. **Confirm where the manuscripts come from, and that we may publish the scans.** The deck gives no collection or credit. If there is one, add it to the plate's caption.
+5. **Copying the hero headline copies the kashidas.**
    - The copied text includes however many stretched kashidas the animation was showing at that moment. For example, the live site gave «نكتـــب بعزم، بحــرفٍ يشبهنــــا.».
    - The ZWJs are already stripped. The fix goes in the copy handler in `src/index.src.html`.
    - Decide first what "clean" should mean. The recommendation is plain text with no tatweel: «نكتب بعزم، بحرفٍ يشبهنا.». The other choice is the source spelling, «نكتـب بعـزم، بحـرفٍ يشبهنـا.».
-7. **Verify `gamaleldien.com` in GitHub** (profile Settings → Pages → Verified domains). Then no other GitHub account can put a Pages site on its subdomains.
-8. **Get the licence reviewed** by the owner and a lawyer. It's still a draft.
+6. **Verify `gamaleldien.com` in GitHub** (profile Settings → Pages → Verified domains). Then no other GitHub account can put a Pages site on its subdomains.
+7. **Get the licence reviewed** by the owner and a lawyer. It's still a draft.
 
 ## Where the deck and the page disagree
 

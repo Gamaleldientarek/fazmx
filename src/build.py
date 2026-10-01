@@ -14,8 +14,10 @@ import re
 import shutil
 import subprocess
 import sys
+import unicodedata
 import zipfile
 from datetime import datetime, timedelta
+from html import escape
 from pathlib import Path
 
 from fontTools.ttLib import TTFont
@@ -58,6 +60,17 @@ for label, s, a in zip(("glyphs", "characters", "feature tags", "named weights")
     if s != a:
         print(f"WARNING: the page says {s} {label}, the font has {a}. Update #stats and any copy that repeats it.")
 
+# The proofs under the numbers in #stats: every visible character the font maps (no marks, spaces,
+# controls, presentation forms, tatweel or dotted circle), Arabic first, and the feature tags.
+HIDDEN = {"Mn", "Me", "Cf", "Cc", "Co", "Zs", "Zl", "Zp"}
+shown = [chr(c) for c in sorted(font.getBestCmap())
+         if unicodedata.category(chr(c)) not in HIDDEN and c not in (0x0640, 0x25CC) and not 0xFB50 <= c <= 0xFEFF]
+is_ar = lambda ch: 0x0600 <= ord(ch) <= 0x06FF or 0x0750 <= ord(ch) <= 0x077F
+chars_ar = escape(" ".join(ch for ch in shown if is_ar(ch)))
+chars_la = escape(" ".join(ch for ch in shown if not is_ar(ch)))
+feature_tags = "".join(f'<li><code class="on">{t}</code></li>' if t == "swsh" else f"<li><code>{t}</code></li>"
+                       for t in sorted(features))
+
 
 def kb(n):
     return "".join(AR[int(c)] for c in str(round(n / 1024))) + " ك.ب"
@@ -69,6 +82,8 @@ def fill(html, fontsrc, preview, zipsize):
     html = html.replace("<!--@LOGO@-->", logo)
     html = html.replace("<!--@CONSTRUCTION@-->", construction)
     html = html.replace("/*@GLYPHS@*/{}", glyph_json)
+    html = html.replace("<!--@CHARS:ar@-->", chars_ar).replace("<!--@CHARS:la@-->", chars_la)
+    html = html.replace("<!--@FEATURES@-->", feature_tags)
     html = html.replace("/*@PREVIEW@*/false", "true" if preview else "false")
     html = html.replace("/*@ZIPSIZE@*/", zipsize)
     return html

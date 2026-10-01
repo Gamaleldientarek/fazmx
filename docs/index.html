@@ -261,13 +261,39 @@ section { padding-block: var(--section); }
 .fig-controls { display: flex; flex-wrap: wrap; gap: var(--s3) var(--s4); align-items: center; padding-block: var(--s3); border-bottom: 1px solid var(--rule); font-size: 15px; color: var(--text-2); }
 input[type="range"] { accent-color: var(--accent); width: 240px; max-width: 100%; }
 
-/* ---------- Stats ---------- */
-.stats { background: var(--inverse); color: var(--on-inverse); padding-block: var(--s7); }
-.stats-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s5) var(--s4); }
-.stat { display: grid; gap: var(--s2); align-content: start; border-top: 1px solid var(--inverse-rule); padding-top: var(--s3); }
-.stat .n { font-size: clamp(56px, 7vw, 104px); line-height: 1.1; font-weight: 200; color: var(--on-inverse); }
-.stat .l { font-size: 16px; line-height: 1.6; color: var(--on-inverse-2); max-width: 16rem; }
-@media (max-width: 900px) { .stats-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* ---------- Numbers: a dark band in both themes; each number sits on its proof ---------- */
+.stats { --st-bg: #040038; --st-2: #BFD5FF; --st-3: #93B6FF; --st-accent: #5D8FFF; --st-rule: rgba(255, 255, 255, .2); background: var(--st-bg); color: #FFFFFF; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .stats { --st-bg: #01006E; } }
+:root[data-theme="dark"] .stats { --st-bg: #01006E; }
+.stats .eyebrow { color: var(--st-accent); }
+.stats .head h2 { color: #FFFFFF; }
+.st-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); border-top: 1px solid var(--st-rule); }
+.stat { display: grid; align-content: start; gap: var(--s5); min-width: 0; padding-block: var(--s5) var(--s6); }
+.st-glyphs, .st-weights { grid-column: span 7; }
+.st-chars, .st-feats { grid-column: span 5; }
+.st-glyphs, .st-feats { padding-inline-end: var(--s5); border-inline-end: 1px solid var(--st-rule); }
+.st-chars, .st-weights { padding-inline-start: var(--s5); }
+.st-glyphs, .st-chars { border-bottom: 1px solid var(--st-rule); }
+.st-num { display: grid; gap: var(--s2); }
+.stat .n { font-size: clamp(64px, 8vw, 128px); line-height: 1.1; font-weight: 200; color: #FFFFFF; }
+.stat .l { font-size: 16px; line-height: 1.6; color: var(--st-2); max-width: 20rem; }
+.st-forms { display: flex; flex-wrap: wrap; gap: var(--s3) clamp(16px, 3vw, 40px); }
+.st-forms span { display: grid; justify-items: center; gap: var(--s1); font-size: 13px; color: var(--st-3); }
+.st-forms b { font-size: clamp(48px, 5vw, 72px); line-height: 1.3; font-weight: 400; color: #FFFFFF; }
+.st-forms .sw b { font-feature-settings: "swsh" 1; color: var(--st-accent); }
+.st-note { font-size: 15px; color: var(--st-2); }
+.st-wall { max-height: calc(16px * 1.9 * 9); overflow: hidden; -webkit-mask-image: linear-gradient(#000 50%, transparent); mask-image: linear-gradient(#000 50%, transparent); -webkit-user-select: none; user-select: none; }
+.st-wall p { font-size: 16px; line-height: 1.9; word-spacing: .4em; color: var(--st-2); overflow-wrap: anywhere; }
+.st-tags { display: flex; flex-wrap: wrap; gap: var(--s2); list-style: none; margin: 0; padding: 0; }
+.st-tags code { display: block; padding: 2px var(--s2); border: 1px solid var(--st-rule); font: 13px/1.6 var(--code); color: var(--st-2); }
+.st-tags code.on { border-color: var(--st-accent); color: var(--st-accent); }
+.st-ladder { container-type: inline-size; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); }
+.st-ladder span { display: grid; justify-items: center; gap: var(--s1); font-size: 12px; color: var(--st-3); }
+.st-ladder b { font-size: 48px; font-size: min(72px, 10cqi); line-height: 1.3; color: #FFFFFF; }
+@media (max-width: 900px) {
+  .st-grid > .stat { grid-column: 1 / -1; padding-inline: 0; border-inline-end: 0; border-bottom: 1px solid var(--st-rule); }
+  .st-grid > .stat:last-child { border-bottom: 0; }
+}
 
 /* ---------- Weights ---------- */
 .wlist { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
@@ -739,14 +765,40 @@ footer .logo svg { width: 80px; }
   </div>
 </section>
 
-<div class="stats" data-watch id="stats">
-  <div class="wrap stats-row">
-    <div class="stat"><span class="n num" data-v="803">٨٠٣</span><span class="l">رمزًا مرسومًا في الخط</span></div>
-    <div class="stat"><span class="n num" data-v="552">٥٥٢</span><span class="l">محرفًا يونيكوديًا يدعمه الخط</span></div>
-    <div class="stat"><span class="n num" data-v="24">٢٤</span><span class="l">خاصية تنضيد مدمجة، منها الحروف المرسلة</span></div>
-    <div class="stat"><span class="n num" data-v="8">٨</span><span class="l">أوزان مسمّاة على محور واحد</span></div>
+<!-- ================= NUMBERS =================
+     Each number carries its proof, taken from the font. build.py fills the character wall
+     (the CHARS placeholders) and the feature tags (FEATURES) from the font file. -->
+<section class="stats" data-watch id="stats">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">بالأرقام</span>
+      <h2>مقيسة من الخط نفسه.</h2>
+    </div>
+    <div class="st-grid">
+      <div class="stat st-glyphs">
+        <div class="st-num"><span class="n num" data-v="803">٨٠٣</span><span class="l">رمزًا مرسومًا في الخط</span></div>
+        <div class="st-forms" aria-hidden="true">
+          <span><b>ع</b>منفصل</span><span><b>ع&zwj;</b>أول الكلمة</span><span><b>&zwj;ع&zwj;</b>وسطها</span><span><b>&zwj;ع</b>آخرها</span><span class="sw"><b>&zwj;ع</b>مرسل</span>
+        </div>
+        <p class="st-note">حرف واحد، خمسة أشكال. لهذا تزيد الرموز على المحارف.</p>
+      </div>
+      <div class="stat st-chars">
+        <div class="st-num"><span class="n num" data-v="552">٥٥٢</span><span class="l">محرفًا يونيكوديًا يدعمه الخط</span></div>
+        <div class="st-wall" aria-hidden="true"><p dir="rtl">، ؛ ؟ ء آ أ ؤ إ ئ ا ب ة ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ى ي ٠ ١ ٢ ٣ ٤ ٥ ٦ ٧ ٨ ٩ ٪ ٫ ٬ ٭ ٮ ٯ ٱ ٹ پ چ ڈ ڎ ڑ ڕ ژ ڡ ڤ ک گ ڵ ں ھ ہ ۂ ۃ ۆ ۊ ی ێ ۏ ے ۓ ۔ ە ۰ ۱ ۲ ۳ ۴ ۵ ۶ ۷ ۸ ۹ ݩ</p><p dir="ltr">! &quot; # $ % &amp; &#x27; ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ? @ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _ ` a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~ ¡ ¢ £ ¤ ¥ ¦ § ¨ © ª « ¬ ® ¯ ° ± ² ³ ´ µ ¶ · ¸ ¹ º » ¼ ½ ¾ ¿ À Á Â Ã Ä Å Æ Ç È É Ê Ë Ì Í Î Ï Ð Ñ Ò Ó Ô Õ Ö × Ø Ù Ú Û Ü Ý Þ ß à á â ã ä å æ ç è é ê ë ì í î ï ð ñ ò ó ô õ ö ÷ ø ù ú û ü ý þ ÿ Ā ā Ă ă Ą ą Ć ć Ċ ċ Č č Ď ď Đ đ Ē ē Ė ė Ę ę Ě ě Ğ ğ Ġ ġ Ģ ģ Ħ ħ Ī ī Į į İ ı Ĳ ĳ Ķ ķ Ĺ ĺ Ļ ļ Ľ ľ Ŀ ŀ Ł ł Ń ń Ņ ņ Ň ň Ŋ ŋ Ō ō Ő ő Œ œ Ŕ ŕ Ŗ ŗ Ř ř Ś ś Ş ş Š š Ţ ţ Ť ť Ū ū Ŭ ŭ Ů ů Ű ű Ų ų Ŵ ŵ Ŷ ŷ Ÿ Ź ź Ż ż Ž ž Ə ƒ Ș ș Ț ț ȷ ə ʻ ʼ ˆ ˇ ˘ ˙ ˚ ˛ ˜ ˝ Ω π ฿ Ẁ ẁ Ẃ ẃ Ẅ ẅ ẞ Ỳ ỳ – — ‘ ’ ‚ “ ” „ † ‡ • … ‰ ′ ″ ‹ › ⁄ ⁰ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₩ € ₴ ₹ ₽ ™ ⅛ ⅜ ⅝ ⅞ ← ↑ → ↓ ↔ ↕ ↖ ↗ ↘ ↙ ∂ ∆ ∏ ∑ − √ ∞ ∫ ≈ ≠ ≤ ≥ ◊ 、 〜 ﬁ ﬂ</p></div>
+      </div>
+      <div class="stat st-feats">
+        <div class="st-num"><span class="n num" data-v="24">٢٤</span><span class="l">خاصية تنضيد مدمجة، منها الحروف المرسلة</span></div>
+        <ul class="st-tags" aria-label="خصائص التنضيد المدمجة"><li><code>aalt</code></li><li><code>calt</code></li><li><code>case</code></li><li><code>ccmp</code></li><li><code>curs</code></li><li><code>dlig</code></li><li><code>dnom</code></li><li><code>fina</code></li><li><code>frac</code></li><li><code>init</code></li><li><code>kern</code></li><li><code>liga</code></li><li><code>locl</code></li><li><code>mark</code></li><li><code>medi</code></li><li><code>mkmk</code></li><li><code>numr</code></li><li><code>ordn</code></li><li><code>rlig</code></li><li><code>rvrn</code></li><li><code>sinf</code></li><li><code>subs</code></li><li><code>sups</code></li><li><code class="on">swsh</code></li></ul>
+      </div>
+      <div class="stat st-weights">
+        <div class="st-num"><span class="n num" data-v="8">٨</span><span class="l">أوزان مسمّاة على محور واحد</span></div>
+        <div class="st-ladder" aria-hidden="true">
+          <span><b style="font-weight:100">ع</b>١٠٠</span><span><b style="font-weight:200">ع</b>٢٠٠</span><span><b style="font-weight:300">ع</b>٣٠٠</span><span><b style="font-weight:400">ع</b>٤٠٠</span><span><b style="font-weight:500">ع</b>٥٠٠</span><span><b style="font-weight:600">ع</b>٦٠٠</span><span><b style="font-weight:700">ع</b>٧٠٠</span><span><b style="font-weight:900">ع</b>٩٠٠</span>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
 <!-- ================= ANATOMY ================= -->
 <section class="anatomy" id="anatomy">
