@@ -33,6 +33,7 @@ python -m http.server -d docs 8000        # view at http://localhost:8000
   - The `init`, `medi` and `fina` flags record whether HarfBuzz gives a letter its own glyph in that position.
 - **`src/make_construction.py`** writes `build/construction.svg`, the «تجربة» figure in `#build`. It uses the real outlines at wght 700: letter bodies, rhombus dots, Bézier points on ج and ة, and a column of dots that measures the alef.
 - **`src/license.html` and `src/LICENSE.txt`**: the licence as a web page, and as the text file inside the download ZIP.
+- **`tools/download-sheet.gs`**: the Google Apps Script behind the download form. It appends each submission to a Sheet in AZM X's Google account. Setup steps are in its header. It is not part of the build.
 - **`fonts/`**: the only copy of the font files. The build copies them into `docs/fonts/` and the ZIP.
 - **`assets/`**: the navy logo SVG, which the build recolours to `currentColor`, and the favicon.
   - `assets/heritage/`: the manuscript page and the six letter crops for `#origin`, converted from the deck's CMYK Keynote originals to sRGB. The build copies them to `docs/heritage/`, and the preview inlines them as base64.
@@ -76,7 +77,13 @@ python -m http.server -d docs 8000        # view at http://localhost:8000
   - The deck's caption for حفظ names حـ, but its highlight and its crop both show ظ. The page follows the highlight until the owner confirms.
 - **Construction section.** It follows Thmanyah's "The Answer" section, but is built on our own rhombus dot. Heading: «كل حرف يبدأ من نقطة.»
 - **Hosting.** GitHub Pages, from the public repo `Gamaleldientarek/fazmx`, branch `main`, folder `/docs`.
-- **Downloads.** Direct, with no email capture: one ZIP plus the three separate files.
+- **Downloads.** One ZIP plus the three separate files, behind a short form that asks for name and email (the owner's call, 2026-10-01; before that, downloads were direct).
+  - Submissions go to the Sheet "Azm X: downloads" (tab "Downloads") in gibrahim@azmx.sa's Drive, through the Apps Script project "Azm X downloads form" (`tools/download-sheet.gs`).
+  - The script is deployed as a web app that executes as gibrahim@azmx.sa, with access set to Anyone. `FORM_URL` in the page script holds its `/exec` URL. With `FORM_URL` empty, there is no form and the downloads are direct.
+  - To change the script, edit it in Apps Script, then go to Deploy → Manage deployments → Edit → Version: New version. The URL stays the same. A new deployment would create a new URL.
+  - The form never blocks the font. If the save fails or takes more than 6 s, the files are shown anyway, and a browser that has filled it in once is not asked again.
+  - The files stay reachable by direct link, because the page itself loads the fonts. The form is a courtesy, not a lock.
+  - The privacy line under the form was approved by the owner on 2026-10-01: «نحفظ اسمك وبريدك لدى عزم إكس لنرسل إليك تحديثات الخط، ولا نشاركهما مع أي جهة.» Using the list for anything else means changing this line first.
 - **Licence.** Free for personal and commercial use. The files may not be sold, redistributed on their own, or modified. This is a draft that still needs review by the owner and a lawyer.
 
 ## How the animation works
@@ -130,6 +137,7 @@ Serve `docs/` and use Playwright with Chromium:
 - Check there are no console errors and no sideways scroll: `document.documentElement.scrollWidth <= innerWidth`.
 - Check that the split text joins correctly, and that copying the hero headline gives clean text.
 - Check that the download links point to `downloads/AzmX-Variable.zip` and `fonts/…`.
+- Test the download form against a local stand-in endpoint, never the real Sheet: point `FORM_URL` at a small server that logs what it receives. Check bad input, a valid submit, a return visit, and a dead endpoint.
 
 ## Deploying
 

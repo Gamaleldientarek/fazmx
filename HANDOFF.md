@@ -30,14 +30,17 @@ Last session: **2026-10-01** (Cairo time, UTC+2). To pick up from here, read `CL
 5. **Redesigned the numbers band `#stats`** at the owner's request, and shipped it as a second API commit with the owner's approval.
    - «بالأرقام»: a dark band in both themes. Before, it showed as a plain white strip in dark mode.
    - Each number sits on its proof, read from the font: ع in its five shapes, the character wall, the 24 feature tags, and ع at the eight weights.
+6. **Switched on the download form** at the owner's request: name and email before the files. Shipped as a third API commit with the owner's approval.
+   - The Sheet "Azm X: downloads" and the Apps Script project "Azm X downloads form" were set up in gibrahim@azmx.sa through Chrome, and the owner clicked Allow. Details are in `CLAUDE.md` under Downloads.
+   - Tested: a bad email is rejected, the honeypot is ignored, a valid entry is saved, and a browser on the live domain can read the reply. The test rows were deleted from the Sheet afterwards.
+   - The owner approved the privacy line as written.
 
 ## Next up
 
 1. **Sync this folder with GitHub before editing anything.**
-   - This clone is behind `main` by the commits pushed through the API, and it shows their changes as uncommitted edits. Run `git fetch && git reset --hard origin/main`. Nothing is lost, because the files here already match those commits.
-   - Exception: any work that `HANDOFF.md` says is local only (such as the download form, until it ships). Copy those files somewhere safe before the reset, and put them back afterwards.
+   - This clone is behind `main` by the commits pushed through the API, and it shows their changes as uncommitted edits. Everything here is now pushed, so nothing is lost: run `git fetch && git reset --hard origin/main`.
    - Then delete the stray `assets/heritage/.probe`.
-2. **Download form: ask for name and email.** The owner asked for this on 2026-10-01, and chose a Google Sheet in AZM X's Google account to store the submissions. It reverses the "no email capture" decision in `CLAUDE.md`. In progress: the form ships once the owner has deployed the Sheet's script and sent its URL.
+2. **Optional hardening for the form script.** Add `/** @OnlyCurrentDoc */` at the top of the Apps Script. That limits its access to this one Sheet instead of all of the account's spreadsheets. Then deploy it as a new version of the same deployment (see `CLAUDE.md`), and allow again when asked.
 3. **Confirm the letter in حفظ.** The deck's caption names حـ, but its red highlight and its manuscript crop (from «لظنهم») both show ظ. The page shows ظ.
 4. **Confirm where the manuscripts come from, and that we may publish the scans.** The deck gives no collection or credit. If there is one, add it to the plate's caption.
 5. **Copying the hero headline copies the kashidas.**

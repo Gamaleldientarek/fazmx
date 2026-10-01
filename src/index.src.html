@@ -503,6 +503,14 @@ kbd { font-family: var(--sys); font-size: 14px; padding: 0 var(--s2); border: 1p
 .dl-each > * + * { border-inline-start: 1px solid #E5E7EB; padding-inline-start: var(--s3); }
 .dl-each small { color: #6C737F; font-weight: 400; font-size: 13px; }
 .dl-each a:hover { color: #001AFF; }
+.dl-form, .dl-files { display: grid; gap: var(--s4); }
+.field { display: grid; gap: var(--s1); font-size: 14px; font-weight: 600; color: #040038; }
+.field input { height: 48px; padding: 0 var(--s3); border: 1px solid #D2D6DB; border-radius: 0; background: #FFFFFF; color: #111927; font: 400 16px/1 var(--azm); }
+.field input:focus { outline: 2px solid #001AFF; outline-offset: 0; border-color: #001AFF; }
+.hp { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.dl-error { font-size: 14px; color: #DB0015; }
+.dl-privacy { font-size: 13px; color: #6C737F; }
+.dl-thanks { font-size: 16px; font-weight: 600; color: #040038; }
 .dl-terms { font-size: 14px; color: #4D5761; }
 .dl-terms a { color: #001AFF; }
 .dl-note { font-size: 13px; color: #6C737F; }
@@ -1024,8 +1032,19 @@ h1 { font-weight: 640; }</pre></div>
     <div class="form c5" id="dlPanel">
       <h3 class="dl-title">حمّل الخط كاملًا</h3>
       <p class="dl-meta">ملف مضغوط واحد يضم الملفات الثلاثة والرخصة، <span class="num" id="zipSize"></span>.</p>
-      <div id="dlMain"></div>
-      <div class="dl-each" id="dlEach"></div>
+      <form class="dl-form" id="dlForm" novalidate hidden>
+        <label class="field">الاسم<input name="name" type="text" autocomplete="name" required maxlength="120"></label>
+        <label class="field">البريد الإلكتروني<input name="email" type="email" inputmode="email" autocomplete="email" required maxlength="200" dir="ltr"></label>
+        <label class="hp" aria-hidden="true">اترك هذا الحقل فارغًا<input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+        <p class="dl-error" id="dlError" role="alert" hidden>اكتب اسمك وبريدًا إلكترونيًا صحيحًا.</p>
+        <button class="btn btn-primary" type="submit">تابع إلى التحميل <span aria-hidden="true">←</span></button>
+        <p class="dl-privacy">نحفظ اسمك وبريدك لدى عزم إكس لنرسل إليك تحديثات الخط، ولا نشاركهما مع أي جهة.</p>
+      </form>
+      <p class="dl-thanks" id="dlThanks" hidden></p>
+      <div class="dl-files" id="dlFiles">
+        <div id="dlMain"></div>
+        <div class="dl-each" id="dlEach"></div>
+      </div>
       <p class="dl-terms">بتحميل الخط، أنت توافق على <a class="lic" href="license.html">شروط الرخصة</a>.</p>
       <p class="dl-note" id="dlNote" hidden>روابط التحميل تعمل في الموقع المنشور.</p>
     </div>
@@ -1058,6 +1077,8 @@ h1 { font-weight: 640; }</pre></div>
     { name: "AzmXVariable.woff", use: "للمتصفحات الأقدم", size: "/*@SIZE:AzmXVariable.woff@*/", href: "fonts/AzmXVariable.woff" }
   ];
   const ZIP = { name: "AzmX-Variable.zip", size: "/*@ZIPSIZE@*/", href: "downloads/AzmX-Variable.zip" };
+  // Web app URL (ends in /exec) of tools/download-sheet.gs. Empty: no form, the downloads stay direct.
+  const FORM_URL = "https://script.google.com/macros/s/AKfycbwL7Hay0Yh7XvZOMmfN083GUPJKr5wMvUshE2l_im7iu8WwWcG33ubiY7TwJG5nu_7Ybw/exec";
   const LICENSE_URL = PREVIEW ? "#faq" : "license.html";
   /*@DL@*/const fileLink = (href, cls, inner) => `<a class="${cls}" href="${href}" download>${inner}</a>`;/*@END_DL@*/
   const INST = [[100, "Thin", "رفيع"], [200, "ExtraLight", "خفيف جدًا"], [300, "Light", "خفيف"], [400, "Regular", "عادي"], [500, "Medium", "متوسط"], [600, "SemiBold", "شبه عريض"], [700, "Bold", "عريض"], [900, "Heavy", "ثقيل"]];
@@ -1481,6 +1502,33 @@ h1 { font-weight: 640; }</pre></div>
   $("#dlEach").innerHTML = FILES.map(f => fileLink(f.href, "", `<span class="ltr">${f.name.split(".").pop().toUpperCase()}</span><small>${f.size}</small>`)).join("");
   $$("a.lic").forEach(a => { a.href = LICENSE_URL; });
   $("#dlNote").hidden = !PREVIEW;
+
+  /* Name and email before the files, once per browser. The font is free, so a failed or slow
+     save never blocks the download: after 6 s, or on any error, the files are shown anyway. */
+  const dlForm = $("#dlForm"), dlFiles = $("#dlFiles");
+  const remember = { get: () => { try { return localStorage.getItem("fazmx-dl"); } catch (e) { return null; } },
+                     set: () => { try { localStorage.setItem("fazmx-dl", "1"); } catch (e) { /* private mode */ } } };
+  if (FORM_URL && !PREVIEW && !remember.get()) {
+    dlForm.hidden = false; dlFiles.hidden = true;
+    dlForm.addEventListener("input", () => { $("#dlError").hidden = true; });
+    dlForm.addEventListener("submit", async e => {
+      e.preventDefault();
+      const fd = new FormData(dlForm);
+      const name = String(fd.get("name") || "").trim(), email = String(fd.get("email") || "").trim();
+      const valid = name && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
+      $("#dlError").hidden = !!valid;
+      if (!valid) return;
+      $("button", dlForm).disabled = true;
+      fd.set("page", location.href);
+      try {
+        await Promise.race([fetch(FORM_URL, { method: "POST", body: new URLSearchParams(fd) }), new Promise(r => setTimeout(r, 6000))]);
+      } catch (err) { /* shown anyway */ }
+      remember.set();
+      dlForm.hidden = true; dlFiles.hidden = false;
+      const thanks = $("#dlThanks"); thanks.textContent = "شكرًا، " + name + ". الملفات جاهزة."; thanks.hidden = false;
+      $("a", dlFiles)?.focus();
+    });
+  }
 
   /* ---------- Theme ---------- */
   const themeBtn = $("#themeBtn");
