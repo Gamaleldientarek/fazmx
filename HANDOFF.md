@@ -1,76 +1,88 @@
 # Session hand-off
 
-Last session: **2026-10-01** (Cairo time, UTC+2). To pick up from here, read `CLAUDE.md` first, then this file. The build and publish commands are in `README.md`.
+Last session: **2026-10-01** (Cairo time). To pick up from here, read `CLAUDE.md` first, then this file. The build and publish commands are in `README.md`.
+
+## Before you touch anything: sync this folder
+
+This session could not run git here (see Lessons), so every change went to GitHub through its API. This folder is therefore behind `main`, and it shows those changes as uncommitted edits. Its files already match `main`, so nothing is lost by syncing:
+
+```bash
+git fetch && git reset --hard origin/main
+rm assets/heritage/.probe        # a stray test file; it is not tracked
+```
 
 ## Where things stand
 
-- **Live:** https://fazmx.gamaleldien.com, served by GitHub Pages from `main` → `/docs`.
-  - Enforce HTTPS is on, and plain `http://` redirects to `https://`.
-  - The certificate is from Let's Encrypt and expires on 2026-12-29. GitHub renews it automatically.
-  - The origin section went live on 2026-10-01. It was pushed through the GitHub API, so this folder must be synced before the next edit (see "Next up").
-- **Repo:** https://github.com/Gamaleldientarek/fazmx (public).
-- **DNS:** gamaleldien.com is on **Cloudflare**. The record is a CNAME, `fazmx` → `gamaleldientarek.github.io`, set to **DNS only (grey cloud)**.
-  - Keep it grey. If Cloudflare proxies the record, GitHub can't check the domain or renew the certificate.
+- **Live:** https://fazmx.gamaleldien.com, served by GitHub Pages from `main` → `/docs`. Checked on the live site at nine widths (360 to 1440 px), light and dark, with no errors.
+  - Enforce HTTPS is on. The Let's Encrypt certificate expires on 2026-12-29, and GitHub renews it automatically.
+- **Repo:** https://github.com/Gamaleldientarek/fazmx (public). Today's site changes are in `253eea9`, `e87fd4d` and `c02becb`. The commit after them adds this hand-off.
+- **DNS:** gamaleldien.com is on **Cloudflare**: CNAME `fazmx` → `gamaleldientarek.github.io`, **DNS only (grey cloud)**. Keep it grey, or GitHub can't check the domain or renew the certificate.
+- **Download form data:** the Sheet "Azm X: downloads", tab "Downloads", in gibrahim@azmx.sa:
+  https://docs.google.com/spreadsheets/d/1xHmYLdz3GHs31Daunwp03ppSBwhQdRRVXO_HcxvwbZg/edit
+  - It is fed by the Apps Script project "Azm X downloads form", deployed as a web app. How it works and how to change it are in `CLAUDE.md` under Downloads.
+  - It held only its header row at the end of the session. All test rows were deleted.
 - **Main site:** gamaleldien.com is still on Framer, untouched.
 
 ## Done on 2026-10-01
 
-1. **Added the origin section `#origin` («الأصل»)** between the hero and `#build`. It replaces the placeholder `#story`.
-   - Source: the owner's deck «عرض خط السعودية الرقمي V5.0» (`.key` and `.pdf`, in ~/Downloads on 2026-10-01).
-   - Copy: Azm X is a modern Naskh, inspired by Saudi manuscripts of the 13th century AH. It closes on the owner's line «خطٌّ سعودي يشبهنا، بأسلوب رقمي حديث.»
-   - A manuscript page and six letter pairs, as in the deck. Each word inks in from thin to bold.
-   - Images in `assets/heritage/`. The crops were cut from the deck's Keynote originals and converted from CMYK to sRGB. The illuminated-page crops come from the deck's sharper detail scans, not from the full page.
-2. Added «الأصل» to the nav. `build.py` now copies `assets/heritage/` to `docs/heritage/` and inlines the images in the preview.
-3. Checked a full build in a scratch copy at 1440, 1240, 1110, 1000, 900, 390 and 360 px, light and dark:
-   - no console errors and no sideways scroll; every word fits its cell; the nav fits at 1110 px
-   - copying «السعوديين» gives clean text
-   - reduced motion and the motion switch both leave the words bold
-   - the preview's inlined images load
-4. **Deployed.** Shell commands could not write anywhere under ~/Documents in this session, so local git was not possible. The build was made in a scratch copy, and one commit went straight to `main` through the GitHub API. It holds `src/`, `assets/heritage/`, `docs/index.html`, `docs/heritage/`, `CLAUDE.md` and this file.
-5. **Redesigned the numbers band `#stats`** at the owner's request, and shipped it as a second API commit with the owner's approval.
-   - «بالأرقام»: a dark band in both themes. Before, it showed as a plain white strip in dark mode.
-   - Each number sits on its proof, read from the font: ع in its five shapes, the character wall, the 24 feature tags, and ع at the eight weights.
-6. **Switched on the download form** at the owner's request: name and email before the files. Shipped as a third API commit with the owner's approval.
-   - The Sheet "Azm X: downloads" and the Apps Script project "Azm X downloads form" were set up in gibrahim@azmx.sa through Chrome, and the owner clicked Allow. Details are in `CLAUDE.md` under Downloads.
-   - Tested: a bad email is rejected, the honeypot is ignored, a valid entry is saved, and a browser on the live domain can read the reply. The test rows were deleted from the Sheet afterwards.
-   - The owner approved the privacy line as written.
+Three commits, each pushed with the owner's approval:
+
+1. **`253eea9`: the origin section «الأصل».** It sits between the hero and «البناء», and replaces the placeholder `#story`.
+   - Source: the owner's deck «عرض خط السعودية الرقمي V5.0» (`.key` and `.pdf` in ~/Downloads). Azm X is a modern Naskh, inspired by Saudi manuscripts of the 13th century AH. The section closes on the owner's line «خطٌّ سعودي يشبهنا، بأسلوب رقمي حديث.»
+   - It shows a manuscript page and the deck's six letter pairs, each word inking in from thin to bold. The images are in `assets/heritage/`, cut from the Keynote originals and converted from CMYK to sRGB.
+   - «الأصل» is the first nav link. `build.py` copies the images to `docs/heritage/` and inlines them in the preview.
+2. **`e87fd4d`: the numbers band «بالأرقام», redesigned.** It is a dark band in both themes; before, it showed as a white strip in dark mode. Each number sits on its proof, read from the font at build time:
+   - ع in its five shapes
+   - the character wall
+   - the 24 feature tags
+   - ع at the eight weights
+3. **`c02becb`: the download form.** It asks for name and email before the files, and saves them to the Sheet above.
+   - The owner chose a Google Sheet and approved the privacy line as written.
+   - The Sheet and script were set up in the owner's Chrome. The owner clicked Allow on Google's permission screen.
+   - Tested: bad email rejected, honeypot ignored, a real entry saved from the page, and the reply readable from the live domain.
 
 ## Next up
 
-1. **Sync this folder with GitHub before editing anything.**
-   - This clone is behind `main` by the commits pushed through the API, and it shows their changes as uncommitted edits. Everything here is now pushed, so nothing is lost: run `git fetch && git reset --hard origin/main`.
-   - Then delete the stray `assets/heritage/.probe`.
-2. **Optional hardening for the form script.** Add `/** @OnlyCurrentDoc */` at the top of the Apps Script. That limits its access to this one Sheet instead of all of the account's spreadsheets. Then deploy it as a new version of the same deployment (see `CLAUDE.md`), and allow again when asked.
-3. **Confirm the letter in حفظ.** The deck's caption names حـ, but its red highlight and its manuscript crop (from «لظنهم») both show ظ. The page shows ظ.
-4. **Confirm where the manuscripts come from, and that we may publish the scans.** The deck gives no collection or credit. If there is one, add it to the plate's caption.
-5. **Copying the hero headline copies the kashidas.**
-   - The copied text includes however many stretched kashidas the animation was showing at that moment. For example, the live site gave «نكتـــب بعزم، بحــرفٍ يشبهنــــا.».
-   - The ZWJs are already stripped. The fix goes in the copy handler in `src/index.src.html`.
-   - Decide first what "clean" should mean. The recommendation is plain text with no tatweel: «نكتب بعزم، بحرفٍ يشبهنا.». The other choice is the source spelling, «نكتـب بعـزم، بحـرفٍ يشبهنـا.».
-6. **Verify `gamaleldien.com` in GitHub** (profile Settings → Pages → Verified domains). Then no other GitHub account can put a Pages site on its subdomains.
-7. **Get the licence reviewed** by the owner and a lawyer. It's still a draft.
-
-## Where the deck and the page disagree
-
-The page was left as it is on these. Raise them with the owner before the deck goes out again.
-
-- **Weights.** The deck lists 7, with no Medium. The font has 8 named instances, and the page says 8.
-- **Languages.** The deck says 5, including Kurdish. The page lists Arabic, Latin, Persian and Urdu.
+1. **Owner decisions:**
+   - **The letter in حفظ.** The deck's caption names حـ, but its red highlight and its manuscript crop (from «لظنهم») both show ظ. The page shows ظ.
+   - **Credit and rights for the manuscript scans.** The deck names no collection. If there is one, add it to the plate's caption.
+   - **The deck disagrees with the page.** The deck lists 7 weights (no Medium) and 5 languages including Kurdish. The font has 8 named weights, and the page lists Arabic, Latin, Persian and Urdu. The page was left as it is. Fix the deck before it goes out again.
+2. **Optional hardening for the form script.**
+   - Add `/** @OnlyCurrentDoc */` at the top of the Apps Script, so it can reach only this Sheet instead of all the account's spreadsheets.
+   - Then publish it as a new version of the same deployment (see `CLAUDE.md`), and allow again when asked.
+3. **Copying the hero headline copies the kashidas.**
+   - The copied text includes however many stretched kashidas the animation was showing, for example «نكتـــب بعزم، بحــرفٍ يشبهنــــا.».
+   - The fix goes in the copy handler in `src/index.src.html`.
+   - Recommended result: plain text with no tatweel, «نكتب بعزم، بحرفٍ يشبهنا.».
+4. **Verify `gamaleldien.com` in GitHub** (profile Settings → Pages → Verified domains), so no other account can put a Pages site on its subdomains.
+5. **Get the licence reviewed** by the owner and a lawyer. It's still a draft.
 
 ## Lessons
 
-- **Shell commands may be unable to write under ~/Documents.** In some sessions they get "Operation not permitted" there, even with the sandbox off, while the Edit and Write tools still work.
-  - Work around it: edit source with the file tools, then build and test in a scratch copy.
-  - To ship without local git, push through the GitHub API with `gh api`: blobs, then a tree on top of `main`, then a commit, then move `refs/heads/main`. Then sync the clone with `git fetch && git reset --hard origin/main`.
+- **Shell commands could not write anywhere under ~/Documents** ("Operation not permitted", even with the sandbox off), while the Edit and Write tools still worked. Local builds and local git failed. The workaround that shipped all three commits:
+  - Edit `src/` with the file tools.
+  - Copy the repo to a scratch folder, then build and test there with `~/.venvs/fazmx/bin/python`.
+  - Commit to `main` through the GitHub API with `gh api`: blobs, then a tree on top of the current `main`, then a commit, then PATCH `refs/heads/main`. Use the author identity from earlier commits.
+  - Then sync this folder as above.
+- **An API commit may not start a Pages build.** If none has started after a minute, run `gh api -X POST repos/Gamaleldientarek/fazmx/pages/builds`. The site was live about 30 s later.
+- **Testing the Apps Script with curl:**
+  - Use `curl -sL --data-urlencode …`, never `-X POST -L`. With `-X POST`, curl repeats the POST at Google's redirect target and gets an error page.
+  - The script has already run on the first hop by then, so that row is still written.
+  - The first minutes after a new deployment can fail now and then. Test again before you debug.
+- **Reading the Sheet without clicking around:** from a Chrome tab on the Sheet, run `fetch('/spreadsheets/d/<id>/gviz/tq?tqx=out:csv&sheet=Downloads')`.
+  - To select cells on another tab, type a range such as `Downloads!A2:D4` into the Name box.
+- **Chrome automation on Google pages is flaky.**
+  - "Couldn't determine which page" means the tab lost focus: navigate it again.
+  - Elements found with `find` click more reliably than coordinates.
+  - The Apps Script editor exposes `window.monaco`, so `monaco.editor.getModels()[0].setValue(code)` loads a script exactly. Typed code gets auto-closed brackets.
 - **Keynote files are zip archives.** The original images sit in `Data/`, often sharper than the PDF export.
-  - They can be CMYK. Convert them with the profile embedded in the file (here "U.S. Web Coated (SWOP) v2") through Pillow's ImageCms. This matches macOS ColorSync; `pdftoppm` renders them noticeably warmer.
-- **Restart the test server after every build.** `build.py` deletes and recreates `docs/`, so an `http.server` started before the build keeps serving the deleted folder and returns 404s.
-- **Certificate stuck after the DNS check passed.** Remove the custom domain in Settings → Pages, then add it again; this time that got the certificate approved at once.
-  - On a branch source, GitHub records this as two commits ("Delete CNAME", "Create CNAME"). Run `git pull` afterwards.
-- **Cloudflare from the command line.** The `wrangler` login can only read zones, so it can't change DNS. Edit records in the Cloudflare dashboard, or make an API token with Zone → DNS → Edit for this zone.
-- **Python environment.** This folder syncs through Google Drive, so keep the virtual environment somewhere outside it (for example `~/.venvs/fazmx`), not in `.venv/` here.
-- **Fresh DNS records.** Right after a new record is added, a computer that looked the name up earlier may still fail to find it for a few minutes. This clears by itself.
+  - They can be CMYK. Convert them with the profile embedded in the file (here "U.S. Web Coated (SWOP) v2") through Pillow's ImageCms. This matches macOS ColorSync; `pdftoppm` renders them too warm.
+- **Restart the test server after every build.** `build.py` deletes and recreates `docs/`, so a server started earlier keeps serving the deleted folder.
+- **Certificate stuck after the DNS check passed.** Remove the custom domain in Settings → Pages, then add it again.
+  - On a branch source, GitHub records that as two commits ("Delete CNAME", "Create CNAME"). Pull afterwards.
+- **Cloudflare from the command line.** The `wrangler` login can only read zones. Edit DNS in the dashboard, or make an API token with Zone → DNS → Edit.
+- **Python environment.** Keep the virtual environment outside this Google Drive folder (`~/.venvs/fazmx`).
 
 ## Shipping a change
 
-Edit `src/`, then run `python src/build.py`. Commit `src/` and `docs/` together and push to `main`. Pages redeploys in about a minute. If the hero changed, run `python src/build.py --og` as well.
+Edit `src/`, then run `python src/build.py`. Commit `src/` and `docs/` together and push to `main`; Pages redeploys in about a minute. If the hero changed, also run `python src/build.py --og`. If the shell can't write here, use the API route under Lessons.
