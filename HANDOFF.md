@@ -1,10 +1,10 @@
 # Session hand-off
 
-Last session: **2026-10-01** (Cairo time). To pick up from here, read `CLAUDE.md` first, then this file. The build and publish commands are in `README.md`.
+Last session: **2026-10-05** (Cairo time). To pick up from here, read `CLAUDE.md` first, then this file. The build and publish commands are in `README.md`.
 
 ## Before you touch anything: sync this folder
 
-This session could not run git here (see Lessons), so every change went to GitHub through its API. This folder is therefore behind `main`, and it shows those changes as uncommitted edits. Its files already match `main`, so nothing is lost by syncing:
+The shell still cannot write here (checked again on 2026-10-05), so changes reach GitHub from a scratch clone (see Lessons). This folder is therefore behind `main`: its text files match, but the images in `assets/heritage/` and `assets/gradients/` and the built `docs/` are only on GitHub. Nothing is lost by syncing:
 
 ```bash
 git fetch && git reset --hard origin/main
@@ -15,13 +15,22 @@ rm assets/heritage/.probe        # a stray test file; it is not tracked
 
 - **Live:** https://fazmx.gamaleldien.com, served by GitHub Pages from `main` → `/docs`. Checked on the live site at nine widths (360 to 1440 px), light and dark, with no errors.
   - Enforce HTTPS is on. The Let's Encrypt certificate expires on 2026-12-29, and GitHub renews it automatically.
-- **Repo:** https://github.com/Gamaleldientarek/fazmx (public). Today's site changes are in `253eea9`, `e87fd4d` and `c02becb`. The commit after them adds this hand-off.
+- **Repo:** https://github.com/Gamaleldientarek/fazmx (public). The latest site change is `3e2c847` (2026-10-05). The 2026-10-01 changes are in `253eea9`, `e87fd4d` and `c02becb`.
 - **DNS:** gamaleldien.com is on **Cloudflare**: CNAME `fazmx` → `gamaleldientarek.github.io`, **DNS only (grey cloud)**. Keep it grey, or GitHub can't check the domain or renew the certificate.
 - **Download form data:** the Sheet "Azm X: downloads", tab "Downloads", in gibrahim@azmx.sa:
   https://docs.google.com/spreadsheets/d/1xHmYLdz3GHs31Daunwp03ppSBwhQdRRVXO_HcxvwbZg/edit
   - It is fed by the Apps Script project "Azm X downloads form", deployed as a web app. How it works and how to change it are in `CLAUDE.md` under Downloads.
   - It held only its header row at the end of the session. All test rows were deleted.
 - **Main site:** gamaleldien.com is still on Framer, untouched.
+
+## Done on 2026-10-05
+
+One commit, `3e2c847`, pushed with the owner's approval and checked on the live site:
+
+1. **Light by default.** The page ignores the system's dark setting. Dark mode comes only from the footer toggle. The licence page is light only.
+2. **Black sections.** The class `dark` on a section makes it pure black (the owner asked for "more black" than Neutral 950). Used on «بالأرقام» (navy before), «الحركة» and «رموز مدمجة».
+3. **Gradients from the AZMX image library.** The download section uses `gradient-004.jpg` and the cover poster in `#inuse` uses `gradient-026.jpg`, self-hosted in `assets/gradients/`. Alternatives shown to the owner: 011 or 032 for the download, 015 or 006 for the poster.
+4. **Brand check.** `brand-check.py` from the azmx-brand skill flags `#000000` as off-palette; that is the owner's call. Its chevron blockers are the ‹ › characters in the character wall and glyph map, not decoration.
 
 ## Done on 2026-10-01
 
@@ -64,6 +73,7 @@ Three commits, each pushed with the owner's approval:
   - Copy the repo to a scratch folder, then build and test there with `~/.venvs/fazmx/bin/python`.
   - Commit to `main` through the GitHub API with `gh api`: blobs, then a tree on top of the current `main`, then a commit, then PATCH `refs/heads/main`. Use the author identity from earlier commits.
   - Then sync this folder as above.
+- **Simpler than the API route (2026-10-05): a scratch clone with plain git.** Clone `main` into the scratch folder, edit `src/` here with the file tools, `cp` the edited files into the clone, build and test there, then `git commit` and `git push` from the clone. gh's HTTPS login handles the push. Set the clone's author to the noreply identity first.
 - **An API commit may not start a Pages build.** If none has started after a minute, run `gh api -X POST repos/Gamaleldientarek/fazmx/pages/builds`. The site was live about 30 s later.
 - **Testing the Apps Script with curl:**
   - Use `curl -sL --data-urlencode …`, never `-X POST -L`. With `-X POST`, curl repeats the POST at Google's redirect target and gets an error page.
