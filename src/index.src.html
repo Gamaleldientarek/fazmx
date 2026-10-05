@@ -28,6 +28,7 @@
     fonts/AzmXVariable.ttf        desktop install + last fallback
     downloads/AzmX-Variable.zip   the three fonts + LICENSE.txt
     heritage/*.jpg                manuscript page and letter crops for #origin
+    gradients/*.jpg               AZMX library gradients for #download and the cover poster
     CNAME                         custom domain for GitHub Pages
 
   Every animation respects prefers-reduced-motion and the
@@ -62,7 +63,6 @@
   --inverse-accent: #5D8FFF;
   --inverse-rule: rgba(255, 255, 255, .2);
   --danger: #DB0015;
-  --grad: linear-gradient(145deg, #040038 0%, #01006E 55%, #001AFF 100%);
 
   --azm: "Azm X Variable", "Azm X", "Segoe UI", Tahoma, system-ui, sans-serif;
   --sys: system-ui, -apple-system, "Segoe UI", Tahoma, Arial, sans-serif;
@@ -73,17 +73,7 @@
   --section: clamp(64px, 10vw, 128px);
   color-scheme: light;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --page: #040038; --raised: #01006E; --sunken: #010040;
-    --heading: #FFFFFF; --text: #FFFFFF; --text-2: #DDE8FF; --muted: #93B6FF;
-    --accent: #5D8FFF; --accent-hover: #93B6FF; --on-accent: #040038;
-    --rule: rgba(255, 255, 255, .2); --rule-strong: rgba(255, 255, 255, .3);
-    --inverse: #FFFFFF; --on-inverse: #111927; --on-inverse-2: #4D5761; --inverse-accent: #001AFF; --inverse-rule: #E5E7EB;
-    --danger: #FF2B3C;
-    color-scheme: dark;
-  }
-}
+/* Light is the default whatever the system says; dark only through #themeBtn. */
 :root[data-theme="dark"] {
   --page: #040038; --raised: #01006E; --sunken: #010040;
   --heading: #FFFFFF; --text: #FFFFFF; --text-2: #DDE8FF; --muted: #93B6FF;
@@ -93,6 +83,18 @@
   --danger: #FF2B3C;
   color-scheme: dark;
 }
+/* Black sections (.dark): the same tokens redefined on one section, black in both themes.
+   Pure black ground, Neutral 950 panels, Light Blue accent (Electric fails on dark). */
+.dark {
+  --page: #000000; --raised: #0D121C; --sunken: #0D121C;
+  --heading: #FFFFFF; --text: #FFFFFF; --text-2: #DDE8FF; --muted: #93B6FF;
+  --accent: #5D8FFF; --accent-hover: #93B6FF; --on-accent: #000000;
+  --rule: rgba(255, 255, 255, .14); --rule-strong: rgba(255, 255, 255, .24);
+  --inverse: #FFFFFF; --on-inverse: #111927; --on-inverse-2: #4D5761; --inverse-accent: #001AFF; --inverse-rule: #E5E7EB;
+  --danger: #FF2B3C;
+  background: var(--page); color: var(--text); color-scheme: dark;
+}
+section.dark, .dark + section { border-top: 0; }
 
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
@@ -263,36 +265,33 @@ section { padding-block: var(--section); }
 input[type="range"] { accent-color: var(--accent); width: 240px; max-width: 100%; }
 
 /* ---------- Numbers: a dark band in both themes; each number sits on its proof ---------- */
-.stats { --st-bg: #040038; --st-2: #BFD5FF; --st-3: #93B6FF; --st-accent: #5D8FFF; --st-rule: rgba(255, 255, 255, .2); background: var(--st-bg); color: #FFFFFF; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .stats { --st-bg: #01006E; } }
-:root[data-theme="dark"] .stats { --st-bg: #01006E; }
-.stats .eyebrow { color: var(--st-accent); }
+.stats .eyebrow { color: var(--accent); }
 .stats .head h2 { color: #FFFFFF; }
-.st-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); border-top: 1px solid var(--st-rule); }
+.st-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); border-top: 1px solid var(--rule); }
 .stat { display: grid; align-content: start; gap: var(--s5); min-width: 0; padding-block: var(--s5) var(--s6); }
 .st-glyphs, .st-weights { grid-column: span 7; }
 .st-chars, .st-feats { grid-column: span 5; }
-.st-glyphs, .st-feats { padding-inline-end: var(--s5); border-inline-end: 1px solid var(--st-rule); }
+.st-glyphs, .st-feats { padding-inline-end: var(--s5); border-inline-end: 1px solid var(--rule); }
 .st-chars, .st-weights { padding-inline-start: var(--s5); }
-.st-glyphs, .st-chars { border-bottom: 1px solid var(--st-rule); }
+.st-glyphs, .st-chars { border-bottom: 1px solid var(--rule); }
 .st-num { display: grid; gap: var(--s2); }
 .stat .n { font-size: clamp(64px, 8vw, 128px); line-height: 1.1; font-weight: 200; color: #FFFFFF; }
-.stat .l { font-size: 16px; line-height: 1.6; color: var(--st-2); max-width: 20rem; }
+.stat .l { font-size: 16px; line-height: 1.6; color: var(--text-2); max-width: 20rem; }
 .st-forms { display: flex; flex-wrap: wrap; gap: var(--s3) clamp(16px, 3vw, 40px); }
-.st-forms span { display: grid; justify-items: center; gap: var(--s1); font-size: 13px; color: var(--st-3); }
+.st-forms span { display: grid; justify-items: center; gap: var(--s1); font-size: 13px; color: var(--muted); }
 .st-forms b { font-size: clamp(48px, 5vw, 72px); line-height: 1.3; font-weight: 400; color: #FFFFFF; }
-.st-forms .sw b { font-feature-settings: "swsh" 1; color: var(--st-accent); }
-.st-note { font-size: 15px; color: var(--st-2); }
+.st-forms .sw b { font-feature-settings: "swsh" 1; color: var(--accent); }
+.st-note { font-size: 15px; color: var(--text-2); }
 .st-wall { max-height: calc(16px * 1.9 * 9); overflow: hidden; -webkit-mask-image: linear-gradient(#000 50%, transparent); mask-image: linear-gradient(#000 50%, transparent); -webkit-user-select: none; user-select: none; }
-.st-wall p { font-size: 16px; line-height: 1.9; word-spacing: .4em; color: var(--st-2); overflow-wrap: anywhere; }
+.st-wall p { font-size: 16px; line-height: 1.9; word-spacing: .4em; color: var(--text-2); overflow-wrap: anywhere; }
 .st-tags { display: flex; flex-wrap: wrap; gap: var(--s2); list-style: none; margin: 0; padding: 0; }
-.st-tags code { display: block; padding: 2px var(--s2); border: 1px solid var(--st-rule); font: 13px/1.6 var(--code); color: var(--st-2); }
-.st-tags code.on { border-color: var(--st-accent); color: var(--st-accent); }
+.st-tags code { display: block; padding: 2px var(--s2); border: 1px solid var(--rule); font: 13px/1.6 var(--code); color: var(--text-2); }
+.st-tags code.on { border-color: var(--accent); color: var(--accent); }
 .st-ladder { container-type: inline-size; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); }
-.st-ladder span { display: grid; justify-items: center; gap: var(--s1); font-size: 12px; color: var(--st-3); }
+.st-ladder span { display: grid; justify-items: center; gap: var(--s1); font-size: 12px; color: var(--muted); }
 .st-ladder b { font-size: 48px; font-size: min(72px, 10cqi); line-height: 1.3; color: #FFFFFF; }
 @media (max-width: 900px) {
-  .st-grid > .stat { grid-column: 1 / -1; padding-inline: 0; border-inline-end: 0; border-bottom: 1px solid var(--st-rule); }
+  .st-grid > .stat { grid-column: 1 / -1; padding-inline: 0; border-inline-end: 0; border-bottom: 1px solid var(--rule); }
   .st-grid > .stat:last-child { border-bottom: 0; }
 }
 
@@ -451,7 +450,7 @@ kbd { font-family: var(--sys); font-size: 14px; padding: 0 var(--s2); border: 1p
 .inuse { border-top: 1px solid var(--rule); }
 .poster { position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: var(--s5); min-height: 360px; padding: var(--s5); }
 .poster .ptag { font-size: 13px; }
-.p-cover { background: var(--grad); color: #FFFFFF; }
+.p-cover { background: #040038 url("gradients/gradient-026.jpg") center / cover no-repeat; color: #FFFFFF; }
 .p-cover .ptag { color: #BFD5FF; }
 .p-cover .t { font-size: clamp(52px, 6.4vw, 96px); line-height: 1.25; }
 .p-cover .t b { display: block; font-weight: 900; }
@@ -484,7 +483,8 @@ kbd { font-family: var(--sys); font-size: 14px; padding: 0 var(--s2); border: 1p
 .faq-list pre { margin: 0; padding: var(--s3); background: var(--sunken); color: var(--heading); font: 14px/1.7 var(--code); overflow-x: auto; direction: ltr; text-align: left; }
 
 /* ---------- Download (closing event surface) ---------- */
-.dl { background: var(--grad); color: #FFFFFF; }
+/* Gradients come from the AZMX image library (gradient/), self-hosted in assets/gradients/. The image is the gradient: nothing is laid over it. */
+.dl { background: #000000 url("gradients/gradient-004.jpg") center bottom / cover no-repeat; color: #FFFFFF; }
 .dl .eyebrow { color: #5D8FFF; }
 .dl h2 { color: #FFFFFF; font-size: clamp(48px, 7vw, 104px); line-height: 1.2; font-weight: 200; }
 .dl h2 b { font-weight: 900; }
@@ -653,7 +653,7 @@ footer .logo svg { width: 80px; }
 <!-- ================= NUMBERS =================
      Each number carries its proof, taken from the font. build.py fills the character wall
      (the CHARS placeholders) and the feature tags (FEATURES) from the font file. -->
-<section class="stats" data-watch id="stats">
+<section class="stats dark" data-watch id="stats">
   <div class="wrap">
     <div class="head">
       <span class="eyebrow">بالأرقام</span>
@@ -732,7 +732,7 @@ footer .logo svg { width: 80px; }
 </section>
 
 <!-- ================= MOTION ================= -->
-<section class="motion" id="motion">
+<section class="motion dark" id="motion">
   <div class="wrap">
     <div class="head-row">
       <div class="head">
@@ -898,7 +898,7 @@ footer .logo svg { width: 80px; }
 </section>
 
 <!-- ================= BUILT-IN MARKS ================= -->
-<section class="marks" id="marks" data-watch>
+<section class="marks dark" id="marks" data-watch>
   <div class="wrap">
     <div class="head">
       <span class="eyebrow">رموز مدمجة</span>
@@ -1532,7 +1532,7 @@ h1 { font-weight: 640; }</pre></div>
 
   /* ---------- Theme ---------- */
   const themeBtn = $("#themeBtn");
-  const isDark = () => root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  const isDark = () => root.dataset.theme === "dark";
   const syncTheme = () => { themeBtn.textContent = isDark() ? "الوضع النهاري" : "الوضع الليلي"; };
   themeBtn.addEventListener("click", () => { root.dataset.theme = isDark() ? "light" : "dark"; syncTheme(); });
   syncTheme();

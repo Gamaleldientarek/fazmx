@@ -37,7 +37,8 @@ python -m http.server -d docs 8000        # view at http://localhost:8000
 - **`fonts/`**: the only copy of the font files. The build copies them into `docs/fonts/` and the ZIP.
 - **`assets/`**: the navy logo SVG, which the build recolours to `currentColor`, and the favicon.
   - `assets/heritage/`: the manuscript page and the six letter crops for `#origin`, converted from the deck's CMYK Keynote originals to sRGB. The build copies them to `docs/heritage/`, and the preview inlines them as base64.
-- **`docs/`**: the built site. It holds `index.html`, `license.html`, `fonts/`, `heritage/`, `downloads/AzmX-Variable.zip`, `og.png`, `favicon.png`, `CNAME` and `.nojekyll`. The ZIP is deterministic, stamped with the font's own date, so an unchanged font gives an unchanged ZIP.
+  - `assets/gradients/`: two images from the AZMX brand library's `gradient/` set, used as CSS backgrounds. The build copies them to `docs/gradients/`, and the preview inlines them as base64.
+- **`docs/`**: the built site. It holds `index.html`, `license.html`, `fonts/`, `heritage/`, `gradients/`, `downloads/AzmX-Variable.zip`, `og.png`, `favicon.png`, `CNAME` and `.nojekyll`. The ZIP is deterministic, stamped with the font's own date, so an unchanged font gives an unchanged ZIP.
 - **`build/`**: generated files, not committed.
 
 ## Page map, top to bottom
@@ -46,12 +47,12 @@ python -m http.server -d docs 8000        # view at http://localhost:8000
 2. Hero `#top`.
 3. Origin `#origin`: where the letters come from. A manuscript page, then six pairs, each setting a letter crop from the manuscripts beside an Azm X word.
 4. Construction `#build`.
-5. `#stats` («بالأرقام»): a dark band in both themes, on a 7/5 then 5/7 grid. Each number sits on its proof: ع in its five shapes, the character wall, the 24 feature tags, and ع at the eight weights.
+5. `#stats` («بالأرقام»): a black section (`.dark`), on a 7/5 then 5/7 grid. Each number sits on its proof: ع in its five shapes, the character wall, the 24 feature tags, and ع at the eight weights.
 6. `#anatomy`.
 7. `#weights`.
-8. `#motion`: 12 tiles and a marquee band. The tiles are نَفَس، موجة، مغناطيس، مَدّ، كتابة حيّة، الرقم وزنه، سُلَّم، الأوزان الثمانية، أثر، مُرسَل، هبوط، تمرير.
+8. `#motion`: a black section (`.dark`) with 12 tiles and a marquee band. The tiles are نَفَس، موجة، مغناطيس، مَدّ، كتابة حيّة، الرقم وزنه، سُلَّم، الأوزان الثمانية، أثر، مُرسَل، هبوط، تمرير.
 9. `#tester`: presets, weight and size, alignment, and swsh and dlig toggles.
-10. `#marks`: `#KSA`, `#RIAL` and the logotypes.
+10. `#marks`: a black section (`.dark`) with `#KSA`, `#RIAL` and the logotypes.
 11. `#glyphs`.
 12. `#inuse`.
 13. `#faq`. The first question is «هل الخط مجاني؟».
@@ -62,10 +63,14 @@ python -m http.server -d docs 8000        # view at http://localhost:8000
 
 - **Colours.** Navy #040038 for headings and inverse surfaces. Electric #001AFF for accents, #5D8FFF in dark mode.
   - The tokens are CSS variables at the top of the stylesheet.
-  - Dark mode follows the system unless `html[data-theme]` is set.
+  - Light is the default, whatever the system setting. Dark mode comes only from the footer toggle `#themeBtn`, which sets `html[data-theme="dark"]`. The licence page is light only.
+- **Black sections.** Add the class `dark` to a section. It redefines the tokens on that section only: pure black #000000 ground, Neutral 950 #0D121C panels, white text with Blue 100 #DDE8FF secondary text (brand rule for text on dark), Light Blue #5D8FFF accent. The sections stay black in both themes. In use on `#stats`, `#motion` and `#marks` (the owner's call, 2026-10-05; he asked for pure black over Neutral 950).
 - **Shapes.** Square corners, and hairline rules instead of cards, on an asymmetric 12-column grid that anchors top-right.
 - **Spacing.** `--s1`…`--s9` = 4, 8, 16, 24, 40, 64, 96, 128 and 160 px.
-- **Gradient.** `--grad` (145deg, #040038 → #01006E 55% → #001AFF) is used only on the download section.
+- **Gradients.** There is no CSS gradient. The two gradient surfaces use images from the AZMX brand library's `gradient/` set, self-hosted in `assets/gradients/` (the owner's call, 2026-10-05):
+  - `#download`: `gradient-004.jpg`, black falling into an electric horizon, anchored to the bottom.
+  - The cover poster in `#inuse`: `gradient-026.jpg`.
+  - Nothing is laid over the images. Text on them is white, with Light Blue #5D8FFF eyebrows.
 - **No chevrons anywhere.** The owner asked for them to be removed.
 
 ## Decisions so far

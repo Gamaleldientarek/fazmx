@@ -115,7 +115,8 @@ for marker in ("<!--@META@-->\n", "<!--@END_META@-->", "/*@DL@*/", "/*@END_DL@*/
 (SITE / "index.html").write_text(page, encoding="utf-8")
 shutil.copyfile(HERE / "license.html", SITE / "license.html")
 shutil.copyfile(ASSETS / "azmx-favicon.png", SITE / "favicon.png")
-shutil.copytree(ASSETS / "heritage", SITE / "heritage", ignore=shutil.ignore_patterns(".*"))
+for folder in ("heritage", "gradients"):
+    shutil.copytree(ASSETS / folder, SITE / folder, ignore=shutil.ignore_patterns(".*"))
 (SITE / "CNAME").write_text(DOMAIN + "\n", encoding="utf-8")
 (SITE / ".nojekyll").write_text("", encoding="utf-8")
 
@@ -142,8 +143,8 @@ else:
 # 2) Preview: font and images inlined, no social tags, no page wrapper, no file downloads.
 b64 = base64.b64encode((ROOT / "fonts" / "AzmXVariable.woff2").read_bytes()).decode()
 prev = fill(src, f'url("data:font/woff2;base64,{b64}") format("woff2")', True, zipsize)
-prev = re.sub(r'src="(heritage/[\w-]+\.jpg)"',
-              lambda m: 'src="data:image/jpeg;base64,' + base64.b64encode((ASSETS / m[1]).read_bytes()).decode() + '"',
+prev = re.sub(r'(src="|url\(")((?:heritage|gradients)/[\w-]+\.jpg)"',
+              lambda m: m[1] + "data:image/jpeg;base64," + base64.b64encode((ASSETS / m[2]).read_bytes()).decode() + '"',
               prev)
 prev = re.sub(r"<!--@META@-->.*?<!--@END_META@-->\n?", "", prev, flags=re.S)
 prev = re.sub(r"/\*@DL@\*/.*?/\*@END_DL@\*/",
