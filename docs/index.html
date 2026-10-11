@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>خط عزم إكس</title>
-<meta name="description" content="Azm X Variable: خط عربي ولاتيني متغير بثمانية أوزان من عزم إكس.">
+<meta name="description" content="Azm X Variable: خط عربي ولاتيني متغير بتسعة أوزان من عزم إكس.">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="canonical" href="https://fazmx.gamaleldien.com/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://fazmx.gamaleldien.com/">
 <meta property="og:title" content="خط عزم إكس · Azm X Variable">
-<meta property="og:description" content="خط عربي ولاتيني متغير بثمانية أوزان من عزم إكس. حمّله مجانًا.">
+<meta property="og:description" content="خط عربي ولاتيني متغير بتسعة أوزان من عزم إكس. حمّله مجانًا.">
 <meta property="og:image" content="https://fazmx.gamaleldien.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -254,7 +254,7 @@ section { padding-block: var(--section); }
 .fig-scroll { overflow-x: auto; }
 .fig { position: relative; min-width: 760px; background: var(--raised); }
 .fig svg { display: block; width: 100%; height: auto; }
-.fig .spec { fill: var(--heading); font-family: var(--azm); font-size: 1000px; }
+.fig .spec { fill: var(--heading); font-family: var(--azm); font-size: 1050px; } /* one font unit = one SVG unit (1050 units per em) */
 .fig .ln { stroke: var(--rule-strong); stroke-width: 1; stroke-dasharray: 6 6; }
 .fig .ln.base { stroke: var(--accent); stroke-dasharray: none; stroke-width: 2; }
 .fig-label { position: absolute; inset-inline-start: var(--s4); transform: translateY(-100%); padding-bottom: var(--s1); display: flex; gap: var(--s2); align-items: baseline; font-size: 14px; color: var(--text-2); }
@@ -286,9 +286,9 @@ input[type="range"] { accent-color: var(--accent); width: 240px; max-width: 100%
 .st-tags { display: flex; flex-wrap: wrap; gap: var(--s2); list-style: none; margin: 0; padding: 0; }
 .st-tags code { display: block; padding: 2px var(--s2); border: 1px solid var(--rule); font: 13px/1.6 var(--code); color: var(--text-2); }
 .st-tags code.on { border-color: var(--accent); color: var(--accent); }
-.st-ladder { container-type: inline-size; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); }
+.st-ladder { container-type: inline-size; display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); }
 .st-ladder span { display: grid; justify-items: center; gap: var(--s1); font-size: 12px; color: var(--muted); }
-.st-ladder b { font-size: 48px; font-size: min(72px, 10cqi); line-height: 1.3; color: #FFFFFF; }
+.st-ladder b { font-size: 48px; font-size: min(64px, 9cqi); line-height: 1.3; color: #FFFFFF; }
 @media (max-width: 900px) {
   .st-grid > .stat { grid-column: 1 / -1; padding-inline: 0; border-inline-end: 0; border-bottom: 1px solid var(--rule); }
   .st-grid > .stat:last-child { border-bottom: 0; }
@@ -564,7 +564,7 @@ footer .logo svg { width: 80px; }
   <div class="wrap">
     <div class="hero-top">
       <span class="eyebrow">خط عزم إكس</span>
-      <span class="tag">Azm X Variable · v2.004 · wght 100–900</span>
+      <span class="tag">Azm X Variable · v3.007 · wght 100–900</span>
     </div>
     <h1 class="hero-title" id="heroTitle">
       <span class="hl">نكتـب بعـزم،</span>
@@ -572,14 +572,14 @@ footer .logo svg { width: 80px; }
     </h1>
     <div class="hero-bottom">
       <div class="hero-copy">
-        <p class="hero-sub">خطٌّ واحد متغيّر بثمانية أوزان، <span class="roll" id="roll" aria-hidden="true"><span class="in">للعناوين</span><span>للنصوص</span><span>للواجهات</span><span>للّافتات</span><span>للعروض</span></span><span class="sr">للعناوين والنصوص والواجهات واللافتات والعروض</span></p>
+        <p class="hero-sub">خطٌّ واحد متغيّر بتسعة أوزان، <span class="roll" id="roll" aria-hidden="true"><span class="in">للعناوين</span><span>للنصوص</span><span>للواجهات</span><span>للّافتات</span><span>للعروض</span></span><span class="sr">للعناوين والنصوص والواجهات واللافتات والعروض</span></p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#download">حمّل الخط <span aria-hidden="true">←</span></a>
           <a class="btn" href="#tester">جرّب الخط</a>
         </div>
         <div class="facts">
-          <span><b>٨</b> أوزان مسمّاة</span>
-          <span><b>٨٠٣</b> رمزًا</span>
+          <span><b>٩</b> أوزان مسمّاة</span>
+          <span><b>٨٤٠</b> رمزًا</span>
           <span>عربي، لاتيني، فارسي، أردي</span>
         </div>
       </div>
@@ -635,139 +635,141 @@ footer .logo svg { width: 80px; }
     <div class="head">
       <span class="eyebrow">البناء</span>
       <h2>كل حرف يبدأ من نقطة.</h2>
-      <p>نقطة عزم إكس معيَّن تام، كالنقطة التي يتركها القلم المقطوط على الورق. تكبر مع الوزن، من ٥٥ وحدة في الوزن ١٠٠ إلى ١٧٠ في الوزن ٩٠٠، وبها يُقاس الحرف: ارتفاع الألف نحو أربع نقاط في الوزن ٧٠٠.</p>
+      <p>نقطة عزم إكس معيَّن تام، كالنقطة التي يتركها القلم المقطوط على الورق. تكبر مع الوزن، من ٦٢ وحدة في الوزن ١٠٠ إلى ١٧٠ في الوزن ٩٠٠، وبها يُقاس الحرف: ارتفاع الألف نحو خمس نقاط في الوزن ٧٠٠.</p>
     </div>
     <figure class="bf-fig" data-watch>
-      <svg class="bf" viewBox="-160 -914.4 3058.2 1294.8" role="img" aria-label="كلمة تجربة مبنية من نقاط خط عزم إكس">
-<line class="bf-base" x1="-100" x2="2838.2" y1="0" y2="0"/>
+      <svg class="bf" viewBox="-160 -891 2946.2 1312.2" role="img" aria-label="كلمة تجربة مبنية من نقاط خط عزم إكس">
+<line class="bf-base" x1="-100" x2="2726.2" y1="0" y2="0"/>
 <g style="--d:0.88s">
-<path class="bf-body" pathLength="1" d="M345.2 -111.6Q311.8 -71.8 276.8 -54.1Q241.8 -36.3 199.1 -36.3Q152.8 -36.3 114.7 -56.5Q76.6 -76.6 54.4 -113.6Q32.1 -150.6 32.1 -200.1Q32.1 -268.3 73.8 -323.6Q115.4 -378.9 198.8 -409.6L333.5 -459.3L333.5 -359L228.2 -318.8Q183.4 -302.3 163.5 -280.8Q143.6 -259.3 143.6 -235.5Q143.6 -208.7 164.6 -191.5Q185.6 -174.3 222.6 -174.3Q247.8 -174.3 273 -182.3Q298.2 -190.3 320.9 -206.9L320.9 -501.2L422.5 -539.8L440.8 -539.8L441.7 -265.7Q441.7 -202.4 465 -174.4Q488.3 -146.3 552.2 -146.3L567.8 -146.3L577.8 -73.6L567.8 0L554.1 0Q471.8 0 420.8 -27.6Q369.9 -55.2 345.2 -111.6Z"/>
-<path class="bf-dot" d="M291.7 -673.2L373 -754.4L454.2 -673.2L373 -591.9Z"/>
-<path class="bf-dot" d="M121.3 -673.2L202.5 -754.4L283.7 -673.2L202.5 -591.9Z"/>
+<path class="bf-body" pathLength="1" d="M349.4 -114.4Q317 -73.2 280.2 -54.2Q243.4 -35.2 199.4 -35.2Q154.2 -35.2 117 -54.6Q79.8 -74 57.9 -110.1Q36 -146.2 36 -194.8Q36 -261.6 77 -314.6Q118 -367.6 200.4 -397.6L339.8 -448.6L339.8 -359L226.8 -316.6Q178.6 -299 157 -275.7Q135.4 -252.4 135.4 -225.2Q135.4 -195 158.2 -176.5Q181 -158 220 -158Q249.2 -158 277.7 -169Q306.2 -180 328.2 -201.2L328.2 -488.6L417.8 -524.6L434.8 -524.6L435.6 -252.2Q435.6 -188.4 459.4 -159.2Q483.2 -130 549 -130L565.4 -130L575.4 -65.4L565.4 0L550.6 0Q469.4 0 420.5 -28.6Q371.6 -57.2 349.4 -114.4Z"/>
+<path class="bf-dot" d="M357.4 -729.2L431.6 -655L357.4 -580.6L283.2 -655Z"/>
+<path class="bf-dot" d="M221.2 -729.2L295.4 -655L221.2 -580.6L147 -655Z"/>
 </g>
 <g class="bf-con" style="--d:0.88s">
-<line class="bf-diag" x1="291.7" y1="-673.1" x2="454.2" y2="-673.1"/>
-<line class="bf-diag" x1="373" y1="-754.4" x2="373" y2="-591.9"/>
-<circle class="bf-pt" cx="291.7" cy="-673.1" r="14"/>
-<circle class="bf-pt" cx="454.2" cy="-673.1" r="14"/>
-<line class="bf-diag" x1="121.3" y1="-673.1" x2="283.7" y2="-673.1"/>
-<line class="bf-diag" x1="202.5" y1="-754.4" x2="202.5" y2="-591.9"/>
-<circle class="bf-pt" cx="121.3" cy="-673.1" r="14"/>
-<circle class="bf-pt" cx="283.7" cy="-673.1" r="14"/>
-<polygon class="bf-poly" points="345.2,-111.6 311.8,-71.8 241.8,-36.3 199.1,-36.3 152.8,-36.3 76.6,-76.6 32.1,-150.6 32.1,-200.1 32.1,-268.3 115.4,-378.9 198.8,-409.6 333.5,-459.3 333.5,-359 228.2,-318.8 183.4,-302.3 143.6,-259.3 143.6,-235.5 143.6,-208.7 185.6,-174.3 222.6,-174.3 247.8,-174.3 298.2,-190.3 320.9,-206.9 320.9,-501.2 422.5,-539.8 440.8,-539.8 441.7,-265.7 441.7,-202.4 488.3,-146.3 552.2,-146.3 567.8,-146.3 577.8,-73.6 567.8,0 554.1,0 471.8,0 369.9,-55.2 345.2,-111.6"/>
-<rect class="bf-on" x="332.2" y="-124.6" width="26" height="26"/>
-<circle class="bf-off" cx="311.8" cy="-71.8" r="13"/>
-<circle class="bf-off" cx="241.8" cy="-36.3" r="13"/>
-<rect class="bf-on" x="186.1" y="-49.3" width="26" height="26"/>
-<circle class="bf-off" cx="152.8" cy="-36.3" r="13"/>
-<circle class="bf-off" cx="76.6" cy="-76.6" r="13"/>
-<circle class="bf-off" cx="32.1" cy="-150.6" r="13"/>
-<rect class="bf-on" x="19.1" y="-213.1" width="26" height="26"/>
-<circle class="bf-off" cx="32.1" cy="-268.3" r="13"/>
-<circle class="bf-off" cx="115.4" cy="-378.9" r="13"/>
-<rect class="bf-on" x="185.8" y="-422.6" width="26" height="26"/>
-<rect class="bf-on" x="320.5" y="-472.3" width="26" height="26"/>
-<rect class="bf-on" x="320.5" y="-372" width="26" height="26"/>
-<rect class="bf-on" x="215.2" y="-331.8" width="26" height="26"/>
-<circle class="bf-off" cx="183.4" cy="-302.3" r="13"/>
-<circle class="bf-off" cx="143.6" cy="-259.3" r="13"/>
-<rect class="bf-on" x="130.6" y="-248.5" width="26" height="26"/>
-<circle class="bf-off" cx="143.6" cy="-208.7" r="13"/>
-<circle class="bf-off" cx="185.6" cy="-174.3" r="13"/>
-<rect class="bf-on" x="209.6" y="-187.3" width="26" height="26"/>
-<circle class="bf-off" cx="247.8" cy="-174.3" r="13"/>
-<circle class="bf-off" cx="298.2" cy="-190.3" r="13"/>
-<rect class="bf-on" x="307.9" y="-219.9" width="26" height="26"/>
-<rect class="bf-on" x="307.9" y="-514.2" width="26" height="26"/>
-<rect class="bf-on" x="409.5" y="-552.8" width="26" height="26"/>
-<rect class="bf-on" x="427.8" y="-552.8" width="26" height="26"/>
-<rect class="bf-on" x="428.7" y="-278.7" width="26" height="26"/>
-<circle class="bf-off" cx="441.7" cy="-202.4" r="13"/>
-<circle class="bf-off" cx="488.3" cy="-146.3" r="13"/>
-<rect class="bf-on" x="539.2" y="-159.3" width="26" height="26"/>
-<rect class="bf-on" x="554.8" y="-159.3" width="26" height="26"/>
-<rect class="bf-on" x="564.8" y="-86.6" width="26" height="26"/>
-<rect class="bf-on" x="554.8" y="-13" width="26" height="26"/>
-<rect class="bf-on" x="541.1" y="-13" width="26" height="26"/>
-<circle class="bf-off" cx="471.8" cy="0" r="13"/>
-<circle class="bf-off" cx="369.9" cy="-55.2" r="13"/>
-<rect class="bf-on" x="332.2" y="-124.6" width="26" height="26"/>
+<line class="bf-diag" x1="283.2" y1="-654.9" x2="431.6" y2="-654.9"/>
+<line class="bf-diag" x1="357.4" y1="-729.2" x2="357.4" y2="-580.6"/>
+<circle class="bf-pt" cx="283.2" cy="-654.9" r="14"/>
+<circle class="bf-pt" cx="431.6" cy="-654.9" r="14"/>
+<line class="bf-diag" x1="147" y1="-654.9" x2="295.4" y2="-654.9"/>
+<line class="bf-diag" x1="221.2" y1="-729.2" x2="221.2" y2="-580.6"/>
+<circle class="bf-pt" cx="147" cy="-654.9" r="14"/>
+<circle class="bf-pt" cx="295.4" cy="-654.9" r="14"/>
+<polygon class="bf-poly" points="349.4,-114.4 317,-73.2 243.4,-35.2 199.4,-35.2 154.2,-35.2 79.8,-74 36,-146.2 36,-194.8 36,-261.6 118,-367.6 200.4,-397.6 339.8,-448.6 339.8,-359 226.8,-316.6 178.6,-299 135.4,-252.4 135.4,-225.2 135.4,-195 181,-158 220,-158 249.2,-158 306.2,-180 328.2,-201.2 328.2,-488.6 417.8,-524.6 434.8,-524.6 435.6,-252.2 435.6,-188.4 483.2,-130 549,-130 565.4,-130 575.4,-65.4 565.4,0 550.6,0 469.4,0 371.6,-57.2 349.4,-114.4"/>
+<rect class="bf-on" x="336.4" y="-127.4" width="26" height="26"/>
+<circle class="bf-off" cx="317" cy="-73.2" r="13"/>
+<circle class="bf-off" cx="243.4" cy="-35.2" r="13"/>
+<rect class="bf-on" x="186.4" y="-48.2" width="26" height="26"/>
+<circle class="bf-off" cx="154.2" cy="-35.2" r="13"/>
+<circle class="bf-off" cx="79.8" cy="-74" r="13"/>
+<circle class="bf-off" cx="36" cy="-146.2" r="13"/>
+<rect class="bf-on" x="23" y="-207.8" width="26" height="26"/>
+<circle class="bf-off" cx="36" cy="-261.6" r="13"/>
+<circle class="bf-off" cx="118" cy="-367.6" r="13"/>
+<rect class="bf-on" x="187.4" y="-410.6" width="26" height="26"/>
+<rect class="bf-on" x="326.8" y="-461.6" width="26" height="26"/>
+<rect class="bf-on" x="326.8" y="-372" width="26" height="26"/>
+<rect class="bf-on" x="213.8" y="-329.6" width="26" height="26"/>
+<circle class="bf-off" cx="178.6" cy="-299" r="13"/>
+<circle class="bf-off" cx="135.4" cy="-252.4" r="13"/>
+<rect class="bf-on" x="122.4" y="-238.2" width="26" height="26"/>
+<circle class="bf-off" cx="135.4" cy="-195" r="13"/>
+<circle class="bf-off" cx="181" cy="-158" r="13"/>
+<rect class="bf-on" x="207" y="-171" width="26" height="26"/>
+<circle class="bf-off" cx="249.2" cy="-158" r="13"/>
+<circle class="bf-off" cx="306.2" cy="-180" r="13"/>
+<rect class="bf-on" x="315.2" y="-214.2" width="26" height="26"/>
+<rect class="bf-on" x="315.2" y="-501.6" width="26" height="26"/>
+<rect class="bf-on" x="404.8" y="-537.6" width="26" height="26"/>
+<rect class="bf-on" x="421.8" y="-537.6" width="26" height="26"/>
+<rect class="bf-on" x="422.6" y="-265.2" width="26" height="26"/>
+<circle class="bf-off" cx="435.6" cy="-188.4" r="13"/>
+<circle class="bf-off" cx="483.2" cy="-130" r="13"/>
+<rect class="bf-on" x="536" y="-143" width="26" height="26"/>
+<rect class="bf-on" x="552.4" y="-143" width="26" height="26"/>
+<rect class="bf-on" x="562.4" y="-78.4" width="26" height="26"/>
+<rect class="bf-on" x="552.4" y="-13" width="26" height="26"/>
+<rect class="bf-on" x="537.6" y="-13" width="26" height="26"/>
+<circle class="bf-off" cx="469.4" cy="0" r="13"/>
+<circle class="bf-off" cx="371.6" cy="-57.2" r="13"/>
+<rect class="bf-on" x="336.4" y="-127.4" width="26" height="26"/>
 </g>
 <g style="--d:0.66s">
-<path class="bf-body" pathLength="1" d="M556 -73.6L566 -146.3Q638.5 -146.3 662.7 -177.4Q686.9 -208.6 682.4 -250Q677.8 -291.4 657.6 -375.7L758.4 -421.4L781.3 -421.4Q814.7 -298.6 809.3 -205.2Q803.9 -111.8 746.2 -55.9Q688.5 0 566 0Z"/>
-<path class="bf-dot" d="M615.5 133.3L696.7 52.1L777.9 133.3L696.7 214.6Z"/>
+<path class="bf-body" pathLength="1" d="M793.6 -226Q793.6 -118.2 739.5 -59.1Q685.4 0 563 0L553 -65.4L563 -130Q627.4 -130 653.8 -155.3Q680.2 -180.6 680.2 -230.2Q680.2 -254.4 675.4 -282.8Q670.6 -311.2 661 -350.2L657.4 -365.8L746.8 -407.2L767.6 -407.2Q793.6 -303.8 793.6 -226Z"/>
+<path class="bf-dot" d="M687.6 56L761.8 130.2L687.6 204.6L613.4 130.2Z"/>
 </g>
 <g class="bf-con" style="--d:0.66s">
-<line class="bf-diag" x1="615.5" y1="133.3" x2="777.9" y2="133.3"/>
-<line class="bf-diag" x1="696.7" y1="52.1" x2="696.7" y2="214.6"/>
-<circle class="bf-pt" cx="615.5" cy="133.3" r="14"/>
-<circle class="bf-pt" cx="777.9" cy="133.3" r="14"/>
+<line class="bf-diag" x1="613.4" y1="130.3" x2="761.8" y2="130.3"/>
+<line class="bf-diag" x1="687.6" y1="56" x2="687.6" y2="204.6"/>
+<circle class="bf-pt" cx="613.4" cy="130.3" r="14"/>
+<circle class="bf-pt" cx="761.8" cy="130.3" r="14"/>
 </g>
 <g style="--d:0.44s">
-<path class="bf-body" pathLength="1" d="M1132.1 -58.8Q1132.1 -114 1114.7 -165.8Q1097.3 -217.6 1057.7 -307.5L1145.1 -375.1L1172.8 -375.1Q1208.7 -298.3 1225.6 -230.3Q1242.6 -162.3 1242.6 -96.3Q1242.6 0.6 1200.3 79.8Q1158.1 159 1070.6 189.7Q983.2 220.4 854.4 172.9L859.2 85.2Q968 85.4 1028.1 66Q1088.1 46.6 1110.1 15Q1132.1 -16.6 1132.1 -58.8Z"/>
-<path class="bf-body" pathLength="1" d="M1201.8 -219.6L1226.1 -219.9Q1234.7 -188.6 1245.4 -173.9Q1256.1 -159.1 1278.5 -152.7Q1301 -146.3 1346.4 -146.3L1367.2 -146.3L1377.2 -73.6L1367.2 0L1346.4 0Q1298.1 0 1270.8 -20.6Q1243.4 -41.2 1228.3 -87.5Q1213.3 -133.8 1201.8 -219.6Z"/>
+<path class="bf-body" pathLength="1" d="M1115.8 -209.6L1138.6 -210.4Q1148.2 -176.8 1159.3 -160.6Q1170.4 -144.4 1192.8 -137.2Q1215.2 -130 1259.6 -130L1281.8 -130L1291.8 -65.4L1281.8 0L1259.6 0Q1214.8 0 1186.3 -27.1Q1157.8 -54.2 1141.8 -99.5Q1125.8 -144.8 1115.8 -209.6Z"/>
+<path class="bf-body" pathLength="1" d="M1157.4 -63.4Q1157.4 37.6 1117.2 117.5Q1077 197.4 992.1 229.3Q907.2 261.2 782 219L786.4 141Q892.8 141.6 952.9 118.9Q1013 96.2 1035.9 58.6Q1058.8 21 1058.8 -31Q1058.8 -91.8 1041 -151.3Q1023.2 -210.8 985 -304.8L1060.8 -365.8L1086 -365.8Q1121.6 -284.2 1139.5 -209.5Q1157.4 -134.8 1157.4 -63.4Z"/>
 </g>
 <g class="bf-con" style="--d:0.44s">
 </g>
 <g style="--d:0.22s">
-<path class="bf-body" pathLength="1" d="M1717 -242.4Q1655.3 -264 1620.7 -274.4Q1586.1 -284.7 1562.8 -284.7Q1535.8 -284.7 1513.7 -272.2Q1491.6 -259.7 1485.5 -234.4L1438.7 -245.1Q1451.3 -336.9 1486.2 -384Q1521.1 -431 1572.1 -431Q1602.1 -431 1644.4 -417.8Q1686.7 -404.6 1755.2 -379.1Q1833.6 -350.6 1886.3 -334.3Q1939 -318.1 1983.8 -314.3L1995.1 -300.6L1978.9 -179.3Q1925.4 -179.3 1866.1 -195.6Q1806.8 -211.8 1717 -242.4Z"/>
-<path class="bf-body" pathLength="1" d="M1366.9 -146.3L1471.3 -146.3Q1530.8 -146.3 1582.2 -152.7Q1633.6 -159.2 1672.2 -167.9Q1710.7 -176.6 1769.2 -192.8Q1825.6 -208.8 1866.1 -217.6Q1906.7 -226.4 1952.3 -229.2L1978.8 -180.3Q1943.7 -176.6 1905.7 -160.4Q1867.7 -144.2 1808.4 -113.1Q1740.3 -77.2 1688.6 -54.9Q1637 -32.6 1571.9 -16.3Q1506.8 0 1435.1 0L1366.9 0Z"/>
-<path class="bf-body" pathLength="1" d="M1816.4 -192.2L1854.8 -204Q1857.9 -182.9 1868.4 -170.8Q1878.9 -158.7 1903.9 -152.5Q1928.8 -146.3 1975.2 -146.3L2068.8 -146.3L2078.8 -73.6L2068.8 0L1975 0Q1927.3 0 1894 -24.8Q1860.7 -49.7 1841.6 -92.8Q1822.6 -135.9 1816.4 -192.2Z"/>
-<path class="bf-dot" d="M1694.7 133.3L1776 52.1L1857.2 133.3L1776 214.6Z"/>
+<path class="bf-body" pathLength="1" d="M1271 -65.4L1281 -130L1375 -130Q1435.6 -130 1488 -137.5Q1540.4 -145 1579.9 -155.2Q1619.4 -165.4 1679.6 -184Q1737.2 -202.2 1778.1 -212.5Q1819 -222.8 1865.2 -227L1888.8 -180.8Q1851.6 -175.8 1813 -159.3Q1774.4 -142.8 1714 -111.4Q1645.6 -75.8 1594.7 -53.9Q1543.8 -32 1479.5 -16Q1415.2 0 1343.8 0L1281 0Z"/>
+<path class="bf-body" pathLength="1" d="M1633.2 -245Q1571.4 -268 1536.8 -278.9Q1502.2 -289.8 1478.4 -289.8Q1447.6 -289.8 1425.4 -275.4Q1403.2 -261 1397 -233.4L1354 -243.4Q1366 -329.4 1399.8 -374.6Q1433.6 -419.8 1486.4 -419.8Q1516.4 -419.8 1558.5 -406.3Q1600.6 -392.8 1668 -366.8Q1745.2 -337.8 1797.3 -321.3Q1849.4 -304.8 1893.8 -301.2L1904 -288.2L1889 -180Q1836.8 -180 1778.7 -196.8Q1720.6 -213.6 1633.2 -245Z"/>
+<path class="bf-body" pathLength="1" d="M1990.6 -65.4L1980.6 0L1898.6 0Q1849.6 0 1815.7 -22.9Q1781.8 -45.8 1758.9 -90.8Q1736 -135.8 1727.8 -203L1763 -214.2Q1768.2 -178.8 1783.4 -161.1Q1798.6 -143.4 1825 -136.7Q1851.4 -130 1899 -130L1980.6 -130Z"/>
+<path class="bf-dot" d="M1688.2 6L1762.4 80.2L1688.2 154.6L1614 80.2Z"/>
 </g>
 <g class="bf-con" style="--d:0.22s">
-<line class="bf-diag" x1="1694.7" y1="133.3" x2="1857.2" y2="133.3"/>
-<line class="bf-diag" x1="1776" y1="52.1" x2="1776" y2="214.6"/>
-<circle class="bf-pt" cx="1694.7" cy="133.3" r="14"/>
-<circle class="bf-pt" cx="1857.2" cy="133.3" r="14"/>
-<polygon class="bf-poly" points="1366.9,-146.3 1471.3,-146.3 1530.8,-146.3 1633.6,-159.2 1710.7,-176.6 1769.2,-192.8 1825.6,-208.8 1906.7,-226.4 1952.3,-229.2 1978.8,-180.3 1943.7,-176.6 1867.7,-144.2 1808.4,-113.1 1740.3,-77.2 1637,-32.6 1506.8,0 1435.1,0 1366.9,0"/>
-<rect class="bf-on" x="1353.9" y="-159.3" width="26" height="26"/>
-<rect class="bf-on" x="1458.3" y="-159.3" width="26" height="26"/>
-<circle class="bf-off" cx="1530.8" cy="-146.3" r="13"/>
-<circle class="bf-off" cx="1633.6" cy="-159.2" r="13"/>
-<circle class="bf-off" cx="1710.7" cy="-176.6" r="13"/>
-<rect class="bf-on" x="1756.2" y="-205.8" width="26" height="26"/>
-<circle class="bf-off" cx="1825.6" cy="-208.8" r="13"/>
-<circle class="bf-off" cx="1906.7" cy="-226.4" r="13"/>
-<rect class="bf-on" x="1939.3" y="-242.2" width="26" height="26"/>
-<rect class="bf-on" x="1965.8" y="-193.3" width="26" height="26"/>
-<circle class="bf-off" cx="1943.7" cy="-176.6" r="13"/>
-<circle class="bf-off" cx="1867.7" cy="-144.2" r="13"/>
-<rect class="bf-on" x="1795.4" y="-126.1" width="26" height="26"/>
-<circle class="bf-off" cx="1740.3" cy="-77.2" r="13"/>
-<circle class="bf-off" cx="1637" cy="-32.6" r="13"/>
-<circle class="bf-off" cx="1506.8" cy="0" r="13"/>
-<rect class="bf-on" x="1422.1" y="-13" width="26" height="26"/>
-<rect class="bf-on" x="1353.9" y="-13" width="26" height="26"/>
+<line class="bf-diag" x1="1614" y1="80.3" x2="1762.4" y2="80.3"/>
+<line class="bf-diag" x1="1688.2" y1="6" x2="1688.2" y2="154.6"/>
+<circle class="bf-pt" cx="1614" cy="80.3" r="14"/>
+<circle class="bf-pt" cx="1762.4" cy="80.3" r="14"/>
+<polygon class="bf-poly" points="1271,-65.4 1281,-130 1375,-130 1435.6,-130 1540.4,-145 1619.4,-165.4 1679.6,-184 1737.2,-202.2 1819,-222.8 1865.2,-227 1888.8,-180.8 1851.6,-175.8 1774.4,-142.8 1714,-111.4 1645.6,-75.8 1543.8,-32 1415.2,0 1343.8,0 1281,0"/>
+<rect class="bf-on" x="1258" y="-78.4" width="26" height="26"/>
+<rect class="bf-on" x="1268" y="-143" width="26" height="26"/>
+<rect class="bf-on" x="1362" y="-143" width="26" height="26"/>
+<circle class="bf-off" cx="1435.6" cy="-130" r="13"/>
+<circle class="bf-off" cx="1540.4" cy="-145" r="13"/>
+<circle class="bf-off" cx="1619.4" cy="-165.4" r="13"/>
+<rect class="bf-on" x="1666.6" y="-197" width="26" height="26"/>
+<circle class="bf-off" cx="1737.2" cy="-202.2" r="13"/>
+<circle class="bf-off" cx="1819" cy="-222.8" r="13"/>
+<rect class="bf-on" x="1852.2" y="-240" width="26" height="26"/>
+<rect class="bf-on" x="1875.8" y="-193.8" width="26" height="26"/>
+<circle class="bf-off" cx="1851.6" cy="-175.8" r="13"/>
+<circle class="bf-off" cx="1774.4" cy="-142.8" r="13"/>
+<rect class="bf-on" x="1701" y="-124.4" width="26" height="26"/>
+<circle class="bf-off" cx="1645.6" cy="-75.8" r="13"/>
+<circle class="bf-off" cx="1543.8" cy="-32" r="13"/>
+<circle class="bf-off" cx="1415.2" cy="0" r="13"/>
+<rect class="bf-on" x="1330.8" y="-13" width="26" height="26"/>
+<rect class="bf-on" x="1268" y="-13" width="26" height="26"/>
 </g>
 <g style="--d:0.00s">
-<path class="bf-body" pathLength="1" d="M2059 -73.6L2069 -146.3Q2141.5 -146.3 2165.7 -177.4Q2189.9 -208.6 2185.4 -250Q2180.8 -291.4 2160.6 -375.7L2261.4 -421.4L2284.3 -421.4Q2317.7 -298.6 2312.3 -205.2Q2306.9 -111.8 2249.2 -55.9Q2191.5 0 2069 0Z"/>
-<path class="bf-dot" d="M2238.3 -554.8L2319.5 -636L2400.7 -554.8L2319.5 -473.5Z"/>
-<path class="bf-dot" d="M2067.8 -554.8L2149 -636L2230.3 -554.8L2149 -473.5Z"/>
+<path class="bf-body" pathLength="1" d="M2205.6 -226Q2205.6 -118.2 2151.5 -59.1Q2097.4 0 1975 0L1965 -65.4L1975 -130Q2039.4 -130 2065.8 -155.3Q2092.2 -180.6 2092.2 -230.2Q2092.2 -254.4 2087.4 -282.8Q2082.6 -311.2 2073 -350.2L2069.4 -365.8L2158.8 -407.2L2179.6 -407.2Q2205.6 -303.8 2205.6 -226Z"/>
+<path class="bf-dot" d="M2203.6 -611.8L2277.8 -537.6L2203.6 -463.2L2129.4 -537.6Z"/>
+<path class="bf-dot" d="M2067.4 -611.8L2141.6 -537.6L2067.4 -463.2L1993.2 -537.6Z"/>
 </g>
 <g class="bf-con" style="--d:0.00s">
-<line class="bf-diag" x1="2238.3" y1="-554.7" x2="2400.7" y2="-554.7"/>
-<line class="bf-diag" x1="2319.5" y1="-636" x2="2319.5" y2="-473.5"/>
-<circle class="bf-pt" cx="2238.3" cy="-554.7" r="14"/>
-<circle class="bf-pt" cx="2400.7" cy="-554.7" r="14"/>
-<line class="bf-diag" x1="2067.8" y1="-554.7" x2="2230.3" y2="-554.7"/>
-<line class="bf-diag" x1="2149" y1="-636" x2="2149" y2="-473.5"/>
-<circle class="bf-pt" cx="2067.8" cy="-554.7" r="14"/>
-<circle class="bf-pt" cx="2230.3" cy="-554.7" r="14"/>
+<line class="bf-diag" x1="2129.4" y1="-537.5" x2="2277.8" y2="-537.5"/>
+<line class="bf-diag" x1="2203.6" y1="-611.8" x2="2203.6" y2="-463.2"/>
+<circle class="bf-pt" cx="2129.4" cy="-537.5" r="14"/>
+<circle class="bf-pt" cx="2277.8" cy="-537.5" r="14"/>
+<line class="bf-diag" x1="1993.2" y1="-537.5" x2="2141.6" y2="-537.5"/>
+<line class="bf-diag" x1="2067.4" y1="-611.8" x2="2067.4" y2="-463.2"/>
+<circle class="bf-pt" cx="1993.2" cy="-537.5" r="14"/>
+<circle class="bf-pt" cx="2141.6" cy="-537.5" r="14"/>
 </g>
 <g class="bf-con" style="--d:1.1s">
-<path class="bf-rh" d="M2575.8 -81.2L2657 -162.4L2738.2 -81.2L2657 0Z"/>
-<path class="bf-rh" d="M2575.8 -243.7L2657 -324.9L2738.2 -243.7L2657 -162.4Z"/>
-<path class="bf-rh" d="M2575.8 -406.1L2657 -487.3L2738.2 -406.1L2657 -324.9Z"/>
-<path class="bf-rh" d="M2575.8 -568.6L2657 -649.8L2738.2 -568.6L2657 -487.3Z"/>
-<line class="bf-diag" x1="2494.6" x2="2819.4" y1="-680" y2="-680"/>
+<path class="bf-rh" d="M2477.8 -74.2L2552 -148.4L2626.2 -74.2L2552 0Z"/>
+<path class="bf-rh" d="M2477.8 -222.6L2552 -296.8L2626.2 -222.6L2552 -148.4Z"/>
+<path class="bf-rh" d="M2477.8 -371L2552 -445.2L2626.2 -371L2552 -296.8Z"/>
+<path class="bf-rh" d="M2477.8 -519.4L2552 -593.6L2626.2 -519.4L2552 -445.2Z"/>
+<path class="bf-rh" d="M2477.8 -667.8L2552 -742L2626.2 -667.8L2552 -593.6Z"/>
+<line class="bf-diag" x1="2403.6" x2="2700.4" y1="-731" y2="-731"/>
 </g>
 </svg>
       <figcaption class="bf-legend">
-        <span><svg viewBox="0 0 20 20" aria-hidden="true"><path class="lg-rh" d="M10 2 L18 10 L10 18 L2 10 Z"/></svg>نقطة الخط: معيَّن طوله ١٦٢ وحدة في الوزن ٧٠٠</span>
+        <span><svg viewBox="0 0 20 20" aria-hidden="true"><path class="lg-rh" d="M10 2 L18 10 L10 18 L2 10 Z"/></svg>نقطة الخط: معيَّن طوله ١٤٨ وحدة في الوزن ٧٠٠</span>
         <span><svg viewBox="0 0 20 20" aria-hidden="true"><rect class="lg-on" x="5" y="5" width="10" height="10"/></svg>نقطة على المنحنى</span>
         <span><svg viewBox="0 0 20 20" aria-hidden="true"><circle class="lg-off" cx="10" cy="10" r="5"/></svg>نقطة تحكّم</span>
-        <span><svg viewBox="0 0 20 20" aria-hidden="true"><path class="lg-rh" d="M10 1 L14 5 L10 9 L6 5 Z M10 11 L14 15 L10 19 L6 15 Z"/></svg>عمود النقاط: ارتفاع الألف نحو أربع نقاط</span>
+        <span><svg viewBox="0 0 20 20" aria-hidden="true"><path class="lg-rh" d="M10 1 L14 5 L10 9 L6 5 Z M10 11 L14 15 L10 19 L6 15 Z"/></svg>عمود النقاط: ارتفاع الألف نحو خمس نقاط</span>
       </figcaption>
     </figure>
   </div>
@@ -784,24 +786,24 @@ footer .logo svg { width: 80px; }
     </div>
     <div class="st-grid">
       <div class="stat st-glyphs">
-        <div class="st-num"><span class="n num" data-v="803">٨٠٣</span><span class="l">رمزًا مرسومًا في الخط</span></div>
+        <div class="st-num"><span class="n num" data-v="840">٨٤٠</span><span class="l">رمزًا مرسومًا في الخط</span></div>
         <div class="st-forms" aria-hidden="true">
           <span><b>ع</b>منفصل</span><span><b>ع&zwj;</b>أول الكلمة</span><span><b>&zwj;ع&zwj;</b>وسطها</span><span><b>&zwj;ع</b>آخرها</span><span class="sw"><b>&zwj;ع</b>مرسل</span>
         </div>
         <p class="st-note">حرف واحد، خمسة أشكال. لهذا تزيد الرموز على المحارف.</p>
       </div>
       <div class="stat st-chars">
-        <div class="st-num"><span class="n num" data-v="552">٥٥٢</span><span class="l">محرفًا يونيكوديًا يدعمه الخط</span></div>
-        <div class="st-wall" aria-hidden="true"><p dir="rtl">، ؛ ؟ ء آ أ ؤ إ ئ ا ب ة ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ى ي ٠ ١ ٢ ٣ ٤ ٥ ٦ ٧ ٨ ٩ ٪ ٫ ٬ ٭ ٮ ٯ ٱ ٹ پ چ ڈ ڎ ڑ ڕ ژ ڡ ڤ ک گ ڵ ں ھ ہ ۂ ۃ ۆ ۊ ی ێ ۏ ے ۓ ۔ ە ۰ ۱ ۲ ۳ ۴ ۵ ۶ ۷ ۸ ۹ ݩ</p><p dir="ltr">! &quot; # $ % &amp; &#x27; ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ? @ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _ ` a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~ ¡ ¢ £ ¤ ¥ ¦ § ¨ © ª « ¬ ® ¯ ° ± ² ³ ´ µ ¶ · ¸ ¹ º » ¼ ½ ¾ ¿ À Á Â Ã Ä Å Æ Ç È É Ê Ë Ì Í Î Ï Ð Ñ Ò Ó Ô Õ Ö × Ø Ù Ú Û Ü Ý Þ ß à á â ã ä å æ ç è é ê ë ì í î ï ð ñ ò ó ô õ ö ÷ ø ù ú û ü ý þ ÿ Ā ā Ă ă Ą ą Ć ć Ċ ċ Č č Ď ď Đ đ Ē ē Ė ė Ę ę Ě ě Ğ ğ Ġ ġ Ģ ģ Ħ ħ Ī ī Į į İ ı Ĳ ĳ Ķ ķ Ĺ ĺ Ļ ļ Ľ ľ Ŀ ŀ Ł ł Ń ń Ņ ņ Ň ň Ŋ ŋ Ō ō Ő ő Œ œ Ŕ ŕ Ŗ ŗ Ř ř Ś ś Ş ş Š š Ţ ţ Ť ť Ū ū Ŭ ŭ Ů ů Ű ű Ų ų Ŵ ŵ Ŷ ŷ Ÿ Ź ź Ż ż Ž ž Ə ƒ Ș ș Ț ț ȷ ə ʻ ʼ ˆ ˇ ˘ ˙ ˚ ˛ ˜ ˝ Ω π ฿ Ẁ ẁ Ẃ ẃ Ẅ ẅ ẞ Ỳ ỳ – — ‘ ’ ‚ “ ” „ † ‡ • … ‰ ′ ″ ‹ › ⁄ ⁰ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₩ € ₴ ₹ ₽ ™ ⅛ ⅜ ⅝ ⅞ ← ↑ → ↓ ↔ ↕ ↖ ↗ ↘ ↙ ∂ ∆ ∏ ∑ − √ ∞ ∫ ≈ ≠ ≤ ≥ ◊ 、 〜 ﬁ ﬂ</p></div>
+        <div class="st-num"><span class="n num" data-v="553">٥٥٣</span><span class="l">محرفًا يونيكوديًا يدعمه الخط</span></div>
+        <div class="st-wall" aria-hidden="true"><p dir="rtl">، ؛ ؟ ء آ أ ؤ إ ئ ا ب ة ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ى ي ٠ ١ ٢ ٣ ٤ ٥ ٦ ٧ ٨ ٩ ٪ ٫ ٬ ٭ ٮ ٯ ٱ ٹ پ چ ڈ ڎ ڑ ڕ ژ ڡ ڤ ک گ ڵ ں ھ ہ ۂ ۃ ۆ ۊ ی ێ ۏ ے ۓ ۔ ە ۰ ۱ ۲ ۳ ۴ ۵ ۶ ۷ ۸ ۹ ݩ</p><p dir="ltr">! &quot; # $ % &amp; &#x27; ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ? @ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _ ` a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~ ¡ ¢ £ ¤ ¥ ¦ § ¨ © ª « ¬ ® ¯ ° ± ² ³ ´ µ ¶ · ¸ ¹ º » ¼ ½ ¾ ¿ À Á Â Ã Ä Å Æ Ç È É Ê Ë Ì Í Î Ï Ð Ñ Ò Ó Ô Õ Ö × Ø Ù Ú Û Ü Ý Þ ß à á â ã ä å æ ç è é ê ë ì í î ï ð ñ ò ó ô õ ö ÷ ø ù ú û ü ý þ ÿ Ā ā Ă ă Ą ą Ć ć Ċ ċ Č č Ď ď Đ đ Ē ē Ė ė Ę ę Ě ě Ğ ğ Ġ ġ Ģ ģ Ħ ħ Ī ī Į į İ ı Ĳ ĳ Ķ ķ Ĺ ĺ Ļ ļ Ľ ľ Ŀ ŀ Ł ł Ń ń Ņ ņ Ň ň Ŋ ŋ Ō ō Ő ő Œ œ Ŕ ŕ Ŗ ŗ Ř ř Ś ś Ş ş Š š Ţ ţ Ť ť Ū ū Ŭ ŭ Ů ů Ű ű Ų ų Ŵ ŵ Ŷ ŷ Ÿ Ź ź Ż ż Ž ž Ə ƒ Ș ș Ț ț ȷ ə ʻ ʼ ˆ ˇ ˘ ˙ ˚ ˛ ˜ ˝ ฿ Ẁ ẁ Ẃ ẃ Ẅ ẅ ẞ Ỳ ỳ – — ‘ ’ ‚ “ ” „ † ‡ • … ‰ ′ ″ ‹ › ⁄ ⁰ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₩ € ₴ ₹ ₽ ⃁ ™ ⅛ ⅜ ⅝ ⅞ ← ↑ → ↓ ↔ ↕ ↖ ↗ ↘ ↙ ∂ ∆ ∏ ∑ − √ ∞ ∫ ≈ ≠ ≤ ≥ ◊ ✓ 、 〜 ﬁ ﬂ</p></div>
       </div>
       <div class="stat st-feats">
-        <div class="st-num"><span class="n num" data-v="24">٢٤</span><span class="l">خاصية تنضيد مدمجة، منها الحروف المرسلة</span></div>
-        <ul class="st-tags" aria-label="خصائص التنضيد المدمجة"><li><code>aalt</code></li><li><code>calt</code></li><li><code>case</code></li><li><code>ccmp</code></li><li><code>curs</code></li><li><code>dlig</code></li><li><code>dnom</code></li><li><code>fina</code></li><li><code>frac</code></li><li><code>init</code></li><li><code>kern</code></li><li><code>liga</code></li><li><code>locl</code></li><li><code>mark</code></li><li><code>medi</code></li><li><code>mkmk</code></li><li><code>numr</code></li><li><code>ordn</code></li><li><code>rlig</code></li><li><code>rvrn</code></li><li><code>sinf</code></li><li><code>subs</code></li><li><code>sups</code></li><li><code class="on">swsh</code></li></ul>
+        <div class="st-num"><span class="n num" data-v="23">٢٣</span><span class="l">خاصية تنضيد مدمجة، منها الحروف المرسلة</span></div>
+        <ul class="st-tags" aria-label="خصائص التنضيد المدمجة"><li><code>aalt</code></li><li><code>calt</code></li><li><code>case</code></li><li><code>ccmp</code></li><li><code>dlig</code></li><li><code>dnom</code></li><li><code>fina</code></li><li><code>frac</code></li><li><code>init</code></li><li><code>kern</code></li><li><code>liga</code></li><li><code>locl</code></li><li><code>mark</code></li><li><code>medi</code></li><li><code>mkmk</code></li><li><code>numr</code></li><li><code>ordn</code></li><li><code>rlig</code></li><li><code>sinf</code></li><li><code>subs</code></li><li><code>sups</code></li><li><code class="on">swsh</code></li><li><code>tnum</code></li></ul>
       </div>
       <div class="stat st-weights">
-        <div class="st-num"><span class="n num" data-v="8">٨</span><span class="l">أوزان مسمّاة على محور واحد</span></div>
+        <div class="st-num"><span class="n num" data-v="9">٩</span><span class="l">أوزان مسمّاة على محور واحد</span></div>
         <div class="st-ladder" aria-hidden="true">
-          <span><b style="font-weight:100">ع</b>١٠٠</span><span><b style="font-weight:200">ع</b>٢٠٠</span><span><b style="font-weight:300">ع</b>٣٠٠</span><span><b style="font-weight:400">ع</b>٤٠٠</span><span><b style="font-weight:500">ع</b>٥٠٠</span><span><b style="font-weight:600">ع</b>٦٠٠</span><span><b style="font-weight:700">ع</b>٧٠٠</span><span><b style="font-weight:900">ع</b>٩٠٠</span>
+          <span><b style="font-weight:100">ع</b>١٠٠</span><span><b style="font-weight:200">ع</b>٢٠٠</span><span><b style="font-weight:300">ع</b>٣٠٠</span><span><b style="font-weight:400">ع</b>٤٠٠</span><span><b style="font-weight:500">ع</b>٥٠٠</span><span><b style="font-weight:600">ع</b>٦٠٠</span><span><b style="font-weight:700">ع</b>٧٠٠</span><span><b style="font-weight:800">ع</b>٨٠٠</span><span><b style="font-weight:900">ع</b>٩٠٠</span>
         </div>
       </div>
     </div>
@@ -813,8 +815,8 @@ footer .logo svg { width: 80px; }
   <div class="wrap">
     <div class="head">
       <span class="eyebrow">التشريح</span>
-      <h2>مقاييس ثابتة على كل وزن.</h2>
-      <p>كل القيم بوحدات مربّع الحرف، وطوله ألف وحدة. حرّك الوزن وستبقى الخطوط في مكانها، لأن المحور يغيّر سُمك الحرف لا ارتفاعه.</p>
+      <h2>خطوط قياس ثابتة على كل وزن.</h2>
+      <p>كل القيم بوحدات مربّع الحرف، وطوله ١٠٥٠ وحدة. حرّك الوزن وستبقى الخطوط في مكانها: يتغيّر سُمك الحرف، ويثبت ارتفاع الحرفين H وx.</p>
     </div>
     <div class="fig-controls">
       <label for="anaW">الوزن</label>
@@ -833,7 +835,7 @@ footer .logo svg { width: 80px; }
           <text class="spec" id="anaLa" x="700" y="0" text-anchor="start" style="direction:ltr;font-weight:300">Hx</text>
         </svg>
         <div class="fig-label" style="top:7.56%">الصاعد <span class="tag">950</span></div>
-        <div class="fig-label" style="top:23.26%">ارتفاع الألف <span class="tag">680 · H</span></div>
+        <div class="fig-label" style="top:23.26%">ارتفاع الحروف الكبيرة <span class="tag">680 · H</span></div>
         <div class="fig-label" style="top:35.12%">ارتفاع x <span class="tag">476</span></div>
         <div class="fig-label base" style="top:62.79%">خط الأساس <span class="tag">0</span></div>
         <div class="fig-label" style="top:91.86%">النازل <span class="tag">−500</span></div>
@@ -847,7 +849,7 @@ footer .logo svg { width: 80px; }
   <div class="wrap">
     <div class="head">
       <span class="eyebrow">الأوزان</span>
-      <h2>ثمانية أوزان في ملف واحد.</h2>
+      <h2>تسعة أوزان في ملف واحد.</h2>
       <p>كل وزن نقطة مسمّاة على محور الوزن. وبين كل نقطتين قيم أخرى تختارها بنفسك.</p>
     </div>
     <ul class="wlist" id="wlist"></ul>
@@ -914,7 +916,7 @@ footer .logo svg { width: 80px; }
         <div class="marquee-set">
           <span style="font-weight:900">نصمّم مستقبل التجربة</span><i class="sep"></i>
           <span style="font-weight:100" class="ltr">Designing the Future of Experience</span><i class="sep"></i>
-          <span style="font-weight:600">ثمانية أوزان</span><i class="sep"></i>
+          <span style="font-weight:600">تسعة أوزان</span><i class="sep"></i>
           <span style="font-weight:200">من ١٠٠ إلى ٩٠٠</span><i class="sep"></i>
           <span style="font-weight:800" class="ltr">Azm X Variable</span><i class="sep"></i>
           <span style="font-weight:300">عربي ولاتيني</span><i class="sep"></i>
@@ -922,7 +924,7 @@ footer .logo svg { width: 80px; }
         <div class="marquee-set">
           <span style="font-weight:900">نصمّم مستقبل التجربة</span><i class="sep"></i>
           <span style="font-weight:100" class="ltr">Designing the Future of Experience</span><i class="sep"></i>
-          <span style="font-weight:600">ثمانية أوزان</span><i class="sep"></i>
+          <span style="font-weight:600">تسعة أوزان</span><i class="sep"></i>
           <span style="font-weight:200">من ١٠٠ إلى ٩٠٠</span><i class="sep"></i>
           <span style="font-weight:800" class="ltr">Azm X Variable</span><i class="sep"></i>
           <span style="font-weight:300">عربي ولاتيني</span><i class="sep"></i>
@@ -941,7 +943,7 @@ footer .logo svg { width: 80px; }
 
       <article class="tile c4" data-watch>
         <div class="stage"><div class="m-inst"><span class="w" id="instW" style="font-weight:100">عزم إكس</span><span class="n"><b id="instV">100</b> · <span id="instN">رفيع</span> · <span class="ltr" id="instL">Thin</span></span></div></div>
-        <div class="tile-cap"><h3>الأوزان الثمانية</h3><span class="tag">8 named instances</span></div>
+        <div class="tile-cap"><h3>الأوزان التسعة</h3><span class="tag">9 named instances</span></div>
         <p>الخط يقفز بين الأوزان المسمّاة دون المرور بما بينها.</p>
       </article>
 
@@ -1009,7 +1011,7 @@ footer .logo svg { width: 80px; }
       <div class="t-presets" id="tPresets"><span>جرّب:</span>
         <button type="button">نصمّم مستقبل التجربة، حرفًا بعد حرف.</button>
         <button type="button">شغف · سعد · ذهب</button>
-        <button type="button">في كل تفصيل</button>
+        <button type="button">السعر ١٢٥ ⃁</button>
         <button type="button">#KSA</button>
         <button type="button">#RIAL</button>
         <button type="button">ولي العهد</button>
@@ -1030,7 +1032,7 @@ footer .logo svg { width: 80px; }
     </div>
     <div class="marks-grid">
       <button class="mark" type="button"><span class="mark-out" dir="ltr">#KSA</span><span class="mark-meta"><span class="what">شعار المملكة العربية السعودية</span><span class="how">اكتب <kbd dir="ltr">#KSA</kbd></span></span></button>
-      <button class="mark" type="button"><span class="mark-out" dir="ltr">#RIAL</span><span class="mark-meta"><span class="what">رمز الريال السعودي</span><span class="how">اكتب <kbd dir="ltr">#RIAL</kbd></span></span></button>
+      <button class="mark" type="button"><span class="mark-out" dir="ltr">#RIAL</span><span class="mark-meta"><span class="what">رمز الريال السعودي</span><span class="how">اكتب <kbd dir="ltr">#RIAL</kbd> أو المحرف <kbd dir="ltr">U+20C1</kbd></span></span></button>
       <button class="mark" type="button"><span class="mark-out xl" dir="rtl">خادم الحرمين الشريفين</span><span class="mark-meta"><span class="what">لقب خادم‌ الحرمين الشريفين</span><span class="how">اكتب <kbd>خادم الحرمين الشريفين</kbd></span></span></button>
       <button class="mark" type="button"><span class="mark-out" dir="rtl">ولي العهد</span><span class="mark-meta"><span class="what">لقب ولي‌ العهد</span><span class="how">اكتب <kbd>ولي العهد</kbd></span></span></button>
       <button class="mark" type="button"><span class="mark-out" dir="rtl">المعالي</span><span class="mark-meta"><span class="what" style="font-feature-settings:'rlig' 0">لقب المعالي</span><span class="how">اكتب <kbd>المعالي</kbd></span></span></button>
@@ -1116,7 +1118,7 @@ footer .logo svg { width: 80px; }
       </details>
       <details>
         <summary>كيف أكتب رمز الريال وشعار المملكة؟</summary>
-        <div class="a"><p>لرمز الريال اكتب: <kbd dir="ltr">#RIAL</kbd></p><p>لشعار المملكة اكتب: <kbd dir="ltr">#KSA</kbd></p><p>تعمل الأحرف الكبيرة والصغيرة. يعتمد ذلك على البدائل السياقية، وهي مفعّلة تلقائيًا في معظم البرامج والمتصفحات.</p></div>
+        <div class="a"><p>لرمز الريال اكتب: <kbd dir="ltr">#RIAL</kbd></p><p>ويدعم الخط محرف الريال في يونيكود بكل أوزانه، بالتصميم نفسه: ⃁ <kbd dir="ltr">U+20C1</kbd></p><p>لشعار المملكة اكتب: <kbd dir="ltr">#KSA</kbd></p><p>تعمل الأحرف الكبيرة والصغيرة. يعتمد ذلك على البدائل السياقية، وهي مفعّلة تلقائيًا في معظم البرامج والمتصفحات.</p></div>
       </details>
       <details>
         <summary>ما الألقاب المدمجة في الخط؟</summary>
@@ -1193,18 +1195,18 @@ h1 { font-weight: 640; }</pre></div>
 <script>
 (() => {
   const PREVIEW = false;
-  const GLYPHS = {"arabic":[{"c":"ء","u":"U+0621","n":"Arabic Letter Hamza","f":{"init":false,"medi":false,"fina":false}},{"c":"آ","u":"U+0622","n":"Arabic Letter Alef With Madda Above","f":{"init":false,"medi":false,"fina":true}},{"c":"أ","u":"U+0623","n":"Arabic Letter Alef With Hamza Above","f":{"init":false,"medi":false,"fina":true}},{"c":"ؤ","u":"U+0624","n":"Arabic Letter Waw With Hamza Above","f":{"init":false,"medi":false,"fina":true}},{"c":"إ","u":"U+0625","n":"Arabic Letter Alef With Hamza Below","f":{"init":false,"medi":false,"fina":true}},{"c":"ئ","u":"U+0626","n":"Arabic Letter Yeh With Hamza Above","f":{"init":true,"medi":true,"fina":true}},{"c":"ا","u":"U+0627","n":"Arabic Letter Alef","f":{"init":false,"medi":false,"fina":true}},{"c":"ب","u":"U+0628","n":"Arabic Letter Beh","f":{"init":true,"medi":true,"fina":true}},{"c":"ة","u":"U+0629","n":"Arabic Letter Teh Marbuta","f":{"init":false,"medi":false,"fina":true}},{"c":"ت","u":"U+062A","n":"Arabic Letter Teh","f":{"init":true,"medi":true,"fina":true}},{"c":"ث","u":"U+062B","n":"Arabic Letter Theh","f":{"init":true,"medi":true,"fina":true}},{"c":"ج","u":"U+062C","n":"Arabic Letter Jeem","f":{"init":true,"medi":true,"fina":true}},{"c":"ح","u":"U+062D","n":"Arabic Letter Hah","f":{"init":true,"medi":true,"fina":true}},{"c":"خ","u":"U+062E","n":"Arabic Letter Khah","f":{"init":true,"medi":true,"fina":true}},{"c":"د","u":"U+062F","n":"Arabic Letter Dal","f":{"init":false,"medi":false,"fina":true}},{"c":"ذ","u":"U+0630","n":"Arabic Letter Thal","f":{"init":false,"medi":false,"fina":true}},{"c":"ر","u":"U+0631","n":"Arabic Letter Reh","f":{"init":false,"medi":false,"fina":true}},{"c":"ز","u":"U+0632","n":"Arabic Letter Zain","f":{"init":false,"medi":false,"fina":true}},{"c":"س","u":"U+0633","n":"Arabic Letter Seen","f":{"init":true,"medi":true,"fina":true}},{"c":"ش","u":"U+0634","n":"Arabic Letter Sheen","f":{"init":true,"medi":true,"fina":true}},{"c":"ص","u":"U+0635","n":"Arabic Letter Sad","f":{"init":true,"medi":true,"fina":true}},{"c":"ض","u":"U+0636","n":"Arabic Letter Dad","f":{"init":true,"medi":true,"fina":true}},{"c":"ط","u":"U+0637","n":"Arabic Letter Tah","f":{"init":true,"medi":true,"fina":true}},{"c":"ظ","u":"U+0638","n":"Arabic Letter Zah","f":{"init":true,"medi":true,"fina":true}},{"c":"ع","u":"U+0639","n":"Arabic Letter Ain","f":{"init":true,"medi":true,"fina":true}},{"c":"غ","u":"U+063A","n":"Arabic Letter Ghain","f":{"init":true,"medi":true,"fina":true}},{"c":"ف","u":"U+0641","n":"Arabic Letter Feh","f":{"init":true,"medi":true,"fina":true}},{"c":"ق","u":"U+0642","n":"Arabic Letter Qaf","f":{"init":true,"medi":true,"fina":true}},{"c":"ك","u":"U+0643","n":"Arabic Letter Kaf","f":{"init":true,"medi":true,"fina":true}},{"c":"ل","u":"U+0644","n":"Arabic Letter Lam","f":{"init":true,"medi":true,"fina":true}},{"c":"م","u":"U+0645","n":"Arabic Letter Meem","f":{"init":true,"medi":true,"fina":true}},{"c":"ن","u":"U+0646","n":"Arabic Letter Noon","f":{"init":true,"medi":true,"fina":true}},{"c":"ه","u":"U+0647","n":"Arabic Letter Heh","f":{"init":true,"medi":true,"fina":true}},{"c":"و","u":"U+0648","n":"Arabic Letter Waw","f":{"init":false,"medi":false,"fina":true}},{"c":"ى","u":"U+0649","n":"Arabic Letter Alef Maksura","f":{"init":false,"medi":false,"fina":true}},{"c":"ي","u":"U+064A","n":"Arabic Letter Yeh","f":{"init":true,"medi":true,"fina":true}}],"extended":[{"c":"ٱ","u":"U+0671","n":"Arabic Letter Alef Wasla","f":{"init":false,"medi":false,"fina":true}},{"c":"ٹ","u":"U+0679","n":"Arabic Letter Tteh","f":{"init":true,"medi":true,"fina":true}},{"c":"پ","u":"U+067E","n":"Arabic Letter Peh","f":{"init":true,"medi":true,"fina":true}},{"c":"چ","u":"U+0686","n":"Arabic Letter Tcheh","f":{"init":true,"medi":true,"fina":true}},{"c":"ڈ","u":"U+0688","n":"Arabic Letter Ddal","f":{"init":false,"medi":false,"fina":true}},{"c":"ڎ","u":"U+068E","n":"Arabic Letter Dul","f":{"init":false,"medi":false,"fina":true}},{"c":"ڑ","u":"U+0691","n":"Arabic Letter Rreh","f":{"init":false,"medi":false,"fina":true}},{"c":"ڕ","u":"U+0695","n":"Arabic Letter Reh With Small V Below","f":{"init":false,"medi":false,"fina":true}},{"c":"ژ","u":"U+0698","n":"Arabic Letter Jeh","f":{"init":false,"medi":false,"fina":true}},{"c":"ڡ","u":"U+06A1","n":"Arabic Letter Dotless Feh","f":{"init":true,"medi":true,"fina":true}},{"c":"ڤ","u":"U+06A4","n":"Arabic Letter Veh","f":{"init":true,"medi":true,"fina":true}},{"c":"ک","u":"U+06A9","n":"Arabic Letter Keheh","f":{"init":true,"medi":true,"fina":true}},{"c":"گ","u":"U+06AF","n":"Arabic Letter Gaf","f":{"init":true,"medi":true,"fina":true}},{"c":"ڵ","u":"U+06B5","n":"Arabic Letter Lam With Small V","f":{"init":true,"medi":true,"fina":true}},{"c":"ں","u":"U+06BA","n":"Arabic Letter Noon Ghunna","f":{"init":false,"medi":false,"fina":true}},{"c":"ھ","u":"U+06BE","n":"Arabic Letter Heh Doachashmee","f":{"init":true,"medi":true,"fina":true}},{"c":"ہ","u":"U+06C1","n":"Arabic Letter Heh Goal","f":{"init":true,"medi":true,"fina":true}},{"c":"ۂ","u":"U+06C2","n":"Arabic Letter Heh Goal With Hamza Above","f":{"init":false,"medi":false,"fina":true}},{"c":"ۃ","u":"U+06C3","n":"Arabic Letter Teh Marbuta Goal","f":{"init":false,"medi":false,"fina":true}},{"c":"ۆ","u":"U+06C6","n":"Arabic Letter Oe","f":{"init":false,"medi":false,"fina":true}},{"c":"ۊ","u":"U+06CA","n":"Arabic Letter Waw With Two Dots Above","f":{"init":false,"medi":false,"fina":true}},{"c":"ی","u":"U+06CC","n":"Arabic Letter Farsi Yeh","f":{"init":true,"medi":true,"fina":true}},{"c":"ێ","u":"U+06CE","n":"Arabic Letter Yeh With Small V","f":{"init":true,"medi":true,"fina":true}},{"c":"ۏ","u":"U+06CF","n":"Arabic Letter Waw With Dot Above","f":{"init":false,"medi":false,"fina":true}},{"c":"ے","u":"U+06D2","n":"Arabic Letter Yeh Barree","f":{"init":false,"medi":false,"fina":true}},{"c":"ۓ","u":"U+06D3","n":"Arabic Letter Yeh Barree With Hamza Above","f":{"init":false,"medi":false,"fina":true}},{"c":"ە","u":"U+06D5","n":"Arabic Letter Ae","f":{"init":false,"medi":false,"fina":true}}],"digits":[{"c":"٠","u":"U+0660","n":"Arabic-Indic Digit Zero"},{"c":"١","u":"U+0661","n":"Arabic-Indic Digit One"},{"c":"٢","u":"U+0662","n":"Arabic-Indic Digit Two"},{"c":"٣","u":"U+0663","n":"Arabic-Indic Digit Three"},{"c":"٤","u":"U+0664","n":"Arabic-Indic Digit Four"},{"c":"٥","u":"U+0665","n":"Arabic-Indic Digit Five"},{"c":"٦","u":"U+0666","n":"Arabic-Indic Digit Six"},{"c":"٧","u":"U+0667","n":"Arabic-Indic Digit Seven"},{"c":"٨","u":"U+0668","n":"Arabic-Indic Digit Eight"},{"c":"٩","u":"U+0669","n":"Arabic-Indic Digit Nine"},{"c":"۰","u":"U+06F0","n":"Extended Arabic-Indic Digit Zero"},{"c":"۱","u":"U+06F1","n":"Extended Arabic-Indic Digit One"},{"c":"۲","u":"U+06F2","n":"Extended Arabic-Indic Digit Two"},{"c":"۳","u":"U+06F3","n":"Extended Arabic-Indic Digit Three"},{"c":"۴","u":"U+06F4","n":"Extended Arabic-Indic Digit Four"},{"c":"۵","u":"U+06F5","n":"Extended Arabic-Indic Digit Five"},{"c":"۶","u":"U+06F6","n":"Extended Arabic-Indic Digit Six"},{"c":"۷","u":"U+06F7","n":"Extended Arabic-Indic Digit Seven"},{"c":"۸","u":"U+06F8","n":"Extended Arabic-Indic Digit Eight"},{"c":"۹","u":"U+06F9","n":"Extended Arabic-Indic Digit Nine"},{"c":"0","u":"U+0030","n":"Digit Zero"},{"c":"1","u":"U+0031","n":"Digit One"},{"c":"2","u":"U+0032","n":"Digit Two"},{"c":"3","u":"U+0033","n":"Digit Three"},{"c":"4","u":"U+0034","n":"Digit Four"},{"c":"5","u":"U+0035","n":"Digit Five"},{"c":"6","u":"U+0036","n":"Digit Six"},{"c":"7","u":"U+0037","n":"Digit Seven"},{"c":"8","u":"U+0038","n":"Digit Eight"},{"c":"9","u":"U+0039","n":"Digit Nine"}],"latin":[{"c":"A","u":"U+0041","n":"Latin Capital Letter A"},{"c":"B","u":"U+0042","n":"Latin Capital Letter B"},{"c":"C","u":"U+0043","n":"Latin Capital Letter C"},{"c":"D","u":"U+0044","n":"Latin Capital Letter D"},{"c":"E","u":"U+0045","n":"Latin Capital Letter E"},{"c":"F","u":"U+0046","n":"Latin Capital Letter F"},{"c":"G","u":"U+0047","n":"Latin Capital Letter G"},{"c":"H","u":"U+0048","n":"Latin Capital Letter H"},{"c":"I","u":"U+0049","n":"Latin Capital Letter I"},{"c":"J","u":"U+004A","n":"Latin Capital Letter J"},{"c":"K","u":"U+004B","n":"Latin Capital Letter K"},{"c":"L","u":"U+004C","n":"Latin Capital Letter L"},{"c":"M","u":"U+004D","n":"Latin Capital Letter M"},{"c":"N","u":"U+004E","n":"Latin Capital Letter N"},{"c":"O","u":"U+004F","n":"Latin Capital Letter O"},{"c":"P","u":"U+0050","n":"Latin Capital Letter P"},{"c":"Q","u":"U+0051","n":"Latin Capital Letter Q"},{"c":"R","u":"U+0052","n":"Latin Capital Letter R"},{"c":"S","u":"U+0053","n":"Latin Capital Letter S"},{"c":"T","u":"U+0054","n":"Latin Capital Letter T"},{"c":"U","u":"U+0055","n":"Latin Capital Letter U"},{"c":"V","u":"U+0056","n":"Latin Capital Letter V"},{"c":"W","u":"U+0057","n":"Latin Capital Letter W"},{"c":"X","u":"U+0058","n":"Latin Capital Letter X"},{"c":"Y","u":"U+0059","n":"Latin Capital Letter Y"},{"c":"Z","u":"U+005A","n":"Latin Capital Letter Z"},{"c":"a","u":"U+0061","n":"Latin Small Letter A"},{"c":"b","u":"U+0062","n":"Latin Small Letter B"},{"c":"c","u":"U+0063","n":"Latin Small Letter C"},{"c":"d","u":"U+0064","n":"Latin Small Letter D"},{"c":"e","u":"U+0065","n":"Latin Small Letter E"},{"c":"f","u":"U+0066","n":"Latin Small Letter F"},{"c":"g","u":"U+0067","n":"Latin Small Letter G"},{"c":"h","u":"U+0068","n":"Latin Small Letter H"},{"c":"i","u":"U+0069","n":"Latin Small Letter I"},{"c":"j","u":"U+006A","n":"Latin Small Letter J"},{"c":"k","u":"U+006B","n":"Latin Small Letter K"},{"c":"l","u":"U+006C","n":"Latin Small Letter L"},{"c":"m","u":"U+006D","n":"Latin Small Letter M"},{"c":"n","u":"U+006E","n":"Latin Small Letter N"},{"c":"o","u":"U+006F","n":"Latin Small Letter O"},{"c":"p","u":"U+0070","n":"Latin Small Letter P"},{"c":"q","u":"U+0071","n":"Latin Small Letter Q"},{"c":"r","u":"U+0072","n":"Latin Small Letter R"},{"c":"s","u":"U+0073","n":"Latin Small Letter S"},{"c":"t","u":"U+0074","n":"Latin Small Letter T"},{"c":"u","u":"U+0075","n":"Latin Small Letter U"},{"c":"v","u":"U+0076","n":"Latin Small Letter V"},{"c":"w","u":"U+0077","n":"Latin Small Letter W"},{"c":"x","u":"U+0078","n":"Latin Small Letter X"},{"c":"y","u":"U+0079","n":"Latin Small Letter Y"},{"c":"z","u":"U+007A","n":"Latin Small Letter Z"}],"symbols":[{"c":"#","u":"U+0023","n":"Number Sign"},{"c":"$","u":"U+0024","n":"Dollar Sign"},{"c":"%","u":"U+0025","n":"Percent Sign"},{"c":"&","u":"U+0026","n":"Ampersand"},{"c":"*","u":"U+002A","n":"Asterisk"},{"c":"@","u":"U+0040","n":"Commercial At"},{"c":"£","u":"U+00A3","n":"Pound Sign"},{"c":"©","u":"U+00A9","n":"Copyright Sign"},{"c":"«","u":"U+00AB","n":"Left-Pointing Double Angle Quotation Mark"},{"c":"®","u":"U+00AE","n":"Registered Sign"},{"c":"°","u":"U+00B0","n":"Degree Sign"},{"c":"»","u":"U+00BB","n":"Right-Pointing Double Angle Quotation Mark"},{"c":"،","u":"U+060C","n":"Arabic Comma"},{"c":"؛","u":"U+061B","n":"Arabic Semicolon"},{"c":"؟","u":"U+061F","n":"Arabic Question Mark"},{"c":"٪","u":"U+066A","n":"Arabic Percent Sign"},{"c":"٫","u":"U+066B","n":"Arabic Decimal Separator"},{"c":"٬","u":"U+066C","n":"Arabic Thousands Separator"},{"c":"٭","u":"U+066D","n":"Arabic Five Pointed Star"},{"c":"۔","u":"U+06D4","n":"Arabic Full Stop"},{"c":"–","u":"U+2013","n":"En Dash"},{"c":"—","u":"U+2014","n":"Em Dash"},{"c":"“","u":"U+201C","n":"Left Double Quotation Mark"},{"c":"”","u":"U+201D","n":"Right Double Quotation Mark"},{"c":"•","u":"U+2022","n":"Bullet"},{"c":"‹","u":"U+2039","n":"Single Left-Pointing Angle Quotation Mark"},{"c":"›","u":"U+203A","n":"Single Right-Pointing Angle Quotation Mark"},{"c":"€","u":"U+20AC","n":"Euro Sign"},{"c":"™","u":"U+2122","n":"Trade Mark Sign"},{"c":"←","u":"U+2190","n":"Leftwards Arrow"},{"c":"→","u":"U+2192","n":"Rightwards Arrow"},{"c":"﷼","u":"U+FDFC","n":"Rial Sign"}]};
+  const GLYPHS = {"arabic":[{"c":"ء","u":"U+0621","n":"Arabic Letter Hamza","f":{"init":false,"medi":false,"fina":false}},{"c":"آ","u":"U+0622","n":"Arabic Letter Alef With Madda Above","f":{"init":false,"medi":false,"fina":true}},{"c":"أ","u":"U+0623","n":"Arabic Letter Alef With Hamza Above","f":{"init":false,"medi":false,"fina":true}},{"c":"ؤ","u":"U+0624","n":"Arabic Letter Waw With Hamza Above","f":{"init":false,"medi":false,"fina":true}},{"c":"إ","u":"U+0625","n":"Arabic Letter Alef With Hamza Below","f":{"init":false,"medi":false,"fina":true}},{"c":"ئ","u":"U+0626","n":"Arabic Letter Yeh With Hamza Above","f":{"init":true,"medi":true,"fina":true}},{"c":"ا","u":"U+0627","n":"Arabic Letter Alef","f":{"init":false,"medi":false,"fina":true}},{"c":"ب","u":"U+0628","n":"Arabic Letter Beh","f":{"init":true,"medi":true,"fina":true}},{"c":"ة","u":"U+0629","n":"Arabic Letter Teh Marbuta","f":{"init":false,"medi":false,"fina":true}},{"c":"ت","u":"U+062A","n":"Arabic Letter Teh","f":{"init":true,"medi":true,"fina":true}},{"c":"ث","u":"U+062B","n":"Arabic Letter Theh","f":{"init":true,"medi":true,"fina":true}},{"c":"ج","u":"U+062C","n":"Arabic Letter Jeem","f":{"init":true,"medi":true,"fina":true}},{"c":"ح","u":"U+062D","n":"Arabic Letter Hah","f":{"init":true,"medi":true,"fina":true}},{"c":"خ","u":"U+062E","n":"Arabic Letter Khah","f":{"init":true,"medi":true,"fina":true}},{"c":"د","u":"U+062F","n":"Arabic Letter Dal","f":{"init":false,"medi":false,"fina":true}},{"c":"ذ","u":"U+0630","n":"Arabic Letter Thal","f":{"init":false,"medi":false,"fina":true}},{"c":"ر","u":"U+0631","n":"Arabic Letter Reh","f":{"init":false,"medi":false,"fina":true}},{"c":"ز","u":"U+0632","n":"Arabic Letter Zain","f":{"init":false,"medi":false,"fina":true}},{"c":"س","u":"U+0633","n":"Arabic Letter Seen","f":{"init":true,"medi":true,"fina":true}},{"c":"ش","u":"U+0634","n":"Arabic Letter Sheen","f":{"init":true,"medi":true,"fina":true}},{"c":"ص","u":"U+0635","n":"Arabic Letter Sad","f":{"init":true,"medi":true,"fina":true}},{"c":"ض","u":"U+0636","n":"Arabic Letter Dad","f":{"init":true,"medi":true,"fina":true}},{"c":"ط","u":"U+0637","n":"Arabic Letter Tah","f":{"init":true,"medi":true,"fina":true}},{"c":"ظ","u":"U+0638","n":"Arabic Letter Zah","f":{"init":true,"medi":true,"fina":true}},{"c":"ع","u":"U+0639","n":"Arabic Letter Ain","f":{"init":true,"medi":true,"fina":true}},{"c":"غ","u":"U+063A","n":"Arabic Letter Ghain","f":{"init":true,"medi":true,"fina":true}},{"c":"ف","u":"U+0641","n":"Arabic Letter Feh","f":{"init":true,"medi":true,"fina":true}},{"c":"ق","u":"U+0642","n":"Arabic Letter Qaf","f":{"init":true,"medi":true,"fina":true}},{"c":"ك","u":"U+0643","n":"Arabic Letter Kaf","f":{"init":true,"medi":true,"fina":true}},{"c":"ل","u":"U+0644","n":"Arabic Letter Lam","f":{"init":true,"medi":true,"fina":true}},{"c":"م","u":"U+0645","n":"Arabic Letter Meem","f":{"init":true,"medi":true,"fina":true}},{"c":"ن","u":"U+0646","n":"Arabic Letter Noon","f":{"init":true,"medi":true,"fina":true}},{"c":"ه","u":"U+0647","n":"Arabic Letter Heh","f":{"init":true,"medi":true,"fina":true}},{"c":"و","u":"U+0648","n":"Arabic Letter Waw","f":{"init":false,"medi":false,"fina":true}},{"c":"ى","u":"U+0649","n":"Arabic Letter Alef Maksura","f":{"init":false,"medi":false,"fina":true}},{"c":"ي","u":"U+064A","n":"Arabic Letter Yeh","f":{"init":true,"medi":true,"fina":true}}],"extended":[{"c":"ٱ","u":"U+0671","n":"Arabic Letter Alef Wasla","f":{"init":false,"medi":false,"fina":true}},{"c":"ٹ","u":"U+0679","n":"Arabic Letter Tteh","f":{"init":true,"medi":true,"fina":true}},{"c":"پ","u":"U+067E","n":"Arabic Letter Peh","f":{"init":true,"medi":true,"fina":true}},{"c":"چ","u":"U+0686","n":"Arabic Letter Tcheh","f":{"init":true,"medi":true,"fina":true}},{"c":"ڈ","u":"U+0688","n":"Arabic Letter Ddal","f":{"init":false,"medi":false,"fina":true}},{"c":"ڎ","u":"U+068E","n":"Arabic Letter Dul","f":{"init":false,"medi":false,"fina":true}},{"c":"ڑ","u":"U+0691","n":"Arabic Letter Rreh","f":{"init":false,"medi":false,"fina":true}},{"c":"ڕ","u":"U+0695","n":"Arabic Letter Reh With Small V Below","f":{"init":false,"medi":false,"fina":true}},{"c":"ژ","u":"U+0698","n":"Arabic Letter Jeh","f":{"init":false,"medi":false,"fina":true}},{"c":"ڡ","u":"U+06A1","n":"Arabic Letter Dotless Feh","f":{"init":true,"medi":true,"fina":true}},{"c":"ڤ","u":"U+06A4","n":"Arabic Letter Veh","f":{"init":true,"medi":true,"fina":true}},{"c":"ک","u":"U+06A9","n":"Arabic Letter Keheh","f":{"init":true,"medi":true,"fina":true}},{"c":"گ","u":"U+06AF","n":"Arabic Letter Gaf","f":{"init":true,"medi":true,"fina":true}},{"c":"ڵ","u":"U+06B5","n":"Arabic Letter Lam With Small V","f":{"init":true,"medi":true,"fina":true}},{"c":"ں","u":"U+06BA","n":"Arabic Letter Noon Ghunna","f":{"init":false,"medi":false,"fina":true}},{"c":"ھ","u":"U+06BE","n":"Arabic Letter Heh Doachashmee","f":{"init":true,"medi":true,"fina":true}},{"c":"ہ","u":"U+06C1","n":"Arabic Letter Heh Goal","f":{"init":true,"medi":true,"fina":true}},{"c":"ۂ","u":"U+06C2","n":"Arabic Letter Heh Goal With Hamza Above","f":{"init":false,"medi":false,"fina":true}},{"c":"ۃ","u":"U+06C3","n":"Arabic Letter Teh Marbuta Goal","f":{"init":false,"medi":false,"fina":true}},{"c":"ۆ","u":"U+06C6","n":"Arabic Letter Oe","f":{"init":false,"medi":false,"fina":true}},{"c":"ۊ","u":"U+06CA","n":"Arabic Letter Waw With Two Dots Above","f":{"init":false,"medi":false,"fina":true}},{"c":"ی","u":"U+06CC","n":"Arabic Letter Farsi Yeh","f":{"init":true,"medi":true,"fina":true}},{"c":"ێ","u":"U+06CE","n":"Arabic Letter Yeh With Small V","f":{"init":true,"medi":true,"fina":true}},{"c":"ۏ","u":"U+06CF","n":"Arabic Letter Waw With Dot Above","f":{"init":false,"medi":false,"fina":true}},{"c":"ے","u":"U+06D2","n":"Arabic Letter Yeh Barree","f":{"init":false,"medi":false,"fina":true}},{"c":"ۓ","u":"U+06D3","n":"Arabic Letter Yeh Barree With Hamza Above","f":{"init":false,"medi":false,"fina":true}},{"c":"ە","u":"U+06D5","n":"Arabic Letter Ae","f":{"init":false,"medi":false,"fina":true}}],"digits":[{"c":"٠","u":"U+0660","n":"Arabic-Indic Digit Zero"},{"c":"١","u":"U+0661","n":"Arabic-Indic Digit One"},{"c":"٢","u":"U+0662","n":"Arabic-Indic Digit Two"},{"c":"٣","u":"U+0663","n":"Arabic-Indic Digit Three"},{"c":"٤","u":"U+0664","n":"Arabic-Indic Digit Four"},{"c":"٥","u":"U+0665","n":"Arabic-Indic Digit Five"},{"c":"٦","u":"U+0666","n":"Arabic-Indic Digit Six"},{"c":"٧","u":"U+0667","n":"Arabic-Indic Digit Seven"},{"c":"٨","u":"U+0668","n":"Arabic-Indic Digit Eight"},{"c":"٩","u":"U+0669","n":"Arabic-Indic Digit Nine"},{"c":"۰","u":"U+06F0","n":"Extended Arabic-Indic Digit Zero"},{"c":"۱","u":"U+06F1","n":"Extended Arabic-Indic Digit One"},{"c":"۲","u":"U+06F2","n":"Extended Arabic-Indic Digit Two"},{"c":"۳","u":"U+06F3","n":"Extended Arabic-Indic Digit Three"},{"c":"۴","u":"U+06F4","n":"Extended Arabic-Indic Digit Four"},{"c":"۵","u":"U+06F5","n":"Extended Arabic-Indic Digit Five"},{"c":"۶","u":"U+06F6","n":"Extended Arabic-Indic Digit Six"},{"c":"۷","u":"U+06F7","n":"Extended Arabic-Indic Digit Seven"},{"c":"۸","u":"U+06F8","n":"Extended Arabic-Indic Digit Eight"},{"c":"۹","u":"U+06F9","n":"Extended Arabic-Indic Digit Nine"},{"c":"0","u":"U+0030","n":"Digit Zero"},{"c":"1","u":"U+0031","n":"Digit One"},{"c":"2","u":"U+0032","n":"Digit Two"},{"c":"3","u":"U+0033","n":"Digit Three"},{"c":"4","u":"U+0034","n":"Digit Four"},{"c":"5","u":"U+0035","n":"Digit Five"},{"c":"6","u":"U+0036","n":"Digit Six"},{"c":"7","u":"U+0037","n":"Digit Seven"},{"c":"8","u":"U+0038","n":"Digit Eight"},{"c":"9","u":"U+0039","n":"Digit Nine"}],"latin":[{"c":"A","u":"U+0041","n":"Latin Capital Letter A"},{"c":"B","u":"U+0042","n":"Latin Capital Letter B"},{"c":"C","u":"U+0043","n":"Latin Capital Letter C"},{"c":"D","u":"U+0044","n":"Latin Capital Letter D"},{"c":"E","u":"U+0045","n":"Latin Capital Letter E"},{"c":"F","u":"U+0046","n":"Latin Capital Letter F"},{"c":"G","u":"U+0047","n":"Latin Capital Letter G"},{"c":"H","u":"U+0048","n":"Latin Capital Letter H"},{"c":"I","u":"U+0049","n":"Latin Capital Letter I"},{"c":"J","u":"U+004A","n":"Latin Capital Letter J"},{"c":"K","u":"U+004B","n":"Latin Capital Letter K"},{"c":"L","u":"U+004C","n":"Latin Capital Letter L"},{"c":"M","u":"U+004D","n":"Latin Capital Letter M"},{"c":"N","u":"U+004E","n":"Latin Capital Letter N"},{"c":"O","u":"U+004F","n":"Latin Capital Letter O"},{"c":"P","u":"U+0050","n":"Latin Capital Letter P"},{"c":"Q","u":"U+0051","n":"Latin Capital Letter Q"},{"c":"R","u":"U+0052","n":"Latin Capital Letter R"},{"c":"S","u":"U+0053","n":"Latin Capital Letter S"},{"c":"T","u":"U+0054","n":"Latin Capital Letter T"},{"c":"U","u":"U+0055","n":"Latin Capital Letter U"},{"c":"V","u":"U+0056","n":"Latin Capital Letter V"},{"c":"W","u":"U+0057","n":"Latin Capital Letter W"},{"c":"X","u":"U+0058","n":"Latin Capital Letter X"},{"c":"Y","u":"U+0059","n":"Latin Capital Letter Y"},{"c":"Z","u":"U+005A","n":"Latin Capital Letter Z"},{"c":"a","u":"U+0061","n":"Latin Small Letter A"},{"c":"b","u":"U+0062","n":"Latin Small Letter B"},{"c":"c","u":"U+0063","n":"Latin Small Letter C"},{"c":"d","u":"U+0064","n":"Latin Small Letter D"},{"c":"e","u":"U+0065","n":"Latin Small Letter E"},{"c":"f","u":"U+0066","n":"Latin Small Letter F"},{"c":"g","u":"U+0067","n":"Latin Small Letter G"},{"c":"h","u":"U+0068","n":"Latin Small Letter H"},{"c":"i","u":"U+0069","n":"Latin Small Letter I"},{"c":"j","u":"U+006A","n":"Latin Small Letter J"},{"c":"k","u":"U+006B","n":"Latin Small Letter K"},{"c":"l","u":"U+006C","n":"Latin Small Letter L"},{"c":"m","u":"U+006D","n":"Latin Small Letter M"},{"c":"n","u":"U+006E","n":"Latin Small Letter N"},{"c":"o","u":"U+006F","n":"Latin Small Letter O"},{"c":"p","u":"U+0070","n":"Latin Small Letter P"},{"c":"q","u":"U+0071","n":"Latin Small Letter Q"},{"c":"r","u":"U+0072","n":"Latin Small Letter R"},{"c":"s","u":"U+0073","n":"Latin Small Letter S"},{"c":"t","u":"U+0074","n":"Latin Small Letter T"},{"c":"u","u":"U+0075","n":"Latin Small Letter U"},{"c":"v","u":"U+0076","n":"Latin Small Letter V"},{"c":"w","u":"U+0077","n":"Latin Small Letter W"},{"c":"x","u":"U+0078","n":"Latin Small Letter X"},{"c":"y","u":"U+0079","n":"Latin Small Letter Y"},{"c":"z","u":"U+007A","n":"Latin Small Letter Z"}],"symbols":[{"c":"#","u":"U+0023","n":"Number Sign"},{"c":"$","u":"U+0024","n":"Dollar Sign"},{"c":"%","u":"U+0025","n":"Percent Sign"},{"c":"&","u":"U+0026","n":"Ampersand"},{"c":"*","u":"U+002A","n":"Asterisk"},{"c":"@","u":"U+0040","n":"Commercial At"},{"c":"£","u":"U+00A3","n":"Pound Sign"},{"c":"©","u":"U+00A9","n":"Copyright Sign"},{"c":"«","u":"U+00AB","n":"Left-Pointing Double Angle Quotation Mark"},{"c":"®","u":"U+00AE","n":"Registered Sign"},{"c":"°","u":"U+00B0","n":"Degree Sign"},{"c":"»","u":"U+00BB","n":"Right-Pointing Double Angle Quotation Mark"},{"c":"،","u":"U+060C","n":"Arabic Comma"},{"c":"؛","u":"U+061B","n":"Arabic Semicolon"},{"c":"؟","u":"U+061F","n":"Arabic Question Mark"},{"c":"٪","u":"U+066A","n":"Arabic Percent Sign"},{"c":"٫","u":"U+066B","n":"Arabic Decimal Separator"},{"c":"٬","u":"U+066C","n":"Arabic Thousands Separator"},{"c":"٭","u":"U+066D","n":"Arabic Five Pointed Star"},{"c":"۔","u":"U+06D4","n":"Arabic Full Stop"},{"c":"–","u":"U+2013","n":"En Dash"},{"c":"—","u":"U+2014","n":"Em Dash"},{"c":"“","u":"U+201C","n":"Left Double Quotation Mark"},{"c":"”","u":"U+201D","n":"Right Double Quotation Mark"},{"c":"•","u":"U+2022","n":"Bullet"},{"c":"‹","u":"U+2039","n":"Single Left-Pointing Angle Quotation Mark"},{"c":"›","u":"U+203A","n":"Single Right-Pointing Angle Quotation Mark"},{"c":"€","u":"U+20AC","n":"Euro Sign"},{"c":"⃁","u":"U+20C1","n":"Saudi Riyal Sign"},{"c":"™","u":"U+2122","n":"Trade Mark Sign"},{"c":"←","u":"U+2190","n":"Leftwards Arrow"},{"c":"→","u":"U+2192","n":"Rightwards Arrow"},{"c":"﷼","u":"U+FDFC","n":"Rial Sign"}]};
   const FILES = [
-    { name: "AzmXVariable.ttf", use: "للتثبيت على الحاسب", size: "٢٣٩ ك.ب", href: "fonts/AzmXVariable.ttf" },
-    { name: "AzmXVariable.woff2", use: "للمواقع والتطبيقات", size: "٩٤ ك.ب", href: "fonts/AzmXVariable.woff2" },
-    { name: "AzmXVariable.woff", use: "للمتصفحات الأقدم", size: "١١٤ ك.ب", href: "fonts/AzmXVariable.woff" }
+    { name: "AzmXVariable.ttf", use: "للتثبيت على الحاسب", size: "٢٦٧ ك.ب", href: "fonts/AzmXVariable.ttf" },
+    { name: "AzmXVariable.woff2", use: "للمواقع والتطبيقات", size: "٩٦ ك.ب", href: "fonts/AzmXVariable.woff2" },
+    { name: "AzmXVariable.woff", use: "للمتصفحات الأقدم", size: "١٢٥ ك.ب", href: "fonts/AzmXVariable.woff" }
   ];
-  const ZIP = { name: "AzmX-Variable.zip", size: "٣٢٨ ك.ب", href: "downloads/AzmX-Variable.zip" };
+  const ZIP = { name: "AzmX-Variable.zip", size: "٣٤٦ ك.ب", href: "downloads/AzmX-Variable.zip" };
   // Web app URL (ends in /exec) of tools/download-sheet.gs. Empty: no form, the downloads stay direct.
   const FORM_URL = "https://script.google.com/macros/s/AKfycbwL7Hay0Yh7XvZOMmfN083GUPJKr5wMvUshE2l_im7iu8WwWcG33ubiY7TwJG5nu_7Ybw/exec";
   const LICENSE_URL = PREVIEW ? "#faq" : "license.html";
   const fileLink = (href, cls, inner) => `<a class="${cls}" href="${href}" download>${inner}</a>`;
-  const INST = [[100, "Thin", "رفيع"], [200, "ExtraLight", "خفيف جدًا"], [300, "Light", "خفيف"], [400, "Regular", "عادي"], [500, "Medium", "متوسط"], [600, "SemiBold", "شبه عريض"], [700, "Bold", "عريض"], [900, "Heavy", "ثقيل"]];
+  const INST = [[100, "Thin", "رفيع"], [200, "ExtraLight", "خفيف جدًا"], [300, "Light", "خفيف"], [400, "Regular", "عادي"], [500, "Medium", "متوسط"], [600, "SemiBold", "شبه عريض"], [700, "Bold", "عريض"], [800, "ExtraBold", "عريض جدًا"], [900, "Heavy", "ثقيل"]];
 
   const root = document.documentElement;
   const $ = (s, el = document) => el.querySelector(s);
@@ -1532,7 +1534,6 @@ h1 { font-weight: 640; }</pre></div>
   $$("#tPresets button").forEach(b => b.addEventListener("click", () => {
     tStage.textContent = b.textContent;
     if (b.textContent.startsWith("شغف")) { tSwsh.checked = true; applyTester(); }
-    if (b.textContent.startsWith("في")) { tDlig.checked = true; applyTester(); }
   }));
   every($("#tester"), t => {
     if (!tPlay.checked) return;

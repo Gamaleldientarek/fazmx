@@ -1,10 +1,10 @@
 # Session hand-off
 
-Last session: **2026-10-05** (Cairo time). To pick up from here, read `CLAUDE.md` first, then this file. The build and publish commands are in `README.md`.
+Last session: **2026-10-11** (Cairo time). To pick up from here, read `CLAUDE.md` first, then this file. The build and publish commands are in `README.md`.
 
 ## Before you touch anything: sync this folder
 
-The shell still cannot write here (checked again on 2026-10-05), so changes reach GitHub from a scratch clone (see Lessons). This folder is therefore behind `main`: its text files match, but the images in `assets/heritage/` and `assets/gradients/` and the built `docs/` are only on GitHub. Nothing is lost by syncing:
+On 2026-10-11 the shell could write here again, but the work was still done in a scratch clone and pushed from there (see Lessons). This folder is therefore behind `main`: its text files match, but the images in `assets/heritage/` and `assets/gradients/` and the built `docs/` are only on GitHub. Nothing is lost by syncing:
 
 ```bash
 git fetch && git reset --hard origin/main
@@ -15,13 +15,27 @@ rm assets/heritage/.probe        # a stray test file; it is not tracked
 
 - **Live:** https://fazmx.gamaleldien.com, served by GitHub Pages from `main` → `/docs`. Checked on the live site at nine widths (360 to 1440 px), light and dark, with no errors.
   - Enforce HTTPS is on. The Let's Encrypt certificate expires on 2026-12-29, and GitHub renews it automatically.
-- **Repo:** https://github.com/Gamaleldientarek/fazmx (public). The latest site change is `3e2c847` (2026-10-05). The 2026-10-01 changes are in `253eea9`, `e87fd4d` and `c02becb`.
+- **Repo:** https://github.com/Gamaleldientarek/fazmx (public). The latest site change is the v3.007 font update (2026-10-11). Before that, `3e2c847` (2026-10-05). The 2026-10-01 changes are in `253eea9`, `e87fd4d` and `c02becb`.
 - **DNS:** gamaleldien.com is on **Cloudflare**: CNAME `fazmx` → `gamaleldientarek.github.io`, **DNS only (grey cloud)**. Keep it grey, or GitHub can't check the domain or renew the certificate.
 - **Download form data:** the Sheet "Azm X: downloads", tab "Downloads", in gibrahim@azmx.sa:
   https://docs.google.com/spreadsheets/d/1xHmYLdz3GHs31Daunwp03ppSBwhQdRRVXO_HcxvwbZg/edit
   - It is fed by the Apps Script project "Azm X downloads form", deployed as a web app. How it works and how to change it are in `CLAUDE.md` under Downloads.
   - It held only its header row at the end of the session. All test rows were deleted.
 - **Main site:** gamaleldien.com is still on Framer, untouched.
+
+## Done on 2026-10-11
+
+**Font v3.007**, from `AZMX/Assets/AzmX-Fonts-v3.007/AzmXVariable-VF.ttf` (the folder also holds nine static TTFs, which the site doesn't use). WOFF and WOFF2 are generated from the TTF with fontTools. Pushed at the owner's request.
+
+1. **Saudi Riyal sign U+20C1 (⃁).** Supported in every weight, with the same design as `#RIAL`. Added to the glyph map's symbols tab, the character wall (automatic), the `#RIAL` tile («أو المحرف U+20C1»), the FAQ answer, and a tester preset «السعر ١٢٥ ⃁».
+2. **Nine weights.** v3 adds ExtraBold 800. Every «ثمانية/٨» became «تسعة/٩»: meta tags, hero, `#stats`, `#weights`, the marquee, the «الأوزان التسعة» tile and `INST` in the script. The ع ladder in `#stats` is now nine columns.
+3. **New counts.** 840 glyphs, 553 characters, 23 feature tags. Hero tag v3.007. Licence version 3.007 · October 2026.
+4. **Things v3 changed under the page:**
+   - 1050 units per em. `#anatomy` now sets its text at 1050px, and its copy says 1050.
+   - The alef grows with the weight (657 → 750), so `#anatomy` labels the 680 line «ارتفاع الحروف الكبيرة», and the construction figure reads the alef height from the font: now five dots, at 148 units each at wght 700 (dots run 62 → 170).
+   - Glyph names changed (`uni062C` → `jeem-ar`), so `make_construction.py` finds ج and ة through the character map.
+   - **The في ligature is gone from `dlig`.** The «في كل تفصيل» preset was replaced. The dlig toggle stays, but now does little. Ask the type designer whether the loss was on purpose.
+5. Retook `og.png`.
 
 ## Done on 2026-10-05
 
@@ -51,6 +65,8 @@ Three commits, each pushed with the owner's approval:
    - Tested: bad email rejected, honeypot ignored, a real entry saved from the page, and the reply readable from the live domain.
 
 ## Next up
+
+0. **Ask the type designer about v3.007:** was dropping the في ligature on purpose? And the alef now rises above the cap height at heavier weights (731 at 700, against 680 before). If either is a mistake, a v3.008 drops in with `python src/build.py --og`.
 
 1. **Owner decisions:**
    - **The letter in حفظ.** The deck's caption names حـ, but its red highlight and its manuscript crop (from «لظنهم») both show ظ. The page shows ظ.

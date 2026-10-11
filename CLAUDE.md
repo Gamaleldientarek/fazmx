@@ -47,7 +47,7 @@ python -m http.server -d docs 8000        # view at http://localhost:8000
 2. Hero `#top`.
 3. Origin `#origin`: where the letters come from. A manuscript page, then six pairs, each setting a letter crop from the manuscripts beside an Azm X word.
 4. Construction `#build`.
-5. `#stats` («بالأرقام»): a black section (`.dark`), on a 7/5 then 5/7 grid. Each number sits on its proof: ع in its five shapes, the character wall, the 24 feature tags, and ع at the eight weights.
+5. `#stats` («بالأرقام»): a black section (`.dark`), on a 7/5 then 5/7 grid. Each number sits on its proof: ع in its five shapes, the character wall, the 23 feature tags, and ع at the nine weights.
 6. `#anatomy`.
 7. `#weights`.
 8. `#motion`: a black section (`.dark`) with 12 tiles and a marquee band. The tiles are نَفَس، موجة، مغناطيس، مَدّ، كتابة حيّة، الرقم وزنه، سُلَّم، الأوزان الثمانية، أثر، مُرسَل، هبوط، تمرير.
@@ -127,12 +127,14 @@ python -m http.server -d docs 8000        # view at http://localhost:8000
 
 All of these are verified against the font. `build.py` warns if the numbers in `#stats` stop matching.
 
-- **Version.** Azm X Variable v2.004. Weight axis 100–900, with named instances at 100, 200, 300, 400, 500, 600, 700 and 900. There is no 800.
-- **Counts.** 803 glyphs, 552 Unicode characters and 24 OpenType feature tags.
-- **Metrics.** 1000 units per em, ascender 950, descender −500, alef and cap height 680, x-height 476.
-- **Swashes.** `swsh` works on final ب ت ث د ذ ع غ ف, for example شغف، سعد، ذهب. The optional ligature `dlig` gives في.
-- **Five shapes of ع.** HarfBuzz gives ع five separate glyphs: `uni0639` and its `.init`, `.medi`, `.fina` and `.fina.swsh` forms. The `#stats` note «حرف واحد، خمسة أشكال» depends on this.
-- **Dots.** They are rhombi: about 162 units at wght 700, 55 at 100 and 170 at 900. A few dots are 142–145 units. The alef is about four dots tall at 700.
+- **Version.** Azm X Variable v3.007 (received 2026-10-08, live 2026-10-11). Weight axis 100–900, with nine named instances: 100, 200, 300, 400, 500, 600, 700, 800 (ExtraBold, new in v3) and 900.
+- **Counts.** 840 glyphs, 553 Unicode characters and 23 OpenType feature tags (v3 dropped `curs` and `rvrn`, added `tnum`).
+- **Metrics.** 1050 units per em (1000 before v3), ascender 950, descender −500, cap height 680, x-height 476. The `#anatomy` SVG sets the text at 1050px so one font unit is one SVG unit.
+  - Since v3 the alef grows with the weight: 657 at 100, 687 at 400, 731 at 700, 750 at 900. `make_construction.py` reads it from the font.
+- **Swashes.** `swsh` works on final ب ت ث د ذ ع غ ف, for example شغف، سعد، ذهب. v3 removed the في ligature from `dlig`. Its `dlig` now holds ري and زي (which also apply by default) and a Kurdish lam-alef, so the toggle changes almost nothing visible; the في preset was replaced with a Riyal one.
+- **Five shapes of ع.** HarfBuzz gives ع five separate glyphs: `ain-ar` and its `.init`, `.medi`, `.fina` and `.fina.swsh` forms (v3 renamed glyphs from `uniXXXX` to names like `ain-ar`). The `#stats` note «حرف واحد، خمسة أشكال» depends on this.
+- **Dots.** They are rhombi: about 148 units at wght 700, 62 at 100 and 170 at 900. The alef is about five dots tall at 700.
+- **Saudi Riyal.** U+20C1 (⃁, Unicode 17) is mapped in every weight to the same `Riyal-ar` glyph that `#RIAL` produces. Python's `unicodedata` doesn't know it yet, so `make_glyphdata.py` names it by hand. U+FDFC (﷼) is a separate glyph, the old rial ligature.
 
 ## Checking changes
 

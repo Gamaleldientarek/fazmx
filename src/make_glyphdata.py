@@ -16,7 +16,7 @@ TTF = HERE.parent / "fonts" / "AzmXVariable.ttf"
 OUT = HERE.parent / "build" / "glyphdata.json"
 ZWJ = "‍"
 # The symbols tab is a chosen set, in code point order. Each one must exist in the font.
-SYMBOLS = "#$%&*@£©«®°»،؛؟٪٫٬٭۔–—“”•‹›€™←→﷼"
+SYMBOLS = "#$%&*@£©«®°»،؛؟٪٫٬٭۔–—“”•‹›€\u20c1™←→﷼"
 
 cmap = TTFont(TTF).getBestCmap()
 font = hb.Font(hb.Face(hb.Blob.from_file_path(str(TTF))))
@@ -32,9 +32,13 @@ def glyph_at(text, index):
     return next(info.codepoint for info in buf.glyph_infos if info.cluster == index)
 
 
+# Characters newer than this Python's Unicode tables.
+NEW_NAMES = {0x20C1: "Saudi Riyal Sign"}  # Unicode 17.0
+
+
 def entry(cp, forms=False):
     ch = chr(cp)
-    e = {"c": ch, "u": f"U+{cp:04X}", "n": ud.name(ch).title()}
+    e = {"c": ch, "u": f"U+{cp:04X}", "n": NEW_NAMES.get(cp) or ud.name(ch).title()}
     if forms:
         isol, init = glyph_at(ch, 0), glyph_at(ch + ZWJ, 0)
         medi, fina = glyph_at(ZWJ + ch + ZWJ, 1), glyph_at(ZWJ + ch, 1)

@@ -15,8 +15,7 @@ HERE = Path(__file__).resolve().parent
 TTF = HERE.parent / "fonts" / "AzmXVariable.ttf"
 OUT = HERE.parent / "build" / "construction.svg"
 WORD, WGHT = "تجربة", 700
-ALEF = 680          # alef height in font units (same at every weight)
-POLY_GLYPHS = ("uni062C", "uni0629")   # show Bezier points for ج and ة
+POLY_CHARS = (0x062C, 0x0629)   # show Bezier points for ج and ة
 
 
 def num(v):
@@ -30,6 +29,10 @@ def pt(p):
 
 inst = instantiateVariableFont(TTFont(TTF), {"wght": WGHT}, inplace=False)
 gs = inst.getGlyphSet()
+cmap = inst.getBestCmap()
+POLY_GLYPHS = tuple(cmap[c] for c in POLY_CHARS)
+# Alef height in font units at WGHT. Since v3.007 the alef grows with the weight (657 at 100, 750 at 900).
+ALEF = round(inst["glyf"][cmap[0x0627]].yMax)
 hbfont = hb.Font(hb.Face(hb.Blob.from_file_path(str(TTF))))
 hbfont.set_variations({"wght": WGHT})
 buf = hb.Buffer()
@@ -147,7 +150,7 @@ for i, g in enumerate(glyphs):
 
 # Column of dots measuring the alef: rhombi stacked tip to tip from the baseline.
 m = ['<g class="bf-con" style="--d:1.1s">']
-for k in range(4):
+for k in range(round(ALEF / DOT)):
     cy = -(DOT / 2 + k * DOT)
     h = DOT / 2
     m.append(f'<path class="bf-rh" d="M{num(STACK_X - h)} {num(cy)}L{num(STACK_X)} {num(cy - h)}L{num(STACK_X + h)} {num(cy)}L{num(STACK_X)} {num(cy + h)}Z"/>')
