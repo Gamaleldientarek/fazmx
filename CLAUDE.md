@@ -26,6 +26,7 @@ python -m http.server -d docs 8000        # view at http://localhost:8000
     - `<!--@LOGO@-->` (used twice), `<!--@CONSTRUCTION@-->` and `/*@GLYPHS@*/{}`.
     - `<!--@CHARS:ar@-->`, `<!--@CHARS:la@-->` and `<!--@FEATURES@-->`: the character wall and the feature tags in `#stats`, read from the font. The wall leaves out combining marks, spaces, controls, presentation forms, tatweel and the dotted circle.
     - `/*@PREVIEW@*/false`, `/*@ZIPSIZE@*/` and `/*@SIZE:<font file>@*/`.
+    - Every link to a font file or the ZIP, on the site and the licence page, gets `?v=<font version>` (from name ID 5), so browsers drop a cached older font after an update.
     - `<!--@META@-->…<!--@END_META@-->`: the canonical, Open Graph and Twitter tags, which the preview drops.
     - `/*@DL@*/…/*@END_DL@*/`: the download links. The preview swaps in disabled spans, because the claude.ai viewer blocks downloads.
 - **`src/make_glyphdata.py`** writes `build/glyphdata.json` for the glyph map.

@@ -105,15 +105,19 @@ with zipfile.ZipFile(zip_dl, "w", zipfile.ZIP_DEFLATED) as z:
         z.writestr(info, path.read_bytes())
 zipsize = kb(zip_dl.stat().st_size)
 
+# The font files keep their names across releases, so browsers that cached an older font keep
+# showing it. Every link to a font file or the zip carries the font version to force a fresh copy.
+VQ = "?v=" + font["name"].getDebugName(5).split(";")[0].replace("Version", "").strip()
+versioned = lambda html: re.sub(r'((?:fonts/AzmXVariable\.(?:woff2|woff|ttf))|downloads/AzmX-Variable\.zip)"', r'\1' + VQ + '"', html)
 site_font = ", ".join([
     'url("fonts/AzmXVariable.woff2") format("woff2-variations")', 'url("fonts/AzmXVariable.woff2") format("woff2")',
     'url("fonts/AzmXVariable.woff") format("woff-variations")', 'url("fonts/AzmXVariable.woff") format("woff")',
     'url("fonts/AzmXVariable.ttf") format("truetype-variations")', 'url("fonts/AzmXVariable.ttf") format("truetype")'])
-page = fill(src, site_font, False, zipsize)
+page = versioned(fill(src, site_font, False, zipsize))
 for marker in ("<!--@META@-->\n", "<!--@END_META@-->", "/*@DL@*/", "/*@END_DL@*/"):
     page = page.replace(marker, "")
 (SITE / "index.html").write_text(page, encoding="utf-8")
-shutil.copyfile(HERE / "license.html", SITE / "license.html")
+(SITE / "license.html").write_text(versioned((HERE / "license.html").read_text(encoding="utf-8")), encoding="utf-8")
 shutil.copyfile(ASSETS / "azmx-favicon.png", SITE / "favicon.png")
 for folder in ("heritage", "gradients"):
     shutil.copytree(ASSETS / folder, SITE / folder, ignore=shutil.ignore_patterns(".*"))
